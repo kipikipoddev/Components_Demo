@@ -4,31 +4,24 @@ public class Robot_Dog
 {
     private bool is_charged;
 
-    public void Beep()
+    protected void Recharge()
     {
-        if (!is_charged)
-            Recharge();
-        Console.WriteLine("Robot Beeping");
-    }
-
-    public void Recharge()
-    {
-        Console.WriteLine("Robot Dog Recharging");
+        if (is_charged)
+            return;
+        Console.WriteLine("Robot Recharging");
         is_charged = true;
-        Console.WriteLine("Robot Dog Recharged");
+        Console.WriteLine("Robot Recharged");
     }
 
     public void Walk()
     {
-        if (!is_charged)
-            Recharge();
+        Recharge();
         Console.WriteLine("Robot Dog Walking like a robot");
     }
 
     public void Bark()
     {
-        if (!is_charged)
-            Recharge();
+        Recharge();
         Console.WriteLine("Robot Dog Barking");
     }
 }

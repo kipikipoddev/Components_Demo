@@ -1,28 +1,12 @@
-namespace Step_4_Mediator.Core.Events;
+﻿namespace Step_4_Mediator.Core;
 
 public record Command : Event
 {
-    public Command(object model, bool auto_send = true)
-        : base(model, auto_send)
-    {
-    }
+    public IComponent Component => (IComponent)Object;
+    public IComponents Components => (IComponents)Object;
 
-    protected virtual bool Is_Valid()
+    public Command(IComponent component, bool auto_send = true)
+        :base(component, auto_send)
     {
-        return Model_Object != null;
-    }
-
-    protected override void Start()
-    {
-        base.Start();
-        if (!Is_Valid())
-            throw new Exception("Command not valid");
-    }
-
-    protected override void End()
-    {
-        if (Indentation == 1)
-            new Update_Event();
-        base.End();
     }
 }

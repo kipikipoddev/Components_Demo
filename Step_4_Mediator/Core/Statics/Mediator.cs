@@ -2,31 +2,36 @@
 
 public static class Mediator
 {
-    private static readonly List<Listener_Data> listeners = new();
+    private static readonly List<Handler_Data> handlers = new();
 
-    public static void Add<TEvent>(IListener<TEvent> listener, object? model = null)
+    public static void Add<TEvent>(IHandler<TEvent> handler, IComponent? @object = null)
         where TEvent : Event
     {
-        Remove(listener);
-        var data = new Listener_Data(typeof(TEvent), listener, model, e => listener.Handle((TEvent)e));
-        listeners.Add(data);
+        Remove(handler);
+        var data = new Handler_Data(
+            typeof(TEvent),
+            handler,
+            @object,
+            e => handler.Handle((TEvent)e));
+        handlers.Add(data);
     }
 
-    public static void Remove<TEvent>(IListener<TEvent> listener)
+    public static void Remove<TEvent>(IHandler<TEvent> handler)
         where TEvent : Event
     {
-        for (int i = 0; i < listeners.Count; i++)
-            if (listeners[i].Listener == listener && listeners[i].Type == typeof(TEvent))
-                listeners.RemoveAt(i);
+        for (int i = 0; i < handlers.Count; i++)
+            if (handlers[i].handler == handler && handlers[i].Type == typeof(TEvent))
+                handlers.RemoveAt(i);
     }
 
     public static void Send(Event evnt)
     {
-        var listeners_action = listeners.Where(h => h.Type == evnt.GetType() && h.Model == evnt.Model_Object)
+        var handlers_action = handlers
+            .Where(h => h.Type == evnt.GetType() & h.Object == evnt.Object)
             .Select(h => h.Action).Reverse().ToArray();
-        foreach (var listener in listeners_action)
-            listener(evnt);
+        foreach (var handler in handlers_action)
+            handler(evnt);
     }
 
-    record Listener_Data(Type Type, object Listener, object? Model, Action<object> Action) { }
+    record Handler_Data(Type Type, object handler, object? Object, Action<object> Action) { }
 }

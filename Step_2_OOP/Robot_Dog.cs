@@ -11,7 +11,7 @@ public class Robot_Dog : Robot
 
     public override void Make_Sound()
     {
-        Recharge_If_Need();
+        Recharge();
         dog.Make_Sound();
     }
 }

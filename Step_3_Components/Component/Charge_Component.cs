@@ -2,18 +2,14 @@
 
 public class Charge_Component : Component, IRecharge_Component
 {
-    public bool Is_Charged { get; private set; }
+    private bool is_charged;
 
     public void Recharge()
     {
+        if (is_charged)
+            return;
         Write("Recharging");
-        Is_Charged = true;
+        is_charged = true;
         Write("Recharged");
-    }
-
-    public void Recharge_If_Need()
-    {
-        if (!Is_Charged)
-            Recharge();
     }
 }

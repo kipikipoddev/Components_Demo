@@ -6,13 +6,14 @@ public class Robot
 
     public void Beep()
     {
-        if (!is_charged)
-            Recharge();
+        Recharge();
         Console.WriteLine("Robot Beeping");
     }
 
-    public void Recharge()
+    protected void Recharge()
     {
+        if (is_charged)
+            return;
         Console.WriteLine("Robot Recharging");
         is_charged = true;
         Console.WriteLine("Robot Recharged");
@@ -20,8 +21,7 @@ public class Robot
 
     public void Walk()
     {
-        if (!is_charged)
-            Recharge();
+        Recharge();
         Console.WriteLine("Robot Walking like a robot");
     }
 }

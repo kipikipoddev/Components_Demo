@@ -6,11 +6,11 @@ public record Event
 {
     protected static int Indentation { get; private set; }
 
-    public object? Model_Object { get; private set; }
+    public object? Object { get; private set; }
 
-    public Event(object? model = null, bool auto_send = true)
+    public Event(IComponent? @object = null, bool auto_send = true)
     {
-        Model_Object = model;
+        Object = @object;
         if (auto_send)
             Send();
     }
