@@ -7,18 +7,22 @@ public class Program
     {
         var cat = new Cat();
         cat.Walk();
-        cat.Meow();
+        cat.Make_Sound();
 
         var dog = new Dog();
         dog.Walk();
-        dog.Bark();
+        dog.Make_Sound();
 
         var robot = new Robot();
         robot.Walk();
-        robot.Beep();
+        robot.Make_Sound();
 
         var robot_dog = new Robot_Dog();
         robot_dog.Walk();
-        robot_dog.Bark();
+        robot_dog.Make_Sound();
+
+        var robot_cat_dog = new Robot_Cat_Dog();
+        robot_cat_dog.Walk();
+        robot_cat_dog.Make_Sound();
     }
 }

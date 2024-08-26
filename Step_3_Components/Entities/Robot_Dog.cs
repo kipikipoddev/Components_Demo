@@ -7,6 +7,6 @@ public class Robot_Dog : Components
         Add(new Name_Component());
         Add(new Charge_Component());
         Add(new Robot_Walk_Component());
-        Add(new Recharged_Sound_Component(new Bark_Component()));
+        Add(new Recharged_Sound_Components(new Bark_Component()));
     }
 }

@@ -2,7 +2,7 @@
 
 public class Dog
 {
-    public void Bark()
+    public void Make_Sound()
     {
         Console.WriteLine("Dog Barking");
     }

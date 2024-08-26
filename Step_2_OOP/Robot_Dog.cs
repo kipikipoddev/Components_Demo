@@ -2,16 +2,16 @@
 
 public class Robot_Dog : Robot
 {
-    private readonly Dog dog;
+    protected readonly Dog Dog;
 
     public Robot_Dog()
     {
-        dog = new Dog { Name = Name };
+        Dog = new Dog { Name = Name };
     }
 
     public override void Make_Sound()
     {
         Recharge();
-        dog.Make_Sound();
+        Dog.Make_Sound();
     }
 }

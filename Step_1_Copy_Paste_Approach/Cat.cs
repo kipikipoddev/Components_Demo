@@ -2,7 +2,7 @@
 
 public class Cat
 {
-    public void Meow()
+    public void Make_Sound()
     {
         Console.WriteLine("Cat Meowing");
     }

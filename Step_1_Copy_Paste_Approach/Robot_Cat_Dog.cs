@@ -1,6 +1,6 @@
 ﻿namespace Step_1_Copy_Paste_Approach;
 
-public class Robot_Dog
+public class Robot_Cat_Dog
 {
     private bool is_charged;
 
@@ -8,20 +8,21 @@ public class Robot_Dog
     {
         if (is_charged)
             return;
-        Console.WriteLine("Robot Dog Recharging");
+        Console.WriteLine("Robot Cat Dog Recharging");
         is_charged = true;
-        Console.WriteLine("Robot Dog Recharged");
+        Console.WriteLine("Robot Cat Dog Recharged");
     }
 
     public void Walk()
     {
         Recharge();
-        Console.WriteLine("Robot Dog Walking like a robot");
+        Console.WriteLine("Robot Cat Dog Walking like a robot");
     }
 
     public void Make_Sound()
     {
         Recharge();
-        Console.WriteLine("Robot Dog Barking");
+        Console.WriteLine("Robot Cat Dog Meowing");
+        Console.WriteLine("Robot Cat Dog Barking");
     }
 }

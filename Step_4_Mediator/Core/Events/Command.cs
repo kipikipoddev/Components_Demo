@@ -2,11 +2,10 @@
 
 public record Command : Event
 {
-    public IComponent Component => (IComponent)Object;
-    public IComponents Components => (IComponents)Object;
+    public IComponents Components => (IComponents)Object!;
 
-    public Command(IComponent component, bool auto_send = true)
-        :base(component, auto_send)
+    public Command(IComponents components, bool auto_send = true)
+        :base(components, auto_send)
     {
     }
 }

@@ -4,7 +4,7 @@ public class Robot
 {
     private bool is_charged;
 
-    public void Beep()
+    public void Make_Sound()
     {
         Recharge();
         Console.WriteLine("Robot Beeping");

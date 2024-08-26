@@ -1,12 +1,11 @@
 ﻿using Step_4_Mediator.Commands;
-using Step_4_Mediator.Core;
 
 namespace Step_4_Mediator.Sound_Handlers;
 
-public class Beep_Sound_Handler : IHandler<Sound_Command>
+public class Beep_Sound_Handler : Handler<Sound_Command>
 {
-    public void Handle(Sound_Command evnt)
+    public override void Handle(Sound_Command evnt)
     {
-        evnt.Components.Write("Beeping");
+        Write("Beeping");
     }
 }

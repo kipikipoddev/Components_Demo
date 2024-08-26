@@ -9,7 +9,8 @@ public class Program
             new Cat(),
             new Dog(),
             new Robot(),
-            new Robot_Dog()
+            new Robot_Dog(),
+            new Robot_Cat_Dog()
         };
 
         foreach (var entity in entities)

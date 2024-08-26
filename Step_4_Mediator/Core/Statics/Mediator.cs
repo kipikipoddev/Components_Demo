@@ -4,7 +4,7 @@ public static class Mediator
 {
     private static readonly List<Handler_Data> handlers = new();
 
-    public static void Add<TEvent>(IHandler<TEvent> handler, IComponent? @object = null)
+    public static void Add<TEvent>(IHandler<TEvent> handler, object? @object = null)
         where TEvent : Event
     {
         Remove(handler);

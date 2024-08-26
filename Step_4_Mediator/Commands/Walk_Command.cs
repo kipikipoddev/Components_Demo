@@ -4,7 +4,7 @@ namespace Step_4_Mediator.Commands;
 
 public record Walk_Command : Command
 {
-    protected Walk_Command(IComponents component) 
+    public Walk_Command(IComponents component) 
         : base(component)
     {
     }
