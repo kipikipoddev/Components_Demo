@@ -18,7 +18,7 @@ public class Program
 
     private static void Walk_And_Sound(IComponents components)
     {
-        components.Get<IWalk_Component>().Walk();
-        components.Get<ISound_Component>().Make_Sound();
+        components.Walk();
+        components.Make_Sound();
     }
 }

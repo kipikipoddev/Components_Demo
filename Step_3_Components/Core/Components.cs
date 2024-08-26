@@ -17,10 +17,12 @@ public class Components : Component, IComponents
         return this;
     }
 
-    public T Get<T>()
+    public T? Get<T>()
         where T : IComponent
     {
-        return (T)components[typeof(T)];
+        if (components.ContainsKey(typeof(T)))
+            return (T)components[typeof(T)];
+        return default;
     }
 
     private void Add_Component(IComponent component)

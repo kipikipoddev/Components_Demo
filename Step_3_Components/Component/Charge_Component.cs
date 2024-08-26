@@ -17,11 +17,3 @@ public class Charge_Component : Component, IRecharge_Component
             Recharge();
     }
 }
-
-public static class Recharge_Component_Extension
-{
-    public static IRecharge_Component Charge(this IComponents components)
-    {
-        return components.Get<IRecharge_Component>();
-    }
-}

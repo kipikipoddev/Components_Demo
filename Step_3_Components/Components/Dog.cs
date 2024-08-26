@@ -6,6 +6,6 @@ public class Dog : Components
     {
         Add(new Name_Component());
         Add(new Walk_Component());
-        Add(new Bark_Sound_Component());
+        Add(new Bark_Component());
     }
 }
