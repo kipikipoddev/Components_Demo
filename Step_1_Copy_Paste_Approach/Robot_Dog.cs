@@ -4,6 +4,13 @@ public class Robot_Dog
 {
     private bool is_charged;
 
+    public void Beep()
+    {
+        if (!is_charged)
+            Recharge();
+        Console.WriteLine("Robot Beeping");
+    }
+
     public void Recharge()
     {
         Console.WriteLine("Robot Dog Recharging");

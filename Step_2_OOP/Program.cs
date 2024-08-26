@@ -8,6 +8,7 @@ public class Program
         {
             new Cat(),
             new Dog(),
+            new Cat_Dog(),
             new Robot(),
             new Robot_Dog()
         };

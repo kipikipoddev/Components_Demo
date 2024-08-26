@@ -17,11 +17,17 @@ public class Components : Component, IComponents
         return this;
     }
 
-    public T? Get<T>()
+    public T Get<T>()
+        where T : IComponent
+    {
+        return (T)components[typeof(T)];
+    }
+
+    public T? Get_Or_Default<T>()
         where T : IComponent
     {
         if (components.ContainsKey(typeof(T)))
-            return (T)components[typeof(T)];
+            return Get<T>();
         return default;
     }
 

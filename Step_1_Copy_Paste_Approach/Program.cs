@@ -13,6 +13,11 @@ public class Program
         dog.Walk();
         dog.Bark();
 
+        var cat_dog = new Cat_Dog();
+        cat_dog.Walk();
+        cat_dog.Meow();
+        cat_dog.Bark();
+
         var robot = new Robot();
         robot.Walk();
         robot.Beep();
