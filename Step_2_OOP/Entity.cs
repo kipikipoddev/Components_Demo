@@ -6,7 +6,7 @@ public abstract class Entity
     
     public Entity()
     {
-        Name = GetType().Name.Replace('_', ' ');
+        Name = GetType().Name;
     }
 
     public abstract void Make_Sound();

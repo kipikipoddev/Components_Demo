@@ -9,6 +9,6 @@ public class Name_Component : Component, IName_Component
 
     protected override void Parent_Set()
     {
-        Name = Parent!.GetType().Name.Replace('_', ' ');
+        Name = Parent!.GetType().Name;
     }
 }

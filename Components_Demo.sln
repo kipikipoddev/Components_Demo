@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_3_Components", "Step_3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_4_Mediator", "Step_4_Mediator\Step_4_Mediator.csproj", "{0B6EBA1B-26FA-4AA0-9267-F32161B463E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_5_Files", "Step_5_Files\Step_5_Files.csproj", "{BF6F54EC-80F7-401D-9C50-790B1DAD77D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{0B6EBA1B-26FA-4AA0-9267-F32161B463E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B6EBA1B-26FA-4AA0-9267-F32161B463E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B6EBA1B-26FA-4AA0-9267-F32161B463E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF6F54EC-80F7-401D-9C50-790B1DAD77D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF6F54EC-80F7-401D-9C50-790B1DAD77D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF6F54EC-80F7-401D-9C50-790B1DAD77D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF6F54EC-80F7-401D-9C50-790B1DAD77D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

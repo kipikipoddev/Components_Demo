@@ -1,0 +1,5 @@
+{
+  "Sounds": [ "Charge", "Beep" ],
+  "Walk": "Robot",
+  "Charge": true
+}

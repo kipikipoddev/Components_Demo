@@ -8,20 +8,20 @@ public class Robot_Dog
     {
         if (is_charged)
             return;
-        Console.WriteLine("Robot Dog Recharging");
+        Console.WriteLine("Robot_Dog Recharging");
         is_charged = true;
-        Console.WriteLine("Robot Dog Recharged");
+        Console.WriteLine("Robot_Dog Recharged");
     }
 
     public void Walk()
     {
         Recharge();
-        Console.WriteLine("Robot Dog Walking like a robot");
+        Console.WriteLine("Robot_Dog Walking like a robot");
     }
 
     public void Make_Sound()
     {
         Recharge();
-        Console.WriteLine("Robot Dog Barking");
+        Console.WriteLine("Robot_Dog Barking");
     }
 }
