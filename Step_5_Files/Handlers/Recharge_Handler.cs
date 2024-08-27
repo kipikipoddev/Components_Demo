@@ -11,7 +11,7 @@ public class Recharge_Handler : Component, IHandler
         Mediator.Add(this, Parent);
     }
 
-    public void Handle(Event evnt)
+    public void Handle(Event cmd)
     {
         Write("recharging");
     }

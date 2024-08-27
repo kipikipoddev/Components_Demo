@@ -24,22 +24,22 @@ public static class Mediator
     }
 
 
-    public static void Send(Event evnt)
+    public static void Send(Event cmd)
     {
-        foreach (var handler in Get_Handlers(evnt))
-            handler(evnt);
+        foreach (var handler in Get_Handlers(cmd))
+            handler(cmd);
     }
 
-    private static IEnumerable<Action<Event>> Get_Handlers(Event evnt)
+    private static IEnumerable<Action<Event>> Get_Handlers(Event cmd)
     {
         return handlers
-            .Where(h => Is_Relevent(evnt, h))
+            .Where(h => Is_Relevent(cmd, h))
             .Select(h => h.Action);
     }
 
-    private static bool Is_Relevent(Event evnt, Handler_Data data)
+    private static bool Is_Relevent(Event cmd, Handler_Data data)
     {
-        return (data.Type == null || data.Type == evnt.GetType()) & data.Object == evnt.Object;
+        return (data.Type == null || data.Type == cmd.GetType()) & data.Object == cmd.Object;
     }
 
     record Handler_Data(Type? Type, object? Object, Action<Event> Action) { }

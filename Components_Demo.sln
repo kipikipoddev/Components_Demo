@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_2_OOP", "Step_2_OOP\St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_3_Components", "Step_3_Components\Step_3_Components.csproj", "{DE1994EF-3D52-4260-B0AC-B60038B44B54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_4_Mediator", "Step_4_Mediator\Step_4_Mediator.csproj", "{0B6EBA1B-26FA-4AA0-9267-F32161B463E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_4_Commands", "Step_4_Commands\Step_4_Commands.csproj", "{0B6EBA1B-26FA-4AA0-9267-F32161B463E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_5_Files", "Step_5_Files\Step_5_Files.csproj", "{BF6F54EC-80F7-401D-9C50-790B1DAD77D3}"
 EndProject

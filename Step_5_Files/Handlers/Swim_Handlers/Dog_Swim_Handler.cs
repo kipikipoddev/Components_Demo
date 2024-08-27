@@ -7,7 +7,7 @@ namespace Step_5_Files.Walk_Handlers;
 [Component_Name("Dog_Swim")]
 public class Dog_Swim_Handler : Handler<Swim_Command>
 {
-    public override void Handle(Swim_Command evnt)
+    public override void Handle(Swim_Command cmd)
     {
         Write("swiming like a dog");
     }
