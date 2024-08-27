@@ -15,9 +15,9 @@ public class Charge_Component :
 
     public void Handle(Recharge_Command evnt)
     {
-        Write("Recharging");
+        Write("recharging");
         Is_Charged = true;
-        Write("Recharged");
+        Write("recharged");
     }
 
     protected override void Parent_Set()

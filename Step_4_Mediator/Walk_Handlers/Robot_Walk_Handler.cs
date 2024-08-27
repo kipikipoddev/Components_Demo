@@ -8,6 +8,6 @@ public class Robot_Walk_Handler : Handler<Walk_Command>
     public override void Handle(Walk_Command evnt)
     {
         new Recharge_Command(Parent);
-        Write("Walking like a robot");
+        Write("walking like a robot");
     }
 }

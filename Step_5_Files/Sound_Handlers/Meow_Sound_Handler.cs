@@ -8,6 +8,6 @@ public class Meow_Sound_Handler : Handler<Sound_Command>
 {
     public override void Handle(Sound_Command evnt)
     {
-        Write("Meowing");
+        Write("meowing");
     }
 }

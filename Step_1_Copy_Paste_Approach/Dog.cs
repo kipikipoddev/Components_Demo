@@ -4,11 +4,11 @@ public class Dog
 {
     public void Make_Sound()
     {
-        Console.WriteLine("Dog Barking");
+        Console.WriteLine("Dog is barking");
     }
 
     public void Walk()
     {
-        Console.WriteLine("Dog Walking");
+        Console.WriteLine("Dog is walking");
     }
 }

@@ -15,7 +15,7 @@ public class Component : IComponent
 
     public void Write(string message)
     {
-        Console.WriteLine($"{Parent.Name()} {message}");
+        Console.WriteLine($"{Parent.Name()} is {message}");
     }
 
     protected virtual void Parent_Set() { }

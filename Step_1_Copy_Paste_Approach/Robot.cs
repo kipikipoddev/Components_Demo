@@ -7,21 +7,21 @@ public class Robot
     public void Make_Sound()
     {
         Recharge();
-        Console.WriteLine("Robot Beeping");
+        Console.WriteLine("Robot is beeping");
     }
 
     protected void Recharge()
     {
         if (is_charged)
             return;
-        Console.WriteLine("Robot Recharging");
+        Console.WriteLine("Robot is recharging");
         is_charged = true;
-        Console.WriteLine("Robot Recharged");
+        Console.WriteLine("Robot is recharged");
     }
 
     public void Walk()
     {
         Recharge();
-        Console.WriteLine("Robot Walking like a robot");
+        Console.WriteLine("Robot is walking like a robot");
     }
 }

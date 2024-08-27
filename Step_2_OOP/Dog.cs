@@ -4,6 +4,6 @@ public class Dog : Entity
 {
     public override void Make_Sound()
     {
-        Write("Barking");
+        Write("barking");
     }
 }

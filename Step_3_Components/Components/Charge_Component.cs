@@ -8,8 +8,8 @@ public class Charge_Component : Component, IRecharge_Component
     {
         if (is_charged)
             return;
-        Write("Recharging");
+        Write("recharging");
         is_charged = true;
-        Write("Recharged");
+        Write("recharged");
     }
 }

@@ -8,6 +8,6 @@ public class Bark_Sound_Handler : Handler<Sound_Command>
 {
     public override void Handle(Sound_Command evnt)
     {
-        Write("Barking");
+        Write("barking");
     }
 }

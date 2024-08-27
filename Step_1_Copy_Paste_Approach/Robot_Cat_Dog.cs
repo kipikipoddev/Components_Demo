@@ -8,21 +8,21 @@ public class Robot_Cat_Dog
     {
         if (is_charged)
             return;
-        Console.WriteLine("Robot_Cat_Dog Recharging");
+        Console.WriteLine("Robot_Cat_Dog is recharging");
         is_charged = true;
-        Console.WriteLine("Robot_Cat_Dog Recharged");
+        Console.WriteLine("Robot_Cat_Dog is recharged");
     }
 
     public void Walk()
     {
         Recharge();
-        Console.WriteLine("Robot_Cat_Dog Walking like a robot");
+        Console.WriteLine("Robot_Cat_Dog is walking like a robot");
     }
 
     public void Make_Sound()
     {
         Recharge();
-        Console.WriteLine("Robot_Cat_Dog Meowing");
-        Console.WriteLine("Robot_Cat_Dog Barking");
+        Console.WriteLine("Robot_Cat_Dog is meowing");
+        Console.WriteLine("Robot_Cat_Dog is barking");
     }
 }

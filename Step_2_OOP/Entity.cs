@@ -13,11 +13,11 @@ public abstract class Entity
 
     public virtual void Walk()
     {
-        Write("Walking");
+        Write("walking");
     }
 
     protected void Write(string message)
     {
-        Console.WriteLine(Name + " " + message);
+        Console.WriteLine(Name + " is " + message);
     }
 }

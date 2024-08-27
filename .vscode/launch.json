@@ -1,0 +1,42 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Step_1_Copy_Paste_Approach",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Step_1_Copy_Paste_Approach/Step_1_Copy_Paste_Approach.csproj"
+        },
+        {
+            "name": "Step_2_OOP",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Step_2_OOP/Step_2_OOP.csproj"
+        },
+        {
+            "name": "Step_3_Components",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Step_3_Components/Step_3_Components.csproj"
+        },
+        {
+            "name": "Step_4_Mediator",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Step_4_Mediator/Step_4_Mediator.csproj"
+        },
+        {
+            "name": "Step_5_Files",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/Step_5_Files/Step_5_Files.csproj"
+        },
+        {
+            "name": "C#: Step_1_Copy_Paste_Approach",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\Step_1_Copy_Paste_Approach\\Step_1_Copy_Paste_Approach.csproj",
+            "launchConfigurationId": "TargetFramework=;Step_1_Copy_Paste_Approach"
+        }
+    ]
+}

@@ -9,6 +9,6 @@ public class Normal_Walk_Handler : Handler<Walk_Command>
 {
     public override void Handle(Walk_Command evnt)
     {
-        Write("Walking");
+        Write("walking");
     }
 }

@@ -7,21 +7,21 @@ public class Robot : Entity
     public override void Make_Sound()
     {
         Recharge();
-        Write("Beeping");
+        Write("beeping");
     }
 
     public override void Walk()
     {
         Recharge();
-        Write("Walking like a robot");
+        Write("walking like a robot");
     }
 
-    public void Recharge()
+    protected void Recharge()
     {
         if (is_charged)
             return;
-        Write("Recharging");
+        Write("recharging");
         is_charged = true;
-        Write("Recharged");
+        Write("recharged");
     }
 }
