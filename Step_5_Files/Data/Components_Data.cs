@@ -16,8 +16,8 @@ public static class Components_Data
         foreach (var file_path in file_paths)
         {
             var content = File.ReadAllText(file_path);
-            var Components = JsonSerializer.Deserialize<string[]>(content)!;
-            yield return new Component_Data(Get_Name(file_path), Components);
+            var components = JsonSerializer.Deserialize<string[]>(content)!;
+            yield return new Component_Data(Get_Name(file_path), components);
         }
     }
 

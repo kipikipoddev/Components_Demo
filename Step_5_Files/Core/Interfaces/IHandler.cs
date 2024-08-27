@@ -5,3 +5,8 @@ public interface IHandler<TEvent>
 {
     void Handle(TEvent evnt);
 }
+
+public interface IHandler
+{
+    void Handle(Event evnt);
+}

@@ -11,10 +11,10 @@ public class Robot_Dog : Components
     {
         Add(new Name_Component());
         Add(new Bark_Sound_Handler());
-        Add(new Charge_Handler<Sound_Command>());
+        Add(new Recharge_Handler<Make_Sound_Command>());
         Add(new Dog_Walk_Handler());
-        Add(new Charge_Handler<Walk_Command>());
+        Add(new Recharge_Handler<Walk_Command>());
         Add(new Dog_Swim_Handler());
-        Add(new Charge_Handler<Swim_Command>());
+        Add(new Recharge_Handler<Swim_Command>());
     }
 }

@@ -11,8 +11,8 @@ public class Robot : Components
     {
         Add(new Name_Component());
         Add(new Beep_Sound_Handler());
-        Add(new Charge_Handler<Sound_Command>());
+        Add(new Recharge_Handler<Make_Sound_Command>());
         Add(new Robot_Walk_Handler());
-        Add(new Charge_Handler<Walk_Command>());
+        Add(new Recharge_Handler<Walk_Command>());
     }
 }

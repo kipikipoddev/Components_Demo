@@ -20,8 +20,8 @@ public class Program
 
     private static void Do_Actions(IComponents components)
     {
-        components.Walk_If_Can();
-        components.Make_Sound_If_Can();
-        components.Swim_If_Can();
+        components.Get_Or_Default<IWalk_Component>()?.Walk();
+        components.Get_Or_Default<ISound_Component>()?.Make_Sound();
+        components.Get_Or_Default<ISwim_Component>()?.Swim();
     }
 }

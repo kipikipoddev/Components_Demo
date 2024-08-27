@@ -14,14 +14,33 @@ public static class Mediator
         handlers.Add(data);
     }
 
+    public static void Add(IHandler handler, object? @object = null)
+    {
+        var data = new Handler_Data(
+            null,
+            @object,
+            e => handler.Handle(e));
+        handlers.Add(data);
+    }
+
+
     public static void Send(Event evnt)
     {
-        var handlers_action = handlers
-            .Where(h => h.Type == evnt.GetType() & h.Object == evnt.Object)
-            .Select(h => h.Action).ToArray();
-        foreach (var handler in handlers_action)
+        foreach (var handler in Get_Handlers(evnt))
             handler(evnt);
     }
 
-    record Handler_Data(Type Type, object? Object, Action<object> Action) { }
+    private static IEnumerable<Action<Event>> Get_Handlers(Event evnt)
+    {
+        return handlers
+            .Where(h => Is_Relevent(evnt, h))
+            .Select(h => h.Action);
+    }
+
+    private static bool Is_Relevent(Event evnt, Handler_Data data)
+    {
+        return (data.Type == null || data.Type == evnt.GetType()) & data.Object == evnt.Object;
+    }
+
+    record Handler_Data(Type? Type, object? Object, Action<Event> Action) { }
 }

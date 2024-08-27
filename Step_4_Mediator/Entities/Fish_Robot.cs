@@ -11,8 +11,8 @@ public class Fish_Robot : Components
     {
         Add(new Name_Component());
         Add(new Beep_Sound_Handler());
-        Add(new Charge_Handler<Sound_Command>());
+        Add(new Recharge_Handler<Make_Sound_Command>());
         Add(new Fish_Swim_Handler());
-        Add(new Charge_Handler<Swim_Command>());
+        Add(new Recharge_Handler<Swim_Command>());
     }
 }
