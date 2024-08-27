@@ -5,7 +5,7 @@ public class Robot_Dog
     public void Walk()
     {
         Recharge();
-        Console.WriteLine("Robot_Dog is walking like a robot");
+        Console.WriteLine("Robot_Dog is walking like a dog");
     }
 
     public void Swim()
