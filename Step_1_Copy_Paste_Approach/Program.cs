@@ -24,6 +24,7 @@ public class Program
         var robot_dog = new Robot_Dog();
         robot_dog.Walk();
         robot_dog.Make_Sound();
+        robot_dog.Swim();
 
         var fish_Robot = new Fish_Robot();
         fish_Robot.Make_Sound();

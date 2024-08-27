@@ -11,11 +11,11 @@ public class Fish_Robot
     public void Swim()
     {
         Recharge();
-        Console.WriteLine("Fish_Robot is swiming");
+        Console.WriteLine("Fish_Robot is swiming like a fish");
     }
 
     private void Recharge()
     {
-        Console.WriteLine("Robot is recharged");
+        Console.WriteLine("Fish_Robot is recharging");
     }
 }

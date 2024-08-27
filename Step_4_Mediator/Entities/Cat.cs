@@ -10,6 +10,6 @@ public class Cat : Components
     {
         Add(new Name_Component());
         Add(new Meow_Sound_Handler());
-        Add(new Normal_Walk_Handler());
+        Add(new Cat_Walk_Handler());
     }
 }

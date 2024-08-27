@@ -1,5 +1,4 @@
-﻿using Step_4_Mediator.Interfaces;
-
+﻿
 namespace Step_4_Mediator.Core;
 
 public class Component : IComponent

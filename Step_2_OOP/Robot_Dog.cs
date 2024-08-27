@@ -3,6 +3,7 @@
 public class Robot_Dog : Robot
 {
     private readonly Dog dog;
+    public override bool Can_Swim => true;
 
     public Robot_Dog()
     {
@@ -13,5 +14,12 @@ public class Robot_Dog : Robot
     {
         Recharge();
         dog.Make_Sound();
+    }
+
+    
+    public override void Swim()
+    {
+        Recharge();
+        dog.Swim();
     }
 }

@@ -10,6 +10,7 @@ public class Dog : Components
     {
         Add(new Name_Component());
         Add(new Bark_Sound_Handler());
-        Add(new Normal_Walk_Handler());
+        Add(new Dog_Walk_Handler());
+        Add(new Dog_Swim_Handler());
     }
 }

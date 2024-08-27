@@ -5,14 +5,14 @@ using Step_4_Mediator.Walk_Handlers;
 
 namespace Step_4_Mediator.Entities;
 
-public class Robot : Components
+public class Fish_Robot : Components
 {
-    public Robot()
+    public Fish_Robot()
     {
         Add(new Name_Component());
         Add(new Beep_Sound_Handler());
         Add(new Charge_Handler<Sound_Command>());
-        Add(new Robot_Walk_Handler());
-        Add(new Charge_Handler<Walk_Command>());
+        Add(new Fish_Swim_Handler());
+        Add(new Charge_Handler<Swim_Command>());
     }
 }

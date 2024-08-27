@@ -8,6 +8,12 @@ public class Robot_Dog
         Console.WriteLine("Robot_Dog is walking like a robot");
     }
 
+    public void Swim()
+    {
+        Recharge();
+        Console.WriteLine("Robot_Dog is swiming like a dog");
+    }
+
     public void Make_Sound()
     {
         Recharge();
@@ -16,6 +22,6 @@ public class Robot_Dog
 
     private void Recharge()
     {
-        Console.WriteLine("Robot is recharged");
+        Console.WriteLine("Robot_Dog is recharging");
     }
 }

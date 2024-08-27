@@ -16,6 +16,6 @@ public class Robot
 
     private void Recharge()
     {
-        Console.WriteLine("Robot is recharged");
+        Console.WriteLine("Robot is recharging");
     }
 }

@@ -15,10 +15,10 @@ public class Program
         };
 
         foreach (var entity in entities)
-            Do(entity);
+            Do_Actions(entity);
     }
 
-    private static void Do(Entity entity)
+    private static void Do_Actions(Entity entity)
     {
         if (entity.Can_Walk)
             entity.Walk();

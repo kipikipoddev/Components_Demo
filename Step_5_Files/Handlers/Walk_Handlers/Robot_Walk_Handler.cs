@@ -4,11 +4,11 @@ using Step_5_Files.Sound_Handlers;
 
 namespace Step_5_Files.Walk_Handlers;
 
-[Component_Name("Normal_Walk")]
-public class Normal_Walk_Handler : Handler<Walk_Command>
+[Component_Name("Robot_Walk")]
+public class Robot_Walk_Handler : Handler<Walk_Command>
 {
     public override void Handle(Walk_Command evnt)
     {
-        Write("walking");
+        Write("walking like a robot");
     }
 }

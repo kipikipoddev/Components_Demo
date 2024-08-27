@@ -4,12 +4,11 @@ using Step_5_Files.Sound_Handlers;
 
 namespace Step_5_Files.Walk_Handlers;
 
-[Component_Name("Robot_Walk")]
-public class Robot_Walk_Handler : Handler<Walk_Command>
+[Component_Name("Cat_Walk")]
+public class Cat_Walk_Handler : Handler<Walk_Command>
 {
     public override void Handle(Walk_Command evnt)
     {
-        new Recharge_Command(Parent);
-        Write("walking like a robot");
+        Write("walking like a cat");
     }
 }

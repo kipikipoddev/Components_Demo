@@ -3,6 +3,7 @@
 public class Fish_Robot : Robot
 {
     private readonly Fish fish;
+    public override bool Can_Walk => false;
     public override bool Can_Swim => true;
 
     public Fish_Robot()

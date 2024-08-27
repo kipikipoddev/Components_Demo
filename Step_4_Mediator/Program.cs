@@ -12,18 +12,20 @@ public class Program
         {
             new Cat(),
             new Dog(),
+            new Fish(),
             new Robot(),
             new Robot_Dog(),
-            new Robot_Cat_Dog()
+            new Fish_Robot()
         };
 
         foreach (var entity in entities)
-            Walk_And_Sound(entity);
+            Do_Actions(entity);
     }
 
-    private static void Walk_And_Sound(IComponents components)
+    private static void Do_Actions(IComponents components)
     {
         new Walk_Command(components);
         new Sound_Command(components);
+        new Swim_Command(components);
     }
 }

@@ -10,12 +10,13 @@ public class Program
     {
         var entities = Components_Data.Get_Components(".\\Files");
         foreach (var entity in entities)
-            Walk_And_Sound(entity);
+            Do_Actions(entity);
     }
 
-    private static void Walk_And_Sound(IComponents components)
+    private static void Do_Actions(IComponents components)
     {
         new Walk_Command(components);
         new Sound_Command(components);
+        new Swim_Command(components);
     }
 }

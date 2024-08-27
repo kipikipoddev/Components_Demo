@@ -15,10 +15,10 @@ public class Program
         };
 
         foreach (var entity in entities)
-            Walk_And_Sound(entity);
+            Do_Actions(entity);
     }
 
-    private static void Walk_And_Sound(IComponents components)
+    private static void Do_Actions(IComponents components)
     {
         components.Walk_If_Can();
         components.Make_Sound_If_Can();

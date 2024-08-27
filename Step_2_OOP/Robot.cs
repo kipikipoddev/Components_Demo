@@ -19,6 +19,6 @@ public class Robot : Entity
 
     protected void Recharge()
     {
-        Write("recharged");
+        Write("recharging");
     }
 }
