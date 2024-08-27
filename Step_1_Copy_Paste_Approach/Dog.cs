@@ -9,6 +9,11 @@ public class Dog
 
     public void Walk()
     {
-        Console.WriteLine("Dog is walking");
+        Console.WriteLine("Dog is walking like a dog");
+    }
+
+    public void Swim()
+    {
+        Console.WriteLine("Dog is swiming like a dog");
     }
 }

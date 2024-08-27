@@ -2,7 +2,8 @@
 
 public class Robot : Entity
 {
-    private bool is_charged;
+    public override bool Can_Walk => true;
+    public override bool Can_Make_Sound => true;
 
     public override void Make_Sound()
     {
@@ -18,10 +19,6 @@ public class Robot : Entity
 
     protected void Recharge()
     {
-        if (is_charged)
-            return;
-        Write("recharging");
-        is_charged = true;
         Write("recharged");
     }
 }

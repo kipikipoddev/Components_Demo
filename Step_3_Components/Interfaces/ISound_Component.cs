@@ -7,8 +7,8 @@ public interface ISound_Component : IComponent
 
 public static class Sound_Component_Extension
 {
-    public static void Make_Sound(this IComponents components)
+    public static void Make_Sound_If_Can(this IComponents components)
     {
-        components.Get<ISound_Component>().Make_Sound();
+        components.Get_Or_Default<ISound_Component>()?.Make_Sound();
     }
 }

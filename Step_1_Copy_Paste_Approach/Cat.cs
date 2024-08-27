@@ -9,6 +9,6 @@ public class Cat
 
     public void Walk()
     {
-        Console.WriteLine("Cat is walking");
+        Console.WriteLine("Cat is walking like a cat");
     }
 }

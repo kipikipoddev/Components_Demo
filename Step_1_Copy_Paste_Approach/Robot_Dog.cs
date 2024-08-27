@@ -2,17 +2,6 @@
 
 public class Robot_Dog
 {
-    private bool is_charged;
-
-    protected void Recharge()
-    {
-        if (is_charged)
-            return;
-        Console.WriteLine("Robot_Dog is recharging");
-        is_charged = true;
-        Console.WriteLine("Robot_Dog is recharged");
-    }
-
     public void Walk()
     {
         Recharge();
@@ -23,5 +12,10 @@ public class Robot_Dog
     {
         Recharge();
         Console.WriteLine("Robot_Dog is barking");
+    }
+
+    private void Recharge()
+    {
+        Console.WriteLine("Robot is recharged");
     }
 }

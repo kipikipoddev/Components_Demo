@@ -7,8 +7,8 @@ public interface IWalk_Component : IComponent
 
 public static class Walk_Component_Extension
 {
-    public static void Walk(this IComponents components)
+    public static void Walk_If_Can(this IComponents components)
     {
-        components.Get<IWalk_Component>().Walk();
+        components.Get_Or_Default<IWalk_Component>()?.Walk();
     }
 }

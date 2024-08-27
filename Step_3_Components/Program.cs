@@ -8,9 +8,10 @@ public class Program
         {
             new Cat(),
             new Dog(),
+            new Fish(),
             new Robot(),
             new Robot_Dog(),
-            new Robot_Cat_Dog()
+            new Fish_Robot()
         };
 
         foreach (var entity in entities)
@@ -19,7 +20,8 @@ public class Program
 
     private static void Walk_And_Sound(IComponents components)
     {
-        components.Walk();
-        components.Make_Sound();
+        components.Walk_If_Can();
+        components.Make_Sound_If_Can();
+        components.Swim_If_Can();
     }
 }

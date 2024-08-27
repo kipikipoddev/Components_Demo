@@ -2,23 +2,21 @@
 
 public class Recharged_Sound_Components : Component, ISound_Component
 {
-    private readonly ISound_Component[] components;
+    private readonly ISound_Component component;
 
-    public Recharged_Sound_Components(params ISound_Component[] components)
+    public Recharged_Sound_Components(ISound_Component component)
     {
-        this.components = components;
+        this.component = component;
     }
 
     protected override void Parent_Set()
     {
-        foreach (var component in components)
-            component.Parent = Parent;
+        component.Parent = Parent;
     }
 
     public void Make_Sound()
     {
         Parent.Recharge();
-        foreach (var component in components)
-            component.Make_Sound();
+        component.Make_Sound();
     }
 }

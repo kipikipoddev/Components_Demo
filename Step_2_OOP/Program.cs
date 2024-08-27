@@ -8,18 +8,23 @@ public class Program
         {
             new Cat(),
             new Dog(),
+            new Fish(),
             new Robot(),
             new Robot_Dog(),
-            new Robot_Cat_Dog()
+            new Fish_Robot(),
         };
 
         foreach (var entity in entities)
-            Walk_And_Sound(entity);
+            Do(entity);
     }
 
-    private static void Walk_And_Sound(Entity entity)
+    private static void Do(Entity entity)
     {
-        entity.Walk();
-        entity.Make_Sound();
+        if (entity.Can_Walk)
+            entity.Walk();
+        if (entity.Can_Make_Sound)
+            entity.Make_Sound();
+        if (entity.Can_Swim)
+            entity.Swim();
     }
 }

@@ -1,17 +1,17 @@
 ﻿namespace Step_1_Copy_Paste_Approach;
 
-public class Robot
+public class Fish_Robot
 {
     public void Make_Sound()
     {
         Recharge();
-        Console.WriteLine("Robot is beeping");
+        Console.WriteLine("Fish_Robot is beeping");
     }
 
-    public void Walk()
+    public void Swim()
     {
         Recharge();
-        Console.WriteLine("Robot is walking like a robot");
+        Console.WriteLine("Fish_Robot is swiming");
     }
 
     private void Recharge()

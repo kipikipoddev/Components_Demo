@@ -9,7 +9,6 @@ public static class Recharge_Component_Extension
 {
     public static void Recharge(this IComponents components)
     {
-        components.Get_Or_Default<IRecharge_Component>()?
-            .Recharge();
+        components.Get<IRecharge_Component>().Recharge();
     }
 }

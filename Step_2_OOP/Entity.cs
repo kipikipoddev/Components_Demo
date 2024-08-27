@@ -3,17 +3,29 @@
 public abstract class Entity
 {
     public string Name { get; set; }
-    
+
     public Entity()
     {
         Name = GetType().Name;
     }
 
-    public abstract void Make_Sound();
+    public virtual bool Can_Swim => false;
+    public virtual bool Can_Make_Sound => false;
+    public virtual bool Can_Walk => false;
 
+    public virtual void Swim()
+    {
+        throw new NotImplementedException();
+    }
+    
+    public virtual void Make_Sound()
+    {
+        throw new NotImplementedException();
+    }
+    
     public virtual void Walk()
     {
-        Write("walking");
+        throw new NotImplementedException();
     }
 
     protected void Write(string message)

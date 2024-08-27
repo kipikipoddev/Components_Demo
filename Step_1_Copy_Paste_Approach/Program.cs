@@ -12,6 +12,10 @@ public class Program
         var dog = new Dog();
         dog.Walk();
         dog.Make_Sound();
+        dog.Swim();
+
+        var fish = new Fish();
+        fish.Swim();
 
         var robot = new Robot();
         robot.Walk();
@@ -21,8 +25,8 @@ public class Program
         robot_dog.Walk();
         robot_dog.Make_Sound();
 
-        var robot_cat_dog = new Robot_Cat_Dog();
-        robot_cat_dog.Walk();
-        robot_cat_dog.Make_Sound();
+        var fish_Robot = new Fish_Robot();
+        fish_Robot.Make_Sound();
+        fish_Robot.Swim();
     }
 }
