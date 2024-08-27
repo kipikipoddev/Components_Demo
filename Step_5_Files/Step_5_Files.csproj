@@ -8,19 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="Files\Entities\Cat.json">
+    <None Update="Files\Cat.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Files\Entities\Dog.json">
+    <None Update="Files\Dog.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Files\Entities\Robot.json">
+    <None Update="Files\Robot.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Files\Entities\Robot_Cat_Dog.json">
+    <None Update="Files\Robot_Cat_Dog.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="Files\Entities\Robot_Dog.json">
+    <None Update="Files\Robot_Dog.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

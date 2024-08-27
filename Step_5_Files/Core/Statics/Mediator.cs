@@ -28,7 +28,7 @@ public static class Mediator
     {
         var handlers_action = handlers
             .Where(h => h.Type == evnt.GetType() & h.Object == evnt.Object)
-            .Select(h => h.Action).Reverse().ToArray();
+            .Select(h => h.Action).ToArray();
         foreach (var handler in handlers_action)
             handler(evnt);
     }
