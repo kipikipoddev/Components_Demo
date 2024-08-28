@@ -1,4 +1,6 @@
-﻿namespace Step_3_Components;
+﻿using Step_3_Components.Enums;
+
+namespace Step_3_Components;
 
 public class Program
 {
@@ -6,27 +8,32 @@ public class Program
     {
         var entities = new IComponents[]
         {
-            new Cat(),
-            new Dog(),
-            new Fish(),
-            new Robot(),
-            new Robot_Dog(),
-            new Fish_Robot()
+            new Cat(Speed.Fast),
+            new Dog(Speed.Normal),
+            new Fish(Speed.Fast),
+            new Robot(Speed.Slow),
+            new Robot_Dog(Speed.Normal),
+            new Fish_Robot(Speed.Fast),
         };
 
         foreach (var entity in entities)
-            Do_Actions(entity);
+            Do_All(entity);
     }
 
-    private static void Do_Actions(IComponents components)
+    private static void Do_All(IComponents component)
     {
-        if (components.Has<IWalk_Component>())
-            components.Get<IWalk_Component>().Walk(Enums.Speed.Slow);
+        Console.WriteLine($" -- {component.Name()} -- ");
+        component.Write_Actions();
+        Do_Actions(component);
+        component.Injure();
+        Do_Actions(component);
+        Console.WriteLine();
+    }
 
-        if (components.Has<ISound_Component>())
-            components.Get<ISound_Component>().Make_Sound();
-
-        if (components.Has<ISwim_Component>())
-            components.Get<ISwim_Component>().Swim();
+    private static void Do_Actions(IComponents component)
+    {
+        component.Walk();
+        component.Make_Sound();
+        component.Swim();
     }
 }

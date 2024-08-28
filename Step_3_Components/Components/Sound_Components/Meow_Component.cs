@@ -4,6 +4,6 @@ public class Meow_Component : Component, ISound_Component
 {
     public void Make_Sound()
     {
-        Write("meowing");
+        Parent.Write_Action("meowing");
     }
 }

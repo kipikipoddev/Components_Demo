@@ -23,6 +23,11 @@ public class Components : Component, IComponents
         return (T)components[typeof(T)];
     }
 
+    public T? Get_Or_Defualt<T>() where T : IComponent
+    {
+        return Has<T>() ? Get<T>() : default;
+    }
+
     public bool Has<T>() where T : IComponent
     {
         return components.ContainsKey(typeof(T));

@@ -4,6 +4,6 @@ public class Bark_Component : Component, ISound_Component
 {
     public void Make_Sound()
     {
-        Write("barking");
+        Parent.Write_Action("barking");
     }
 }

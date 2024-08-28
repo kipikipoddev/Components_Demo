@@ -4,6 +4,6 @@ public class Beep_Component : Component, ISound_Component
 {
     public void Make_Sound()
     {
-        Write("beeping");
+        Parent.Write_Action("beeping");
     }
 }

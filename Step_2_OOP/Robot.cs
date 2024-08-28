@@ -47,6 +47,8 @@ public class Robot : Entity
 
     protected void Recharge()
     {
+        if (is_recharged)
+            return;
         Write_Action("recharging...");
         is_recharged = true;
         Write_Action("recharged");

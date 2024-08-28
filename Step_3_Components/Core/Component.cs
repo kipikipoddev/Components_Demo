@@ -15,20 +15,5 @@ public class Component : IComponent
         }
     }
 
-    public void Write(string message)
-    {
-        Console.WriteLine($"{Parent.Name()} is {message}");
-    }
-
-    protected static string Get_Speed(Speed speed)
-    {
-        return speed switch
-        {
-            Speed.Slow => "slowly ",
-            Speed.Fast => "fast ",
-            _ => string.Empty,
-        };
-    }
-
     protected virtual void Parent_Set() { }
 }

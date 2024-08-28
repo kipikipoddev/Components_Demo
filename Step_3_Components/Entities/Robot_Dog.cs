@@ -1,13 +1,17 @@
-﻿namespace Step_3_Components;
+﻿using Step_3_Components.Enums;
+
+namespace Step_3_Components;
 
 public class Robot_Dog : Components
 {
-    public Robot_Dog()
+    public Robot_Dog(Speed speed)
     {
-        Add(new Name_Component());
-        Add(new Charge_Component());
-        Add(new Recharged_Walk_Component(new Dog_Walk_Component()));
-        Add(new Recharged_Swim_Component(new Dog_Swim_Component()));
-        Add(new Recharged_Sound_Components(new Bark_Component()));
+        Add(new Data_Component(speed, Types.Dog));
+        Add(new Writer_Component());
+        Add(new Robot_Injure_Component());
+        Add(new Recharge_Component());
+        Add(new Robot_Swim_Component(new Swim_Component()));
+        Add(new Robot_Walk_Component(new Walk_Component()));
+        Add(new Robot_Sound_Component(new Bark_Component()));
     }
 }

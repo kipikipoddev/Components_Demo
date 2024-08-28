@@ -1,10 +1,14 @@
-﻿namespace Step_3_Components;
+﻿using Step_3_Components.Enums;
+
+namespace Step_3_Components;
 
 public class Fish : Components
 {
-    public Fish()
+    public Fish(Speed speed)
     {
-        Add(new Name_Component());
-        Add(new Fish_Swim_Component());
+        Add(new Data_Component(speed, Types.Fish));
+        Add(new Writer_Component());
+        Add(new Animal_Injure_Component());
+        Add(new Swim_Component());
     }
 }
