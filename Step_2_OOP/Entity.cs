@@ -1,6 +1,6 @@
 ﻿namespace Step_2_OOP;
 
-public abstract class Entity
+public abstract class Entity : IEntity
 {
     public string Name { get; set; }
 
@@ -17,12 +17,12 @@ public abstract class Entity
     {
         throw new NotImplementedException();
     }
-    
+
     public virtual void Make_Sound()
     {
         throw new NotImplementedException();
     }
-    
+
     public virtual void Walk()
     {
         throw new NotImplementedException();

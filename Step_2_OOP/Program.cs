@@ -4,7 +4,7 @@ public class Program
 {
     private static void Main(string[] args)
     {
-        var entities = new Entity[]
+        var entities = new IEntity[]
         {
             new Cat(),
             new Dog(),
@@ -18,7 +18,7 @@ public class Program
             Do_Actions(entity);
     }
 
-    private static void Do_Actions(Entity entity)
+    private static void Do_Actions(IEntity entity)
     {
         if (entity.Can_Walk)
             entity.Walk();
