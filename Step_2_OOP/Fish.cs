@@ -1,11 +1,10 @@
 ﻿namespace Step_2_OOP;
 
-public class Fish : Entity
+public class Fish : Animal
 {
-    public override bool Can_Swim => true;
-
-    public override void Swim(Speed speed)
+    public Fish(Speed speed)
+        : base(speed)
     {
-        Write($"swiming {Get_Speed(speed)}like a fish");
+        Can_Swim = true;
     }
 }

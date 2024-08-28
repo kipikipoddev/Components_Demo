@@ -3,17 +3,18 @@
 public class Fish_Robot : Robot
 {
     private readonly Fish fish;
-    public override bool Can_Walk => false;
-    public override bool Can_Swim => true;
 
-    public Fish_Robot()
+    public Fish_Robot(Speed speed)
+    : base(speed)
     {
-        fish = new Fish { Name = Name };
+        Can_Swim = true;
+        Can_Walk = false;
+        fish = new Fish(speed) { Name = Name };
     }
 
-    public override void Swim(Speed speed)
+    public override void Swim()
     {
-        Recharge();
-        fish.Swim(speed);
+        Check_Status();
+        fish.Swim();
     }
 }

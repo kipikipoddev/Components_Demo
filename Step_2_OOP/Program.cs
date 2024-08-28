@@ -6,27 +6,32 @@ public class Program
     {
         var entities = new IEntity[]
         {
-            new Cat(),
-            new Dog(),
-            new Fish(),
-            new Robot(),
-            new Robot_Dog(),
-            new Fish_Robot(),
+            new Cat(Speed.Fast),
+            new Dog(Speed.Normal),
+            new Fish(Speed.Fast),
+            new Robot(Speed.Slow),
+            new Robot_Dog(Speed.Normal),
+            new Fish_Robot(Speed.Fast),
         };
 
         foreach (var entity in entities)
-            Do_Actions(entity);
+            Do_All(entity);
+    }
+
+    private static void Do_All(IEntity entity)
+    {
+        Console.WriteLine($" -- {entity.Name} -- ");
+        entity.Write_Actions();
+        Do_Actions(entity);
+        entity.Injure();
+        Do_Actions(entity);
+        Console.WriteLine();
     }
 
     private static void Do_Actions(IEntity entity)
     {
-        if (entity.Can_Walk)
-            entity.Walk(Speed.Slow);
-
-        if (entity.Can_Make_Sound)
-            entity.Make_Sound();
-
-        if (entity.Can_Swim)
-            entity.Swim();
+        entity.Walk();
+        entity.Make_Sound();
+        entity.Swim();
     }
 }

@@ -3,28 +3,29 @@
 public class Robot_Dog : Robot
 {
     private readonly Dog dog;
-    public override bool Can_Swim => true;
 
-    public Robot_Dog()
+    public Robot_Dog(Speed speed)
+    : base(speed)
     {
-        dog = new Dog { Name = Name };
+        Can_Swim = true;
+        dog = new Dog(speed) { Name = Name };
     }
 
     public override void Make_Sound()
     {
-        Recharge();
+        Check_Status();
         dog.Make_Sound();
     }
 
-    public override void Swim(Speed speed)
+    public override void Swim()
     {
-        Recharge();
-        dog.Swim(speed);
+        Check_Status();
+        dog.Swim();
     }
 
-    public override void Walk(Speed speed)
+    public override void Walk()
     {
-        Recharge();
-        dog.Walk(speed);
+        Check_Status();
+        dog.Walk();
     }
 }

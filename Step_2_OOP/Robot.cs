@@ -1,24 +1,54 @@
-﻿namespace Step_2_OOP;
+﻿
+namespace Step_2_OOP;
 
 public class Robot : Entity
 {
-    public override bool Can_Walk => true;
-    public override bool Can_Make_Sound => true;
+    private bool is_recharged;
+
+    public Robot(Speed speed)
+        : base(speed)
+    {
+        Can_Walk = true;
+        Can_Make_Sound = true;
+    }
 
     public override void Make_Sound()
     {
-        Recharge();
-        Write("beeping");
+        Check_Status();
+        Write_Action("beeping");
     }
 
-    public override void Walk(Speed speed)
+    public override void Walk()
     {
-        Recharge();
-        Write($"walking {Get_Speed(speed)}like a robot");
+        Check_Status();
+        base.Walk();
+    }
+
+    public override void Injure()
+    {
+        base.Injure();
+        Write_Action("broken");
+    }
+
+    protected void Check_Status()
+    {
+        if (!is_recharged)
+            Recharge();
+        if (Is_Injured)
+            Repair();
+    }
+
+    protected void Repair()
+    {
+        Write_Action("repairing...");
+        Is_Injured = false;
+        Write_Action("repaired");
     }
 
     protected void Recharge()
     {
-        Write("recharging");
+        Write_Action("recharging...");
+        is_recharged = true;
+        Write_Action("recharged");
     }
 }

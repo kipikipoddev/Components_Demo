@@ -2,18 +2,46 @@
 
 public class Fish
 {
-    public void Swim(Speed speed = Speed.Normal)
+    private bool is_injured;
+    private Speed speed;
+
+    public bool Can_Walk => false;
+    public bool Can_Make_Sound => false;
+    public bool Can_Swim => true;
+
+    public Fish(Speed speed)
     {
-        Console.WriteLine($"Fish is swiming {Get_Speed(speed)}like a fish");
+        this.speed = speed;
     }
 
+    public void Walk()
+    {
+        Console.WriteLine("Fish cannot walk");
+    }
 
-    private string Get_Speed(Speed speed)
+    public void Make_Sound()
+    {
+        Console.WriteLine("Fish cannot make sound");
+    }
+
+    public void Swim()
+    {
+        Console.WriteLine($"Fish is swiming {Get_Speed()}like a fish");
+    }
+
+    public void Injure()
+    {
+        Console.WriteLine("Fish is injured");
+        is_injured = true;
+        speed = Speed.Slow;
+    }
+
+    private string Get_Speed()
     {
         if (speed == Speed.Slow)
             return "slowly ";
         if (speed == Speed.Fast)
-            return "Fast ";
+            return "fast ";
         return string.Empty;
     }
 }

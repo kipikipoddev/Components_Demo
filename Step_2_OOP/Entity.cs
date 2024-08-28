@@ -2,43 +2,78 @@
 
 public abstract class Entity : IEntity
 {
-    public string Name { get; set; }
+    protected Speed Speed { get; set; }
+    protected bool Is_Injured { get; set; }
+    protected string Type { get; set; }
 
-    public Entity()
+    public string Name { get; set; }
+    public bool Can_Swim { get; protected set; }
+    public bool Can_Make_Sound { get; protected set; }
+    public bool Can_Walk { get; protected set; }
+
+    public Entity(Speed speed)
     {
         Name = GetType().Name;
-    }
-
-    public virtual bool Can_Swim => false;
-    public virtual bool Can_Make_Sound => false;
-    public virtual bool Can_Walk => false;
-
-    public virtual void Swim(Speed speed)
-    {
-        throw new NotImplementedException();
+        Speed = speed;
+        Type = GetType().Name.ToLower();
     }
 
     public virtual void Make_Sound()
     {
-        throw new NotImplementedException();
+        Write_Cannot("make sound");
     }
 
-    public virtual void Walk(Speed speed)
+    public virtual void Swim()
     {
-        throw new NotImplementedException();
+        if (Can_Swim)
+            Write_Action_Like("swiming");
+        else
+            Write_Cannot("swim");
     }
 
-    protected void Write(string message)
+    public virtual void Walk()
     {
-        Console.WriteLine(Name + " is " + message);
+        if (Can_Walk)
+            Write_Action_Like("walking");
+        else
+            Write_Cannot("walk");
     }
 
-    protected string Get_Speed(Speed speed)
+    public virtual void Injure()
     {
-        return speed switch
+        Is_Injured = true;
+    }
+
+    public void Write_Actions()
+    {
+        var actions = (Can_Walk ? "Walk, " : string.Empty) +
+                    (Can_Make_Sound ? "Make sound, " : string.Empty) +
+                    (Can_Swim ? "Swim, " : string.Empty);
+        actions = actions.Remove(actions.Length - 2, 2);
+        Console.WriteLine(Name + " can: " + actions);
+    }
+
+    protected virtual void Write_Action(string action)
+    {
+        Console.WriteLine($"{Name} is {action}");
+    }
+
+    protected void Write_Action_Like(string action)
+    {
+        Console.WriteLine($"{Name} is {action}{Get_Speed()} like a {Type}");
+    }
+
+    protected void Write_Cannot(string action)
+    {
+        Console.WriteLine(Name + " cannot " + action);
+    }
+
+    protected string Get_Speed()
+    {
+        return Speed switch
         {
-            Speed.Slow => "slowly ",
-            Speed.Fast => "fast ",
+            Speed.Slow => " slowly",
+            Speed.Fast => " fast",
             _ => string.Empty,
         };
     }
