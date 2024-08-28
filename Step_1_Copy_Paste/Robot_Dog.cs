@@ -1,6 +1,6 @@
-﻿namespace Step_1_Copy_Paste_Approach;
+﻿namespace Step_1_Copy_Paste;
 
-public class Robot
+public class Robot_Dog
 {
     private bool is_broken;
     private bool is_recharged;
@@ -8,20 +8,11 @@ public class Robot
 
     public bool Can_Walk => true;
     public bool Can_Make_Sound => true;
-    public bool Can_Swim => false;
+    public bool Can_Swim => true;
 
-    public Robot(Speed speed)
+    public Robot_Dog(Speed speed)
     {
         this.speed = speed;
-    }
-
-    public void Make_Sound()
-    {
-        if (!is_recharged)
-            Recharge();
-        if (is_broken)
-            Repair();
-        Console.WriteLine("Robot is beeping");
     }
 
     public void Walk()
@@ -30,32 +21,45 @@ public class Robot
             Recharge();
         if (is_broken)
             Repair();
-        Console.WriteLine($"Robot is walking {Get_Speed()}like a robot");
+        Console.WriteLine($"Robot_Dog is walking {Get_Speed()}like a dog");
     }
 
     public void Swim()
     {
-        Console.WriteLine("Robot cannot swim");
+        if (!is_recharged)
+            Recharge();
+        if (is_broken)
+            Repair();
+        Console.WriteLine($"Robot_Dog is swiming {Get_Speed()}like a dog");
+    }
+
+    public void Make_Sound()
+    {
+        if (!is_recharged)
+            Recharge();
+        if (is_broken)
+            Repair();
+        Console.WriteLine("Robot_Dog is barking");
     }
 
     public void Injure()
     {
-        Console.WriteLine("Robot is broken");
+        Console.WriteLine("Robot_Dog is broken");
         is_broken = true;
     }
 
     private void Repair()
     {
-        Console.WriteLine("Robot is repairing...");
+        Console.WriteLine("Robot_Dog is repairing...");
         is_broken = false;
-        Console.WriteLine("Robot is repaired");
+        Console.WriteLine("Robot_Dog is repaired");
     }
 
     private void Recharge()
     {
-        Console.WriteLine("Robot is recharging...");
+        Console.WriteLine("Robot_Dog is recharging...");
         is_recharged = true;
-        Console.WriteLine("Robot is recharged");
+        Console.WriteLine("Robot_Dog is recharged");
     }
 
     private string Get_Speed()

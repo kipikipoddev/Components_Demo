@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Step_1_Copy_Paste_Approach",
+            "name": "Step_1_Copy_Paste",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/Step_1_Copy_Paste_Approach/Step_1_Copy_Paste_Approach.csproj"
+            "projectPath": "${workspaceFolder}/Step_1_Copy_Paste/Step_1_Copy_Paste.csproj"
         },
         {
             "name": "Step_2_OOP",
