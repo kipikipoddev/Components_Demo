@@ -2,10 +2,11 @@
 
 namespace Step_5_Files.Commands;
 
-public record Walk_Command : Command
+public class Walk_Command : Command
 {
-    public Walk_Command(IComponents component) 
+    public Walk_Command(IComponents component)
         : base(component)
     {
+        Send(this);
     }
 }

@@ -4,9 +4,9 @@ using System.Reflection;
 
 namespace Step_5_Files.Data;
 
-public record Component_Data(string Name, string[] Components)
+public record Component_Data(string Name, Dictionary<string, string[]> Components)
 {
-    private static Dictionary<string, Type> name_to_type;
+    private static Dictionary<string, Dictionary<string, Type>> name_to_type;
 
     public Components Map()
     {

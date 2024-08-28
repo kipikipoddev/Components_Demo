@@ -16,7 +16,7 @@ public class Program
     private static void Do_Actions(IComponents components)
     {
         new Walk_Command(components);
-        new Sound_Command(components);
+        new Make_Sound_Command(components);
         new Swim_Command(components);
     }
 }

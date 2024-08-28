@@ -1,12 +1,7 @@
 namespace Step_5_Files.Core;
 
-public interface IHandler<TEvent>
-    where TEvent : Event
+public interface IHandler<T> : IComponent
+    where T : Command
 {
-    void Handle(TEvent cmd);
-}
-
-public interface IHandler
-{
-    void Handle(Event cmd);
+    void Handle(T cmd);
 }

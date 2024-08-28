@@ -2,7 +2,7 @@
 
 public class Components : Component, IComponents
 {
-    private readonly Dictionary<Type, IComponent> components = new();
+    private readonly Dictionary<Type, List<IComponent>> components = new();
 
     public Components(params IComponent[] objects)
     {
@@ -20,22 +20,29 @@ public class Components : Component, IComponents
     public T Get<T>()
         where T : IComponent
     {
-        return (T)components[typeof(T)];
+        return (T)components[typeof(T)].First();
     }
 
-    public T? Get_Or_Default<T>()
+    public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
-        if (components.ContainsKey(typeof(T)))
-            return Get<T>();
-        return default;
+        if (!components.ContainsKey(typeof(T)))
+            return [];
+        return components[typeof(T)].Select(c => (T)c);
     }
 
     private void Add_Component(IComponent component)
     {
         var type = component.GetType();
-        components[type] = component;
-        foreach (var interface_type in type.GetInterfaces())
-            components[interface_type] = component;
+        Add(component, type);
+        foreach (var int_type in type.GetInterfaces())
+            Add(component, int_type);
+    }
+
+    private void Add(IComponent component, Type type)
+    {
+        if (!components.ContainsKey(type))
+            components[type] = new();
+        components[type].Add(component);
     }
 }

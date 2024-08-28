@@ -1,4 +1,5 @@
-﻿namespace Step_5_Files.Core;
+﻿
+namespace Step_5_Files.Core;
 
 public class Component : IComponent
 {

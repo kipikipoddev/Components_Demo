@@ -1,3 +1,5 @@
-[
-  "Fish_Swim"
-]
+{
+  "Swim": [
+    "Fish"
+  ]
+}

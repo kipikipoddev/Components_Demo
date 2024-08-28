@@ -1,11 +1,19 @@
 ﻿namespace Step_5_Files.Core;
 
-public record Command : Event
+public abstract class Command
 {
-    public IComponents Components => (IComponents)Object!;
+    public IComponents Components { get; }
 
-    public Command(IComponents components, bool auto_send = true)
-        :base(components, auto_send)
+    public Command(IComponents components)
     {
+        Components = components;
+    }
+
+    public static void Send<T>(T cmd)
+        where T : Command
+    {
+        var handlers = cmd.Components.Get_All<IHandler<T>>();
+        foreach (var handler in handlers)
+            handler.Handle(cmd);
     }
 }

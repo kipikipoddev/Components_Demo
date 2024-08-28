@@ -1,17 +1,18 @@
 ﻿using Step_5_Files.Attributes;
+using Step_5_Files.Commands;
 using Step_5_Files.Core;
 
-namespace Step_5_Files.Handlers;
+namespace Step_5_Files;
 
-[Component_Name("Recharge")]
-public class Recharge_Handler : Component, IHandler
+[Component_Name("", "Recharge")]
+public class Recharge_Handler : Handler<Make_Sound_Command>
 {
-    protected override void Parent_Set()
+    public override void Handle(Make_Sound_Command cmd)
     {
-        Mediator.Add(this, Parent);
+        Recharge();
     }
 
-    public void Handle(Event cmd)
+    private void Recharge()
     {
         Write("recharging");
     }
