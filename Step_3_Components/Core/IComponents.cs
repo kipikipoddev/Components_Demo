@@ -6,6 +6,7 @@ public interface IComponents : IComponent
 
     T Get<T>()
         where T : IComponent;
-    T? Get_Or_Default<T>()
+
+    bool Has<T>()
         where T : IComponent;
 }

@@ -22,8 +22,10 @@ public class Program
     {
         if (entity.Can_Walk)
             entity.Walk();
+
         if (entity.Can_Make_Sound)
             entity.Make_Sound();
+
         if (entity.Can_Swim)
             entity.Swim();
     }

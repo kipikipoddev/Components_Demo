@@ -7,18 +7,17 @@ public static class Components_Data
 {
     public static IEnumerable<Components> Get_Components(string path)
     {
-        return Get_Components_Data(path).Select(r => r.Map());
+        return Directory.GetFiles(path)
+            .Select(Get_Data)
+            .Select(r => r.Map());
     }
 
-    private static IEnumerable<Component_Data> Get_Components_Data(string path)
+    private static Component_Data Get_Data(string file_path)
     {
-        var file_paths = Directory.GetFiles(path);
-        foreach (var file_path in file_paths)
-        {
-            var content = File.ReadAllText(file_path);
-            var components = JsonSerializer.Deserialize<Dictionary<string, string[]>>(content)!;
-            yield return new Component_Data(Get_Name(file_path), components);
-        }
+        var name = Get_Name(file_path);
+        var content = File.ReadAllText(file_path);
+        var components = JsonSerializer.Deserialize<string[]>(content)!;
+        return new Component_Data(name, components);
     }
 
     private static string Get_Name(string path)

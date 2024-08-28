@@ -1,10 +1,6 @@
-{
-  "Sound": [
-    "Recharge",
-    "Beep"
-  ],
-  "Swim": [
-    "Recharge",
-    "Fish"
-  ]
-}
+[
+  "Recharge_Swim",
+  "Fish_Swim",
+  "Recharge_Sound",
+  "Beep_Sound"
+]

@@ -4,7 +4,7 @@ using Step_5_Files.Core;
 
 namespace Step_5_Files.Walk_Handlers;
 
-[Component_Name("Swim", "Dog")]
+[Component_Name("Dog_Swim")]
 public class Dog_Swim_Handler : Handler<Swim_Command>
 {
     public override void Handle(Swim_Command cmd)

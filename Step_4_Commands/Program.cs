@@ -24,8 +24,13 @@ public class Program
 
     private static void Do_Actions(IComponents components)
     {
-        new Walk_Command(components);
-        new Make_Sound_Command(components);
-        new Swim_Command(components);
+        if (components.Can<Walk_Command>())
+            new Walk_Command(components);
+
+        if (components.Can<Make_Sound_Command>())
+            new Make_Sound_Command(components);
+
+        if (components.Can<Swim_Command>())
+            new Swim_Command(components);
     }
 }

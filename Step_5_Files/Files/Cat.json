@@ -1,8 +1,4 @@
-{
-  "Walk": [
-    "Cat"
-  ],
-  "Sound": [
-    "Meow"
-  ]
-}
+[
+  "Cat_Walk",
+  "Meow_Sound"
+]

@@ -23,12 +23,23 @@ public class Components : Component, IComponents
         return (T)components[typeof(T)].First();
     }
 
+    public bool Has<T>() where T : IComponent
+    {
+        return components.ContainsKey(typeof(T));
+    }
+
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
         if (!components.ContainsKey(typeof(T)))
             return [];
         return components[typeof(T)].Select(c => (T)c);
+    }
+
+    public bool Can<T>() 
+        where T : Command
+    {
+        return Has<IHandler<T>>();
     }
 
     private void Add_Component(IComponent component)

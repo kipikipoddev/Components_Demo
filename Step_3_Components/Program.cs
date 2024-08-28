@@ -20,8 +20,13 @@ public class Program
 
     private static void Do_Actions(IComponents components)
     {
-        components.Get_Or_Default<IWalk_Component>()?.Walk();
-        components.Get_Or_Default<ISound_Component>()?.Make_Sound();
-        components.Get_Or_Default<ISwim_Component>()?.Swim();
+        if (components.Has<IWalk_Component>())
+            components.Get<IWalk_Component>().Walk();
+
+        if (components.Has<ISound_Component>())
+            components.Get<ISound_Component>().Make_Sound();
+
+        if (components.Has<ISwim_Component>())
+            components.Get<ISwim_Component>().Swim();
     }
 }

@@ -4,9 +4,9 @@ using System.Reflection;
 
 namespace Step_5_Files.Data;
 
-public record Component_Data(string Name, Dictionary<string, string[]> Components)
+public record Component_Data(string Name, string[] Components)
 {
-    private static Dictionary<string, Dictionary<string, Type>> name_to_type;
+    private static Dictionary<string, Type> name_to_type = [];
 
     public Components Map()
     {
@@ -24,15 +24,27 @@ public record Component_Data(string Name, Dictionary<string, string[]> Component
 
     private void Init()
     {
-        if (name_to_type != null)
+        if (name_to_type.Any())
             return;
-        name_to_type = new();
         var types = GetType().Assembly.GetTypes();
         foreach (var type in types)
         {
-            var name_attribute = type.GetCustomAttribute<Component_NameAttribute>();
-            if (name_attribute != null)
-                name_to_type[name_attribute.Name] = type;
+            Add_Name(type);
+            Add_Generic(type);
         }
+    }
+
+    private static void Add_Name(Type type)
+    {
+        var attribute = type.GetCustomAttribute<Component_NameAttribute>();
+        if (attribute != null)
+            name_to_type[attribute.Name] = type;
+    }
+
+    private static void Add_Generic(Type type)
+    {
+        var attributes = type.GetCustomAttributes<Generic_Component_NameAttribute>();
+        foreach (var attribute in attributes)
+            name_to_type[attribute.Name] = type.MakeGenericType(attribute.Type);
     }
 }

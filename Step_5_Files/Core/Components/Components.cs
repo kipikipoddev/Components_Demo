@@ -23,6 +23,17 @@ public class Components : Component, IComponents
         return (T)components[typeof(T)].First();
     }
 
+    public bool Has<T>() where T : IComponent
+    {
+        return components.ContainsKey(typeof(T));
+    }
+
+    public bool Can<T>()
+        where T : Command
+    {
+        return Has<IHandler<T>>();
+    }
+
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {

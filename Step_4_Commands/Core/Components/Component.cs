@@ -3,10 +3,10 @@ namespace Step_4_Commands.Core;
 
 public class Component : IComponent
 {
-    private IComponents parent;
+    private IComponents? parent;
     public IComponents Parent
     {
-        get => parent;
+        get => parent!;
         set
         {
             parent = value;

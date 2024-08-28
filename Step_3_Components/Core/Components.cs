@@ -23,12 +23,9 @@ public class Components : Component, IComponents
         return (T)components[typeof(T)];
     }
 
-    public T? Get_Or_Default<T>()
-        where T : IComponent
+    public bool Has<T>() where T : IComponent
     {
-        if (components.ContainsKey(typeof(T)))
-            return Get<T>();
-        return default;
+        return components.ContainsKey(typeof(T));
     }
 
     private void Add_Component(IComponent component)
