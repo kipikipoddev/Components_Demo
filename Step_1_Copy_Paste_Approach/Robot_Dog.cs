@@ -2,16 +2,16 @@
 
 public class Robot_Dog
 {
-    public void Walk()
+    public void Walk(Speed speed = Speed.Normal)
     {
         Recharge();
-        Console.WriteLine("Robot_Dog is walking like a dog");
+        Console.WriteLine($"Robot_Dog is walking {Get_Speed(speed)}like a dog");
     }
 
-    public void Swim()
+    public void Swim(Speed speed = Speed.Normal)
     {
         Recharge();
-        Console.WriteLine("Robot_Dog is swiming like a dog");
+        Console.WriteLine($"Robot_Dog is swiming {Get_Speed(speed)}like a dog");
     }
 
     public void Make_Sound()
@@ -23,5 +23,15 @@ public class Robot_Dog
     private void Recharge()
     {
         Console.WriteLine("Robot_Dog is recharging");
+    }
+
+
+    private string Get_Speed(Speed speed)
+    {
+        if (speed == Speed.Slow)
+            return "slowly ";
+        if (speed == Speed.Fast)
+            return "Fast ";
+        return string.Empty;
     }
 }

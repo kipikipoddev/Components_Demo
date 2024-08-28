@@ -11,13 +11,13 @@ public class Dog : Entity
         Write("barking");
     }
 
-    public override void Swim()
+    public override void Swim(Speed speed)
     {
-        Write("swiming like a dog");
+        Write($"swiming {Get_Speed(speed)}like a dog");
     }
 
-    public override void Walk()
+    public override void Walk(Speed speed)
     {
-        Write("walking like a dog");
+        Write($"walking {Get_Speed(speed)}like a dog");
     }
 }

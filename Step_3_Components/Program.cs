@@ -21,7 +21,7 @@ public class Program
     private static void Do_Actions(IComponents components)
     {
         if (components.Has<IWalk_Component>())
-            components.Get<IWalk_Component>().Walk();
+            components.Get<IWalk_Component>().Walk(Enums.Speed.Slow);
 
         if (components.Has<ISound_Component>())
             components.Get<ISound_Component>().Make_Sound();

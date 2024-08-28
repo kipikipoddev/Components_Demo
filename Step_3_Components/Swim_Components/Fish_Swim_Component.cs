@@ -1,9 +1,11 @@
-﻿namespace Step_3_Components;
+﻿using Step_3_Components.Enums;
+
+namespace Step_3_Components;
 
 public class Fish_Swim_Component : Component, ISwim_Component
 {
-    public void Swim()
+    public void Swim(Speed speed)
     {
-        Write("swiming like a fish");
+        Write($"swiming {Get_Speed(speed)}like a fish");
     }
 }

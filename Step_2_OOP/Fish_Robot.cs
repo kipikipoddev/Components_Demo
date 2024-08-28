@@ -11,9 +11,9 @@ public class Fish_Robot : Robot
         fish = new Fish { Name = Name };
     }
 
-    public override void Swim()
+    public override void Swim(Speed speed)
     {
         Recharge();
-        fish.Swim();
+        fish.Swim(speed);
     }
 }

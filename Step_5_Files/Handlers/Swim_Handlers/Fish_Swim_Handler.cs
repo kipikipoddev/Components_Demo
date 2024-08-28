@@ -9,6 +9,6 @@ public class Fish_Swim_Handler : Handler<Swim_Command>
 {
     public override void Handle(Swim_Command cmd)
     {
-        Write("swiming like a fish");
+        Write($"swiming {Get_Speed(cmd.Speed)}like a fish");
     }
 }

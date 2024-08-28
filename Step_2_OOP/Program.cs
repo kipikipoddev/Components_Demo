@@ -21,7 +21,7 @@ public class Program
     private static void Do_Actions(IEntity entity)
     {
         if (entity.Can_Walk)
-            entity.Walk();
+            entity.Walk(Speed.Slow);
 
         if (entity.Can_Make_Sound)
             entity.Make_Sound();

@@ -16,15 +16,15 @@ public class Robot_Dog : Robot
         dog.Make_Sound();
     }
 
-    public override void Swim()
+    public override void Swim(Speed speed)
     {
         Recharge();
-        dog.Swim();
+        dog.Swim(speed);
     }
 
-    public override void Walk()
+    public override void Walk(Speed speed)
     {
         Recharge();
-        dog.Walk();
+        dog.Walk(speed);
     }
 }

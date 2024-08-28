@@ -4,8 +4,8 @@ public class Fish : Entity
 {
     public override bool Can_Swim => true;
 
-    public override void Swim()
+    public override void Swim(Speed speed)
     {
-        Write("swiming like a fish");
+        Write($"swiming {Get_Speed(speed)}like a fish");
     }
 }

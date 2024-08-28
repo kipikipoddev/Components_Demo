@@ -6,11 +6,11 @@ public class Program
     private static void Main(string[] args)
     {
         var cat = new Cat();
-        cat.Walk();
+        cat.Walk(Speed.Slow);
         cat.Make_Sound();
 
         var dog = new Dog();
-        dog.Walk();
+        dog.Walk(Speed.Slow);
         dog.Make_Sound();
         dog.Swim();
 
@@ -18,11 +18,11 @@ public class Program
         fish.Swim();
 
         var robot = new Robot();
-        robot.Walk();
+        robot.Walk(Speed.Slow);
         robot.Make_Sound();
 
         var robot_dog = new Robot_Dog();
-        robot_dog.Walk();
+        robot_dog.Walk(Speed.Slow);
         robot_dog.Make_Sound();
         robot_dog.Swim();
 

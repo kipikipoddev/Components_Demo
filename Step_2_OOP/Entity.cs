@@ -13,7 +13,7 @@ public abstract class Entity : IEntity
     public virtual bool Can_Make_Sound => false;
     public virtual bool Can_Walk => false;
 
-    public virtual void Swim()
+    public virtual void Swim(Speed speed)
     {
         throw new NotImplementedException();
     }
@@ -23,7 +23,7 @@ public abstract class Entity : IEntity
         throw new NotImplementedException();
     }
 
-    public virtual void Walk()
+    public virtual void Walk(Speed speed)
     {
         throw new NotImplementedException();
     }
@@ -31,5 +31,15 @@ public abstract class Entity : IEntity
     protected void Write(string message)
     {
         Console.WriteLine(Name + " is " + message);
+    }
+
+    protected string Get_Speed(Speed speed)
+    {
+        return speed switch
+        {
+            Speed.Slow => "slowly ",
+            Speed.Fast => "fast ",
+            _ => string.Empty,
+        };
     }
 }

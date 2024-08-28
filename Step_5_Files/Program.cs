@@ -16,7 +16,7 @@ public class Program
     private static void Do_Actions(IComponents components)
     {
         if (components.Can<Walk_Command>())
-            new Walk_Command(components);
+            new Walk_Command(components, Enums.Speed.Slow);
 
         if (components.Can<Make_Sound_Command>())
             new Make_Sound_Command(components);

@@ -1,4 +1,6 @@
-﻿namespace Step_3_Components;
+﻿using Step_3_Components.Enums;
+
+namespace Step_3_Components;
 
 public class Recharged_Swim_Component : Component, ISwim_Component
 {
@@ -14,9 +16,9 @@ public class Recharged_Swim_Component : Component, ISwim_Component
         component.Parent = Parent;
     }
 
-    public void Swim()
+    public void Swim(Speed speed)
     {
         Parent.Recharge();
-        component.Swim();
+        component.Swim(speed);
     }
 }

@@ -10,9 +10,11 @@ public class Robot : Components
     public Robot()
     {
         Add(new Name_Component());
-        Add(new Beep_Sound_Handler());
+
         Add(new Recharge_Handler<Make_Sound_Command>());
-        Add(new Robot_Walk_Handler());
+        Add(new Beep_Sound_Handler());
+
         Add(new Recharge_Handler<Walk_Command>());
+        Add(new Robot_Walk_Handler());
     }
 }

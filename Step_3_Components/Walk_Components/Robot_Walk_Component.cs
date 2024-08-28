@@ -1,10 +1,11 @@
-﻿namespace Step_3_Components;
+﻿using Step_3_Components.Enums;
+
+namespace Step_3_Components;
 
 public class Robot_Walk_Component : Component, IWalk_Component
 {
-    public void Walk()
+    public void Walk(Speed speed)
     {
-        Parent.Recharge();
-        Write("walking like a robot");
+        Write($"walking {Get_Speed(speed)}like a robot");
     }
 }

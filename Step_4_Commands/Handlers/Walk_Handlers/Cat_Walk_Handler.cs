@@ -7,6 +7,6 @@ public class Cat_Walk_Handler : Handler<Walk_Command>
 {
     public override void Handle(Walk_Command cmd)
     {
-        Write("walking like a cat");
+        Write($"walking {Get_Speed(cmd.Speed)}like a cat");
     }
 }

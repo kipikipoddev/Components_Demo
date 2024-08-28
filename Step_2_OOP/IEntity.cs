@@ -6,9 +6,9 @@ public interface IEntity
     bool Can_Make_Sound { get; }
     bool Can_Walk { get; }
 
-    void Swim();
+    void Swim(Speed speed = Speed.Normal);
 
     void Make_Sound();
 
-    void Walk();
+    void Walk(Speed speed = Speed.Normal);
 }

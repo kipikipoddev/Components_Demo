@@ -7,13 +7,23 @@ public class Dog
         Console.WriteLine("Dog is barking");
     }
 
-    public void Walk()
+    public void Walk(Speed speed = Speed.Normal)
     {
-        Console.WriteLine("Dog is walking like a dog");
+        Console.WriteLine($"Dog is walking {Get_Speed(speed)}like a dog");
     }
 
-    public void Swim()
+    public void Swim(Speed speed = Speed.Normal)
     {
-        Console.WriteLine("Dog is swiming like a dog");
+        Console.WriteLine($"Dog is swiming {Get_Speed(speed)}like a dog");
+    }
+
+
+    private string Get_Speed(Speed speed)
+    {
+        if (speed == Speed.Slow)
+            return "slowly ";
+        if (speed == Speed.Fast)
+            return "Fast ";
+        return string.Empty;
     }
 }

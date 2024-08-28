@@ -7,8 +7,17 @@ public class Cat
         Console.WriteLine("Cat is meowing");
     }
 
-    public void Walk()
+    public void Walk(Speed speed)
     {
-        Console.WriteLine("Cat is walking like a cat");
+        Console.WriteLine($"Cat is walking {Get_Speed(speed)}like a cat");
+    }
+
+    private string Get_Speed(Speed speed)
+    {
+        if (speed == Speed.Slow)
+            return "slowly ";
+        if (speed == Speed.Fast)
+            return "Fast ";
+        return string.Empty;
     }
 }

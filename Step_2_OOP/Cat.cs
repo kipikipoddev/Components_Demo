@@ -10,8 +10,8 @@ public class Cat : Entity
         Write("meowing");
     }
 
-    public override void Walk()
+    public override void Walk(Speed speed)
     {
-        Write("walking like a cat");
+        Write($"walking {Get_Speed(speed)}like a cat");
     }
 }

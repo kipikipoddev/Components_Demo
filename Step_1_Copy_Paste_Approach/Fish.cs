@@ -2,8 +2,18 @@
 
 public class Fish
 {
-    public void Swim()
+    public void Swim(Speed speed = Speed.Normal)
     {
-        Console.WriteLine("Fish is swiming like a fish");
+        Console.WriteLine($"Fish is swiming {Get_Speed(speed)}like a fish");
+    }
+
+
+    private string Get_Speed(Speed speed)
+    {
+        if (speed == Speed.Slow)
+            return "slowly ";
+        if (speed == Speed.Fast)
+            return "Fast ";
+        return string.Empty;
     }
 }

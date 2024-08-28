@@ -11,10 +11,10 @@ public class Robot : Entity
         Write("beeping");
     }
 
-    public override void Walk()
+    public override void Walk(Speed speed)
     {
         Recharge();
-        Write("walking like a robot");
+        Write($"walking {Get_Speed(speed)}like a robot");
     }
 
     protected void Recharge()

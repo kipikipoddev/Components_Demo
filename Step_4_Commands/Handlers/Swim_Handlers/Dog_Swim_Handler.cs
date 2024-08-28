@@ -7,6 +7,6 @@ public class Dog_Swim_Handler : Handler<Swim_Command>
 {
     public override void Handle(Swim_Command cmd)
     {
-        Write("swiming like a dog");
+        Write($"swiming {Get_Speed(cmd.Speed)}like a dog");
     }
 }

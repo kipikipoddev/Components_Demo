@@ -1,4 +1,6 @@
-﻿namespace Step_3_Components;
+﻿using Step_3_Components.Enums;
+
+namespace Step_3_Components;
 
 public class Recharged_Walk_Component : Component, IWalk_Component
 {
@@ -14,9 +16,9 @@ public class Recharged_Walk_Component : Component, IWalk_Component
         component.Parent = Parent;
     }
 
-    public void Walk()
+    public void Walk(Speed speed)
     {
         Parent.Recharge();
-        component.Walk();
+        component.Walk(speed);
     }
 }
