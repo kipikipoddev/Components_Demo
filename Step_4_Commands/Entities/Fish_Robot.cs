@@ -1,21 +1,22 @@
 ﻿using Step_4_Commands.Commands;
-using Step_4_Commands.Core;
+using Step_4_Commands.Enums;
 using Step_4_Commands.Sound_Handlers;
-using Step_4_Commands.Walk_Handlers;
 
-namespace Step_4_Commands.Entities;
+namespace Step_4_Commands;
 
 public class Fish_Robot : Components
 {
-    public Fish_Robot()
+    public Fish_Robot(Speed_Type speed)
     {
-        Add(new Name_Component());
-
+        Add(new Data_Component(speed, Entity_Types.Fish));
+        Add(new Write_Handler());
+        Add(new Recharge_Component());
+        Add(new Robot_Injure_Handler());
+        Add(new No_Handler_Handler());
+        
         Add(new Recharge_Handler<Make_Sound_Command>());
-        Add(new Beep_Sound_Handler());
-
+        Add(new Beep_Handler());
         Add(new Recharge_Handler<Swim_Command>());
-        Add(new Fish_Swim_Handler());
-
+        Add(new Swim_Handler());
     }
 }

@@ -1,6 +1,4 @@
-﻿using Step_4_Commands.Core;
-
-namespace Step_4_Commands.Commands;
+﻿namespace Step_4_Commands.Commands;
 
 public class Make_Sound_Command : Command
 {

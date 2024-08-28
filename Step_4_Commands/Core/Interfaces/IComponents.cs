@@ -1,4 +1,4 @@
-﻿namespace Step_4_Commands.Core;
+﻿namespace Step_4_Commands;
 
 public interface IComponents : IComponent
 {
@@ -12,7 +12,7 @@ public interface IComponents : IComponent
 
     IEnumerable<T> Get_All<T>()
         where T : IComponent;
-
+        
     bool Can<T>()
         where T : Command;
 }

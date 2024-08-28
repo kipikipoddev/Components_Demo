@@ -1,6 +1,4 @@
-﻿using Step_3_Components.Enums;
-
-namespace Step_3_Components;
+﻿namespace Step_3_Components;
 
 public class Component : IComponent
 {

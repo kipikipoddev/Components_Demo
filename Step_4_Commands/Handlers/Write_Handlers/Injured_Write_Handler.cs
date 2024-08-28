@@ -1,8 +1,8 @@
-﻿namespace Step_3_Components;
+﻿namespace Step_4_Commands.Sound_Handlers;
 
-public class Injured_Writer_Component : Writer_Component
+public class Injured_Write_Handler : Write_Handler
 {
-    public override void Write_Action(string action)
+    protected override void Write_Action(string action)
     {
         if (Parent.Is_Injured())
             Console.WriteLine($"{Parent.Name()} is {action} painfully");

@@ -1,8 +1,8 @@
 ﻿namespace Step_4_Commands.Commands;
 
-public class Swim_Command : Command
+public class Recharge_Command : Command
 {
-    public Swim_Command(IComponents component)
+    public Recharge_Command(IComponents component)
         : base(component)
     {
         Send(this);

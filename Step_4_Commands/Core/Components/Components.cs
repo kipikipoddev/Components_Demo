@@ -1,4 +1,4 @@
-﻿namespace Step_4_Commands.Core;
+﻿namespace Step_4_Commands;
 
 public class Components : Component, IComponents
 {

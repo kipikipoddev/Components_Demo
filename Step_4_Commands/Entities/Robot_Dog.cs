@@ -1,23 +1,24 @@
 ﻿using Step_4_Commands.Commands;
-using Step_4_Commands.Core;
+using Step_4_Commands.Enums;
 using Step_4_Commands.Sound_Handlers;
-using Step_4_Commands.Walk_Handlers;
 
-namespace Step_4_Commands.Entities;
+namespace Step_4_Commands;
 
 public class Robot_Dog : Components
 {
-    public Robot_Dog()
+    public Robot_Dog(Speed_Type speed)
     {
-        Add(new Name_Component());
-
-        Add(new Recharge_Handler<Make_Sound_Command>());
-        Add(new Bark_Sound_Handler());
-
+        Add(new Data_Component(speed, Entity_Types.Dog));
+        Add(new Write_Handler());
+        Add(new Recharge_Component());
+        Add(new Robot_Injure_Handler());
+        Add(new No_Handler_Handler());
+        
         Add(new Recharge_Handler<Walk_Command>());
-        Add(new Dog_Walk_Handler());
-
+        Add(new Walk_Handler());
+        Add(new Recharge_Handler<Make_Sound_Command>());
+        Add(new Bark_Handler());
         Add(new Recharge_Handler<Swim_Command>());
-        Add(new Dog_Swim_Handler());
+        Add(new Swim_Handler());
     }
 }

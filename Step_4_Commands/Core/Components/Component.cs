@@ -1,7 +1,4 @@
-﻿
-using Step_4_Commands.Enums;
-
-namespace Step_4_Commands.Core;
+﻿namespace Step_4_Commands;
 
 public class Component : IComponent
 {

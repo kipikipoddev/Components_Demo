@@ -20,20 +20,20 @@ public class Program
             Do_All(entity);
     }
 
-    private static void Do_All(IComponents component)
+    private static void Do_All(IComponents entity)
     {
-        Console.WriteLine($" -- {component.Name()} -- ");
-        component.Write_Actions();
-        Do_Actions(component);
-        component.Injure();
-        Do_Actions(component);
+        Console.WriteLine($" -- {entity.Name()} -- ");
+        entity.Write_Actions();
+        Do_Actions(entity);
+        entity.Injure();
+        Do_Actions(entity);
         Console.WriteLine();
     }
 
-    private static void Do_Actions(IComponents component)
+    private static void Do_Actions(IComponents entity)
     {
-        component.Walk();
-        component.Make_Sound();
-        component.Swim();
+        entity.Walk();
+        entity.Make_Sound();
+        entity.Swim();
     }
 }
