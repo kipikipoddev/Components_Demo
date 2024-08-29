@@ -10,11 +10,10 @@ public class Components : Component, IComponents
             Add(obj);
     }
 
-    public IComponents Add(IComponent component)
+    public void Add(IComponent component)
     {
         component.Parent = this;
         Add_Component(component);
-        return this;
     }
 
     public T Get<T>()

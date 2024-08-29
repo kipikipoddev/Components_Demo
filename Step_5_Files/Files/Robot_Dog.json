@@ -1,8 +1,9 @@
-[
-  "Recharge_Walk",
-  "Robot_Walk",
-  "Recharge_Swim",
-  "Dog_Swim",
-  "Recharge_Sound",
-  "Bark_Sound"
-]
+{
+    "Type": "Dog",
+    "Speed": "Normal",
+    "Injure": "Robot",
+    "Charge": true,
+    "Walk": true,
+    "Sound": "Bark",
+    "Swim": true
+}

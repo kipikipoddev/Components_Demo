@@ -1,6 +1,6 @@
 ﻿using Step_5_Files.Commands;
-using Step_5_Files.Core;
 using Step_5_Files.Data;
+using Step_5_Files.Enums;
 
 namespace Step_5_Files;
 
@@ -10,18 +10,23 @@ public class Program
     {
         var entities = Components_Data.Get_Components(".\\Files");
         foreach (var entity in entities)
-            Do_Actions(entity);
+            Do_All(entity);
     }
 
-    private static void Do_Actions(IComponents components)
+    private static void Do_All(IComponents entity)
     {
-        if (components.Can<Walk_Command>())
-            new Walk_Command(components, Enums.Speed.Slow);
+        Console.WriteLine($" -- {entity.Name()} -- ");
+        entity.Write_Actions();
+        Do_Actions(entity);
+        new Injure_Command(entity);
+        Do_Actions(entity);
+        Console.WriteLine();
+    }
 
-        if (components.Can<Make_Sound_Command>())
-            new Make_Sound_Command(components);
-
-        if (components.Can<Swim_Command>())
-            new Swim_Command(components);
+    private static void Do_Actions(IComponents entity)
+    {
+        new Walk_Command(entity);
+        new Make_Sound_Command(entity);
+        new Swim_Command(entity);
     }
 }

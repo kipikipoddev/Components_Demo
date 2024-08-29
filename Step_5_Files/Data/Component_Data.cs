@@ -1,50 +1,38 @@
-﻿using Step_5_Files.Attributes;
-using Step_5_Files.Core;
-using System.Reflection;
+﻿using Step_5_Files.Enums;
+using Step_5_Files.Sound_Handlers;
 
 namespace Step_5_Files.Data;
 
-public record Component_Data(string Name, string[] Components)
+public record Component_Data(string Name, Dictionary<string, object> Properties)
 {
-    private static Dictionary<string, Type> name_to_type = [];
-
     public Components Map()
     {
-        Init();
         var components = new Components();
-        components.Add(new Name_Component(Name));
-        foreach (var component in Components)
-        {
-            var comp = Activator.CreateInstance(name_to_type[component]);
-            components.Add((IComponent)comp!);
-        }
-
+        components.Add(Get_Data());
+        components.Add(Get_Ingure());
         return components;
     }
 
-    private void Init()
+    private IComponent Get_Data()
     {
-        if (name_to_type.Any())
-            return;
-        var types = GetType().Assembly.GetTypes();
-        foreach (var type in types)
-        {
-            Add_Name(type);
-            Add_Generic(type);
-        }
+        var type = Get_Enum<Entity_Types>("Type");
+        var speed = Get_Enum<Speed_Type>("Speed");
+        return new Data_Component(Name, speed, type);
     }
 
-    private static void Add_Name(Type type)
+    private IComponent? Get_Ingure()
     {
-        var attribute = type.GetCustomAttribute<Component_NameAttribute>();
-        if (attribute != null)
-            name_to_type[attribute.Name] = type;
+        var injure = Properties["Injure"];
+        if (injure.Equals("Animal"))
+            return new Animal_Injure_Handler();
+        if (injure.Equals("Robot"))
+            return new Robot_Injure_Handler();
+        return null;
     }
 
-    private static void Add_Generic(Type type)
+    private T Get_Enum<T>(string key)
+        where T : struct
     {
-        var attributes = type.GetCustomAttributes<Generic_Component_NameAttribute>();
-        foreach (var attribute in attributes)
-            name_to_type[attribute.Name] = type.MakeGenericType(attribute.Type);
+        return Enum.Parse<T>(Properties[key].ToString()!);
     }
 }

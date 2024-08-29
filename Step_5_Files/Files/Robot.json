@@ -1,6 +1,8 @@
-[
-  "Recharge_Walk",
-  "Robot_Walk",
-  "Recharge_Sound",
-  "Beep_Sound"
-]
+{
+    "Type": "Robot",
+    "Speed": "Slow",
+    "Injure": "Robot",
+    "Charge": true,
+    "Walk": true,
+    "Sound": "Beep"
+}

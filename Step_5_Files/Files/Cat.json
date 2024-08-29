@@ -1,4 +1,7 @@
-[
-  "Cat_Walk",
-  "Meow_Sound"
-]
+{
+    "Type": "Cat",
+    "Speed": "Fast",
+    "Injure": "Animal",
+    "Walk": true,
+    "Sound": "Meow"
+}

@@ -1,17 +1,15 @@
-﻿using Step_5_Files.Attributes;
-using Step_5_Files.Commands;
-using Step_5_Files.Core;
+﻿namespace Step_5_Files;
 
-namespace Step_5_Files;
-
-[Generic_Component_Name("Recharge_Walk", typeof(Walk_Command))]
-[Generic_Component_Name("Recharge_Sound", typeof(Make_Sound_Command))]
-[Generic_Component_Name("Recharge_Swim", typeof(Swim_Command))]
 public class Recharge_Handler<T> : Handler<T>
     where T : Command
 {
     public override void Handle(T cmd)
     {
-        Write("recharging");
+        var comp = cmd.Components.Get<Recharge_Component>();
+        if (comp.Is_Recharged)
+            return;
+        Parent.Write_Action("recharging...");
+        comp.Is_Recharged = true;
+        Parent.Write_Action("recharged");
     }
 }

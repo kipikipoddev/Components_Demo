@@ -1,5 +1,8 @@
-[
-  "Dog_Walk",
-  "Dog_Swim",
-  "Bark_Sound"
-]
+{
+    "Type": "Dog",
+    "Speed": "Normal",
+    "Injure": "Animal",
+    "Walk": true,
+    "Sound": "Bark",
+    "Swim": true
+}

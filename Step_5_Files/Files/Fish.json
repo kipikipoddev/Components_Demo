@@ -1,3 +1,6 @@
-[
-  "Fish_Swim"
-]
+{
+    "Type": "Fish",
+    "Speed": "Fast",
+    "Injure": "Animal",
+    "Swim": true
+}

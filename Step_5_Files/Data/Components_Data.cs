@@ -1,5 +1,4 @@
-﻿using Step_5_Files.Core;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace Step_5_Files.Data;
 
@@ -16,8 +15,8 @@ public static class Components_Data
     {
         var name = Get_Name(file_path);
         var content = File.ReadAllText(file_path);
-        var components = JsonSerializer.Deserialize<string[]>(content)!;
-        return new Component_Data(name, components);
+        var properties = JsonSerializer.Deserialize<Dictionary<string, object>>(content)!;
+        return new Component_Data(name, properties);
     }
 
     private static string Get_Name(string path)

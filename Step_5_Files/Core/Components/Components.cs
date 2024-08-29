@@ -1,4 +1,4 @@
-﻿namespace Step_5_Files.Core;
+﻿namespace Step_5_Files;
 
 public class Components : Component, IComponents
 {
@@ -10,11 +10,12 @@ public class Components : Component, IComponents
             Add(obj);
     }
 
-    public IComponents Add(IComponent component)
+    public void Add(IComponent? component)
     {
+        if (component == null)
+            return;
         component.Parent = this;
         Add_Component(component);
-        return this;
     }
 
     public T Get<T>()
@@ -28,18 +29,18 @@ public class Components : Component, IComponents
         return components.ContainsKey(typeof(T));
     }
 
-    public bool Can<T>()
-        where T : Command
-    {
-        return Has<IHandler<T>>();
-    }
-
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
         if (!components.ContainsKey(typeof(T)))
             return [];
         return components[typeof(T)].Select(c => (T)c);
+    }
+
+    public bool Can<T>()
+        where T : Command
+    {
+        return Has<IHandler<T>>();
     }
 
     private void Add_Component(IComponent component)
