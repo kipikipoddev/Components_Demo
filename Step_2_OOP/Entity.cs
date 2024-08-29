@@ -49,8 +49,13 @@ public abstract class Entity : IEntity
         var actions = (Can_Walk ? "Walk, " : string.Empty) +
                     (Can_Make_Sound ? "Make sound, " : string.Empty) +
                     (Can_Swim ? "Swim, " : string.Empty);
-        actions = actions.Remove(actions.Length - 2, 2);
-        Console.WriteLine(Name + " can: " + actions);
+        if (actions.Length == 0)
+            Console.WriteLine(Name + " cannot do anything");
+        else
+        {
+            actions = actions.Remove(actions.Length - 2, 2);
+            Console.WriteLine(Name + " can: " + actions);
+        }
     }
 
     protected virtual void Write_Action(string action)

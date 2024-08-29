@@ -11,7 +11,8 @@ public abstract class Animal : Entity
     {
         base.Injure();
         base.Write_Action("injured");
-        Speed = Speed.Slow;
+        Can_Walk = false;
+        Can_Swim = false;
     }
 
     protected override void Write_Action(string action)

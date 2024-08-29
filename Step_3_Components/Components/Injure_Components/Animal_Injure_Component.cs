@@ -1,15 +1,21 @@
-﻿using Step_3_Components.Enums;
-
-namespace Step_3_Components;
+﻿namespace Step_3_Components;
 
 public class Animal_Injure_Component : Component, IInjure_Component
 {
-    public bool Is_Injured { get; set; }
+    private bool is_injured;
 
-    public void Injure()
+    public bool Is_Injured
     {
-        Parent.Write_Action("injured");
-        Is_Injured = true;
-        Parent.Get<IData_Component>().Speed = Speed.Slow;
+        get => is_injured;
+        set
+        {
+            if (value & !is_injured)
+            {
+                Parent.Write_Action("injured");
+                Parent.Remove<IWalk_Component>();
+                Parent.Remove<ISwim_Component>();
+            }
+            is_injured = value;
+        }
     }
 }

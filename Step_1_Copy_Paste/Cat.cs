@@ -5,13 +5,14 @@ public class Cat
     private bool is_injured;
     private Speed speed;
 
-    public bool Can_Walk => true;
+    public bool Can_Walk { get; private set; }
     public bool Can_Make_Sound => true;
     public bool Can_Swim => false;
 
     public Cat(Speed speed)
     {
         this.speed = speed;
+        Can_Walk = true;
     }
 
     public void Make_Sound()
@@ -21,7 +22,10 @@ public class Cat
 
     public void Walk()
     {
-        Console.WriteLine($"Cat is walking {Get_Speed()}like a cat");
+        if (Can_Walk)
+            Console.WriteLine($"Cat is walking {Get_Speed()}like a cat");
+        else
+            Console.WriteLine("Cat cannot walk");
     }
 
     public void Swim()
@@ -33,7 +37,7 @@ public class Cat
     {
         Console.WriteLine("Cat is injured");
         is_injured = true;
-        speed = Speed.Slow;
+        Can_Walk = false;
     }
 
     private string Get_Speed()

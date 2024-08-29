@@ -22,15 +22,19 @@ public class Fish_Robot
 
     public void Make_Sound()
     {
+        if (is_broken)
+            Repair();
+        if (!is_recharged)
+            Recharge();
         Console.WriteLine("Fish_Robot is beeping");
     }
 
     public void Swim()
     {
-        if (!is_recharged)
-            Recharge();
         if (is_broken)
             Repair();
+        if (!is_recharged)
+            Recharge();
         Console.WriteLine($"Fish_Robot is swiming {Get_Speed()}like a fish");
     }
 

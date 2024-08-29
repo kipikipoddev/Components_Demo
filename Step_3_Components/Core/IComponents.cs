@@ -4,6 +4,11 @@ public interface IComponents : IComponent
 {
     void Add(IComponent component);
 
+    void Remove<T>()
+         where T : IComponent;
+
+    void Remove(IComponent component);
+
     T Get<T>()
         where T : IComponent;
 

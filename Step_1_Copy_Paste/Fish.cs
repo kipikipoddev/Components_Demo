@@ -2,16 +2,16 @@
 
 public class Fish
 {
-    private bool is_injured;
     private Speed speed;
 
     public bool Can_Walk => false;
     public bool Can_Make_Sound => false;
-    public bool Can_Swim => true;
+    public bool Can_Swim { get; private set; }
 
     public Fish(Speed speed)
     {
         this.speed = speed;
+        Can_Swim = true;
     }
 
     public void Walk()
@@ -26,14 +26,16 @@ public class Fish
 
     public void Swim()
     {
-        Console.WriteLine($"Fish is swiming {Get_Speed()}like a fish");
+        if (Can_Swim)
+            Console.WriteLine($"Fish is swiming {Get_Speed()}like a fish");
+        else
+            Console.WriteLine("Fish cannot swim");
     }
 
     public void Injure()
     {
         Console.WriteLine("Fish is injured");
-        is_injured = true;
-        speed = Speed.Slow;
+        Can_Swim = false;
     }
 
     private string Get_Speed()

@@ -17,28 +17,28 @@ public class Robot_Dog
 
     public void Walk()
     {
-        if (!is_recharged)
-            Recharge();
         if (is_broken)
             Repair();
+        if (!is_recharged)
+            Recharge();
         Console.WriteLine($"Robot_Dog is walking {Get_Speed()}like a dog");
     }
 
     public void Swim()
     {
-        if (!is_recharged)
-            Recharge();
         if (is_broken)
             Repair();
+        if (!is_recharged)
+            Recharge();
         Console.WriteLine($"Robot_Dog is swiming {Get_Speed()}like a dog");
     }
 
     public void Make_Sound()
     {
-        if (!is_recharged)
-            Recharge();
         if (is_broken)
             Repair();
+        if (!is_recharged)
+            Recharge();
         Console.WriteLine("Robot_Dog is barking");
     }
 

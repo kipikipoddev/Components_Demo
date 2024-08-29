@@ -24,6 +24,7 @@ public class Program
         entity.Write_Actions();
         Do_Actions(entity);
         entity.Injure();
+        entity.Write_Actions();
         Do_Actions(entity);
         Console.WriteLine();
     }

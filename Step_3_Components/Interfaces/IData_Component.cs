@@ -4,7 +4,7 @@ namespace Step_3_Components;
 
 public interface IData_Component : IComponent
 {
-    Speed Speed { get; set; }
+    Speed Speed { get; }
     string Name { get; }
     Types Type { get; }
 }

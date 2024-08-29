@@ -2,18 +2,19 @@
 
 public class Robot_Injure_Component : Component, IInjure_Component
 {
-    public bool Is_Injured { get; set; }
+    private bool is_injured;
 
-    public void Injure()
+    public bool Is_Injured
     {
-        Parent.Write_Action("broken");
-        Is_Injured = true;
-    }
-
-    public void Repair()
-    {
-        Parent.Write_Action("repairing...");
-        Is_Injured = false;
-        Parent.Write_Action("repaired");
+        get => is_injured;
+        set
+        {
+            if (value & !is_injured)
+            {
+                Parent.Write_Action("broken");
+                Parent.Add(new Repiar_Component());
+            }
+            is_injured = value;
+        }
     }
 }

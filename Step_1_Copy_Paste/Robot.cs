@@ -17,19 +17,19 @@ public class Robot
 
     public void Make_Sound()
     {
-        if (!is_recharged)
-            Recharge();
         if (is_broken)
             Repair();
+        if (!is_recharged)
+            Recharge();
         Console.WriteLine("Robot is beeping");
     }
 
     public void Walk()
     {
-        if (!is_recharged)
-            Recharge();
         if (is_broken)
             Repair();
+        if (!is_recharged)
+            Recharge();
         Console.WriteLine($"Robot is walking {Get_Speed()}like a robot");
     }
 
