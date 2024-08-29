@@ -10,12 +10,12 @@ public class Components : Component, IComponents
             Add(obj);
     }
 
-    public void Add(IComponent? component)
+    public void Add(IComponent? component, bool insert = false)
     {
         if (component == null)
             return;
         component.Parent = this;
-        Add_Component(component);
+        Add_Component(component, insert);
     }
 
     public T Get<T>()
@@ -43,18 +43,21 @@ public class Components : Component, IComponents
         return Has<IHandler<T>>();
     }
 
-    private void Add_Component(IComponent component)
+    private void Add_Component(IComponent component, bool insert)
     {
         var type = component.GetType();
-        Add(component, type);
+        Add(component, type, insert);
         foreach (var int_type in type.GetInterfaces())
-            Add(component, int_type);
+            Add(component, int_type, insert);
     }
 
-    private void Add(IComponent component, Type type)
+    private void Add(IComponent component, Type type, bool insert)
     {
         if (!components.ContainsKey(type))
             components[type] = new();
-        components[type].Add(component);
+        if (insert)
+            components[type].Insert(0, component);
+        else
+            components[type].Add(component);
     }
 }

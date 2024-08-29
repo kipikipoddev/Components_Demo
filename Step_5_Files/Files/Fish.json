@@ -1,6 +1,7 @@
 {
     "Type": "Fish",
     "Speed": "Fast",
+    "Writer": "Injured",
     "Injure": "Animal",
     "Swim": true
 }

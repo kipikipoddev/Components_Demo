@@ -13,9 +13,12 @@ public class Fish_Robot : Components
         Add(new Recharge_Component());
         Add(new Robot_Injure_Handler());
         Add(new No_Handler_Handler());
-        
+
+        Add(new Repair_Handler<Make_Sound_Command>());
         Add(new Recharge_Handler<Make_Sound_Command>());
         Add(new Beep_Handler());
+
+        Add(new Repair_Handler<Swim_Command>());
         Add(new Recharge_Handler<Swim_Command>());
         Add(new Swim_Handler());
     }

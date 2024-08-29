@@ -1,6 +1,7 @@
 {
     "Type": "Dog",
     "Speed": "Normal",
+    "Writer": "Normal",
     "Injure": "Robot",
     "Charge": true,
     "Walk": true,

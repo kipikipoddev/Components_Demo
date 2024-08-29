@@ -2,7 +2,7 @@
 
 public interface IComponents : IComponent
 {
-    void Add(IComponent component);
+    void Add(IComponent component, bool insert = false);
 
     T Get<T>()
         where T : IComponent;
@@ -12,7 +12,7 @@ public interface IComponents : IComponent
 
     IEnumerable<T> Get_All<T>()
         where T : IComponent;
-        
+
     bool Can<T>()
         where T : Command;
 }

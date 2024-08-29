@@ -1,10 +1,9 @@
-﻿using Step_4_Commands.Commands;
+﻿namespace Step_5_Files.Sound_Handlers;
 
-namespace Step_4_Commands.Sound_Handlers;
-
-public class Repaire_Handler : Handler<Repaire_Command>
+public class Repair_Handler<T> : Handler<T>
+    where T : Command
 {
-    public override void Handle(Repaire_Command cmd)
+    public override void Handle(T cmd)
     {
         var data = cmd.Components.Get<Data_Component>();
         if (!data.Is_Injured)

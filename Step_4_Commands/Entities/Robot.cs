@@ -14,8 +14,11 @@ public class Robot : Components
         Add(new Robot_Injure_Handler());
         Add(new No_Handler_Handler());
 
+        Add(new Repair_Handler<Walk_Command>());
         Add(new Recharge_Handler<Walk_Command>());
         Add(new Walk_Handler());
+
+        Add(new Repair_Handler<Make_Sound_Command>());
         Add(new Recharge_Handler<Make_Sound_Command>());
         Add(new Beep_Handler());
     }

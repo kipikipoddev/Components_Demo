@@ -1,6 +1,7 @@
 {
     "Type": "Dog",
     "Speed": "Normal",
+    "Writer": "Injured",
     "Injure": "Animal",
     "Walk": true,
     "Sound": "Bark",

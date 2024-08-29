@@ -13,11 +13,16 @@ public class Robot_Dog : Components
         Add(new Recharge_Component());
         Add(new Robot_Injure_Handler());
         Add(new No_Handler_Handler());
-        
+
+        Add(new Repair_Handler<Walk_Command>());
         Add(new Recharge_Handler<Walk_Command>());
         Add(new Walk_Handler());
+
+        Add(new Repair_Handler<Make_Sound_Command>());
         Add(new Recharge_Handler<Make_Sound_Command>());
         Add(new Bark_Handler());
+
+        Add(new Repair_Handler<Swim_Command>());
         Add(new Recharge_Handler<Swim_Command>());
         Add(new Swim_Handler());
     }

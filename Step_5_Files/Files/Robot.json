@@ -1,6 +1,7 @@
 {
     "Type": "Robot",
     "Speed": "Slow",
+    "Writer": "Normal",
     "Injure": "Robot",
     "Charge": true,
     "Walk": true,
