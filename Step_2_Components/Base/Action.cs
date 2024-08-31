@@ -1,28 +1,33 @@
 ﻿
 namespace Components_Demo;
 
-public class Action : IAction
+public abstract class Action : IAction
 {
     private readonly IAction_Printer printer;
     private readonly Func<bool> can_func;
-    private readonly Action_Data data;
 
-    public string Name => data.Name;
-    public string Doing => data.Doing;
+    protected abstract bool Add_Speed { get; }
+
+    public abstract string Name { get; }
+    public abstract string Doing { get; }
     public bool Can => can_func();
 
-    public Action(IAction_Printer printer, Func<bool> can_func, Action_Data data)
+    public Action(IAction_Printer printer, Func<bool> can_func)
     {
         this.printer = printer;
         this.can_func = can_func;
-        this.data = data;
     }
 
-    public void Do()
+    public virtual void Do()
     {
         if (Can)
-            printer.Print_Action(this, data.Add_Speed);
+            Perfrom();
         else
             printer.Print_Cannot(this);
+    }
+
+    protected virtual void Perfrom()
+    {
+        printer.Print_Action(this, Add_Speed);
     }
 }
