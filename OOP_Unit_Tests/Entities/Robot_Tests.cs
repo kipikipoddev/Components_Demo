@@ -1,10 +1,10 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
 public class Robot_Tests : UnitTest_Base<IRobot>
 {
-    private const int Max_Charges = 2;
+    private int Max_Charges => Creator.Max_Charges;
 
     [Test]
     public void Test_Actions()
@@ -32,6 +32,7 @@ public class Robot_Tests : UnitTest_Base<IRobot>
     [Test]
     public void Test_Charge()
     {
+        Subject = Creator.Create<IRobot>(Speed.Fast);
         Subject.Recharge();
         Test_Action_Message(Actions.Recharging, Speed.Fast);
         Assert.That(Subject.Charges, Is.EqualTo(Subject.Max_Charges));
@@ -78,11 +79,6 @@ public class Robot_Tests : UnitTest_Base<IRobot>
     [Test]
     public void Test_Max_Charges_Zero()
     {
-        Assert.Throws<ArgumentException>(() => new Robot(Priner, 0, Speed.Slow));
-    }
-
-    protected override IRobot Get_Subject()
-    {
-        return new Robot(Priner, Max_Charges, Speed.Fast);
+        Assert.Throws<ArgumentException>(() => Creator.Create<IRobot>(Speed.Slow, 0));
     }
 }

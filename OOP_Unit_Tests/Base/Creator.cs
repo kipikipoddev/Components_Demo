@@ -1,6 +1,6 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
 public static class Creator
 {
@@ -12,15 +12,15 @@ public static class Creator
     public static T Create<T>(Speed speed = Speed.Normal, int? charges = null)
         where T : class, IEntity
     {
-        if (typeof(T) is ICat)
+        if (typeof(T) == typeof(ICat))
             return new Cat(printer, speed) as T;
-        if (typeof(T) is IDog)
+        if (typeof(T) == typeof(IDog))
             return new Dog(printer, speed) as T;
-        if (typeof(T) is IFIsh)
+        if (typeof(T) == typeof(IFIsh))
             return new Fish(printer, speed) as T;
-        if (typeof(T) is IRobot_Dog)
+        if (typeof(T) == typeof(IRobot_Dog))
             return new Robot_Dog(printer, charges ?? Max_Charges, speed) as T;
-        if (typeof(T) is IRobot)
+        if (typeof(T) == typeof(IRobot))
             return new Robot(printer, charges ?? Max_Charges, speed) as T;
         return null;
     }

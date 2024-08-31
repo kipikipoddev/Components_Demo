@@ -1,6 +1,6 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
 public class Dog_Tests : UnitTest_Base<IDog>
 {
@@ -25,10 +25,5 @@ public class Dog_Tests : UnitTest_Base<IDog>
     {
         Subject.Bark();
         Test_Action_Message(Actions.Barking);
-    }
-
-    protected override IDog Get_Subject()
-    {
-        return new Dog(Priner, Speed.Normal);
     }
 }

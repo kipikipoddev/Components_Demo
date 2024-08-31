@@ -1,8 +1,8 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
-public class Fish_Tests : UnitTest_Base<IAnimal>
+public class Fish_Tests : UnitTest_Base<IFIsh>
 {
     [Test]
     public void Test_Actions()
@@ -17,10 +17,5 @@ public class Fish_Tests : UnitTest_Base<IAnimal>
     public void Test_Get_Actions()
     {
         Test_Actions(Actions.Swim, Actions.Injure);
-    }
-
-    protected override IAnimal Get_Subject()
-    {
-        return new Fish(Priner, Speed.Fast);
     }
 }

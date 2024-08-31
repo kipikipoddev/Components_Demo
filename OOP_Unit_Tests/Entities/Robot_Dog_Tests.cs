@@ -1,11 +1,9 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
 public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
 {
-    private const int Max_Charges = 2;
-
     [Test]
     public void Test_Actions()
     {
@@ -47,7 +45,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     {
         Subject.Recharge();
         Subject.Bark();
-        Test_Action_Message(Actions.Barking, Speed.Fast);
+        Test_Action_Message(Actions.Barking);
     }
 
     [Test]
@@ -57,10 +55,5 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
         Test_Cannot_Action(Actions.Heal);
         Subject.Injure();
         Test_Cannot_Action(Actions.Injure);
-    }
-
-    protected override IRobot_Dog Get_Subject()
-    {
-        return new Robot_Dog(Priner, Max_Charges, Speed.Fast);
     }
 }

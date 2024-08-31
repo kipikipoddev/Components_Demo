@@ -1,22 +1,17 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
-public abstract class UnitTest_Base<T>
-    where T : IEntity
+public class UnitTest_Base<T>
+    where T : class, IEntity
 {
-    protected Test_Printer Priner;
-
     protected T Subject;
 
     [SetUp]
     public virtual void Setup()
     {
-        Priner = new Test_Printer();
-        Subject = Get_Subject();
+        Subject = Creator.Create<T>();
     }
-
-    protected abstract T Get_Subject();
 
     protected void Test_Actions(params Actions[] actions)
     {
@@ -38,7 +33,7 @@ public abstract class UnitTest_Base<T>
 
     protected void Test_Message(string message)
     {
-        Assert.That(Priner.Messages.Last(), Is.EqualTo(message));
+        Assert.That(Creator.Printer.Messages.Last(), Is.EqualTo(message));
     }
 
     protected void Test_Action_Message(Actions action, Speed? speed = null)

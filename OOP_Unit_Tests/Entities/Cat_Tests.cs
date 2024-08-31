@@ -1,6 +1,6 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
 public class Cat_Tests : UnitTest_Base<ICat>
 {
@@ -25,10 +25,5 @@ public class Cat_Tests : UnitTest_Base<ICat>
     {
         Subject.Meow();
         Test_Action_Message(Actions.Meowing);
-    }
-
-    protected override ICat Get_Subject()
-    {
-        return new Cat(Priner, Speed.Normal);
     }
 }

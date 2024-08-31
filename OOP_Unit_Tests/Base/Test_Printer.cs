@@ -1,6 +1,6 @@
 using Step_1_OOP;
 
-namespace Step_1_OOP_Tests;
+namespace OOP_Unit_Tests;
 
 public class Test_Printer : Action_Printer
 {
