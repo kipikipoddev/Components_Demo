@@ -10,10 +10,10 @@ public class Program
         var entities = new IEntity[]
         {
             new Cat(printer,Speed.Fast),
-            new Dog(printer,Speed.Normaly),
+            new Dog(printer,Speed.Normal),
             new Fish(printer,Speed.Fast),
-            new Human_Robot(printer,Speed.Slowly),
-            new Robot_Dog(printer,Speed.Normaly),
+            new Human_Robot(printer,Speed.Slow),
+            new Robot_Dog(printer,Speed.Normal),
             new Fish_Robot(printer,Speed.Fast),
         };
 
@@ -29,7 +29,6 @@ public class Program
 
         if (entity is IAnimal animal)
         {
-            animal.Injure();
             animal.Injure();
             printer.Print_Actions(entity);
             animal.Heal();

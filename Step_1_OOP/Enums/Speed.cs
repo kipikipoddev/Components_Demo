@@ -2,7 +2,7 @@
 
 public enum Speed
 {
-    Slowly,
-    Normaly,
+    Slow,
+    Normal,
     Fast
 }

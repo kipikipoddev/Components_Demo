@@ -13,14 +13,6 @@ public abstract class Robot : Entity, IRobot
     {
     }
 
-    public override void Make_Sound()
-    {
-        if (Can_Make_Sound)
-            Printer.Print_Action(this, Actions.Beeping);
-        else
-            base.Make_Sound();
-    }
-
     public void Charge()
     {
         if (Is_Charged)

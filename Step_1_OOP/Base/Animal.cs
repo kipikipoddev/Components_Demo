@@ -2,8 +2,6 @@
 
 public abstract class Animal : Entity, IAnimal
 {
-    protected virtual Actions Sound { get; }
-
     public bool Is_Injured { get; private set; }
 
     public override bool Can_Walk => base.Can_Walk & !Is_Injured;
@@ -19,7 +17,7 @@ public abstract class Animal : Entity, IAnimal
     {
         if (Can_Make_Sound)
         {
-            var extra = Is_Injured ? " " + Actions.Painfully.ToString().ToLower() : null;
+            var extra = Is_Injured ? " painfully" : null;
             Printer.Print_Action(this, Sound, false, extra);
         }
         else

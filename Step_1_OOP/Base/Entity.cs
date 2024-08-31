@@ -3,6 +3,7 @@
 public abstract class Entity : IEntity
 {
     protected IAction_Printer Printer { get; }
+    protected virtual Sounds Sound { get; }
 
     public Speed Speed { get; }
     public string Name { get; set; }
@@ -19,7 +20,10 @@ public abstract class Entity : IEntity
 
     public virtual void Make_Sound()
     {
-        Printer.Print_Cannot(this, Actions.Make_Sound);
+        if (Can_Make_Sound)
+            Printer.Print_Action(this, Sound);
+        else
+            Printer.Print_Cannot(this, Actions.Make_Sound);
     }
 
     public virtual void Swim()

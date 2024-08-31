@@ -2,7 +2,7 @@
 
 public class Cat : Animal
 {
-    protected override Actions Sound => Actions.Meowing;
+    protected override Sounds Sound => Sounds.Meowing;
 
     public Cat(IAction_Printer printer, Speed speed)
         : base(printer, speed)

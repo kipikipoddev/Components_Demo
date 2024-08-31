@@ -1,18 +1,19 @@
-﻿namespace Step_1_OOP;
+﻿
+namespace Step_1_OOP;
 
 public abstract class Action_Printer : IAction_Printer
 {
     protected abstract void Print(string message);
 
-    public void Print_Action(IEntity entity, Actions action, bool add_speed, string? extra = null)
+    public void Print_Action(IEntity entity, object message, bool add_speed, string? extra = null)
     {
-        var speed = add_speed ? entity.Speed.ToString().ToLower() : string.Empty;
-        Print($"{entity.Name} is {action.ToString().ToLower()} {speed}{extra ?? string.Empty}");
+        var speed = add_speed ? Get_Speed(entity.Speed) : string.Empty;
+        Print($"{entity.Name} is {message.ToString()!.ToLower()} {speed}{extra ?? string.Empty}");
     }
 
-    public void Print_Cannot(IEntity entity, Actions action)
+    public void Print_Cannot(IEntity entity, object message)
     {
-        Print($"{entity.Name} cannot {action.ToString().ToLower()}");
+        Print($"{entity.Name} cannot {message.ToString()!.ToLower()}");
     }
 
     public void Print_Actions(IEntity entity)
@@ -49,5 +50,18 @@ public abstract class Action_Printer : IAction_Printer
         if (actions.Length == 2)
             return string.Join(" and ", actions);
         return string.Join(", ", actions, 0, actions.Length - 1) + " and " + actions[^1];
+    }
+
+    private static string Get_Speed(Speed speed)
+    {
+        switch (speed)
+        {
+            case Speed.Slow:
+                return "slowly";
+            case Speed.Fast:
+                return "fast";
+            default:
+                return string.Empty;
+        }
     }
 }

@@ -2,7 +2,8 @@
 
 public class Dog : Animal
 {
-    protected override Actions Sound => Actions.Barking;
+    protected override Sounds Sound => Sounds.Barking;
+    
     public Dog(IAction_Printer printer, Speed speed)
         : base(printer, speed)
     {

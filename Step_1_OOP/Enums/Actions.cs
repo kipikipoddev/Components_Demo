@@ -7,9 +7,6 @@ public enum Actions
     Walk,
     Walking,
     Make_Sound,
-    Meowing,
-    Barking,
-    Beeping,
     Heal,
     Healing,
     Healed,
@@ -17,6 +14,5 @@ public enum Actions
     Injured,
     Charge,
     Charging,
-    Charged,
-    Painfully
+    Charged
 }
