@@ -1,9 +1,0 @@
-{
-    "Type": "Fish",
-    "Speed": "Fast",
-    "Writer": "Normal",
-    "Injure": "Robot",
-    "Charge": true,
-    "Sound": "Beep",
-    "Swim": true
-}
