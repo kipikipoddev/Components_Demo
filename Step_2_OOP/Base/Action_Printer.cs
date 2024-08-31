@@ -18,7 +18,7 @@ public abstract class Action_Printer : IAction_Printer
 
     public void Print_Actions(IEntity entity)
     {
-        var actions = entity.Actions_Possible;
+        var actions = entity.Get_Actions();
         if (actions.Any())
             Print(entity.Name + " can: " + To_String(actions));
         else

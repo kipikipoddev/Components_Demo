@@ -2,8 +2,8 @@
 
 public class Dog : Animal, IDog
 {
-    public bool Can_Swim => !Is_Injured;
-    public bool Can_Walk => !Is_Injured;
+    public override bool Can_Walk => !Is_Injured;
+    public override bool Can_Swim => !Is_Injured;
     public bool Can_Bark => !Is_Injured;
 
     public Dog(IAction_Printer printer, Speed speed)
@@ -11,7 +11,7 @@ public class Dog : Animal, IDog
     {
     }
 
-    public virtual void Bark()
+    public void Bark()
     {
         if (Can_Bark)
             Printer.Print_Action(this, Actions.Barking, Speed);
@@ -19,29 +19,11 @@ public class Dog : Animal, IDog
             Printer.Print_Cannot(this, Actions.Bark);
     }
 
-    public void Walk()
+    public override IEnumerable<Actions> Get_Actions()
     {
-        if (Can_Walk)
-            Printer.Print_Action(this, Actions.Walking, Speed);
-        else
-            Printer.Print_Cannot(this, Actions.Walk);
-    }
-
-    public void Swim()
-    {
-        if (Can_Swim)
-            Printer.Print_Action(this, Actions.Swiming, Speed);
-        else
-            Printer.Print_Cannot(this, Actions.Swim);
-    }
-
-    public override IEnumerable<Actions> Actions_Possible
-    {
-        get
-        {
-            if (!Is_Injured)
-                return [Actions.Bark, Actions.Walk, Actions.Swim];
-            return base.Actions_Possible;
-        }
+        if (!Is_Injured)
+            yield return Actions.Bark;
+        foreach (var action in base.Get_Actions())
+            yield return action;
     }
 }

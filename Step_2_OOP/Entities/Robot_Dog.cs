@@ -1,38 +1,43 @@
 ﻿namespace Step_2_OOP;
 
-public class Robot_Dog : Robot, IRobot_Dog
+public class Robot_Dog : Robot, IDog
 {
-    public bool Can_Swim => Is_Charged;
+    private readonly Dog dog;
+
+    public override bool Can_Swim => Is_Charged;
     public bool Can_Bark => Is_Charged;
+    public bool Is_Injured => false;
+    public bool Can_Injure => false;
+    public bool Can_Heal => false;
 
     public Robot_Dog(IAction_Printer printer, Speed speed)
         : base(printer, speed)
     {
+        dog = new Dog(printer, speed);
     }
 
     public void Bark()
     {
-        if (Can_Bark)
-            Printer.Print_Action(this, Actions.Barking, Speed);
-        else
-            Printer.Print_Cannot(this, Actions.Bark);
+        if (Is_Charged)
+            Charges--;
+        dog.Bark();
     }
 
-    public void Swim()
+    public override IEnumerable<Actions> Get_Actions()
     {
-        if (Can_Swim)
-            Printer.Print_Action(this, Actions.Swiming, Speed);
-        else
-            Printer.Print_Cannot(this, Actions.Swim);
+        if (Is_Charged)
+            yield return Actions.Bark;
+        foreach (var action in base.Get_Actions())
+            yield return action;
     }
 
-    public override IEnumerable<Actions> Actions_Possible
+    public void Injure()
     {
-        get
-        {
-            if (Is_Charged)
-                return [Actions.Walk, Actions.Bark, Actions.Swim, Actions.Charge];
-            return [Actions.Charge];
-        }
+        dog.Injure();
+    }
+
+    public void Heal()
+    {
+        dog.Heal();
     }
 }

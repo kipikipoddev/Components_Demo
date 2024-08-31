@@ -6,11 +6,26 @@ public class Robot : Entity, IRobot
     public int Charges { get; protected set; }
     public int Max_Charges { get; }
 
-    public bool Can_Walk => Is_Charged;
+    public override bool Can_Swim => false;
+    public override bool Can_Walk => Is_Charged;
 
     public Robot(IAction_Printer printer, Speed speed)
         : base(printer, speed)
     {
+    }
+
+    public override void Walk()
+    {
+        if (Is_Charged)
+            Charges--;
+        base.Walk();
+    }
+
+    public override void Swim()
+    {
+        if (Is_Charged)
+            Charges--;
+        base.Swim();
     }
 
     public void Charge(int charges)
@@ -25,21 +40,10 @@ public class Robot : Entity, IRobot
         }
     }
 
-    public void Walk()
+    public override IEnumerable<Actions> Get_Actions()
     {
-        if (Can_Walk)
-            Printer.Print_Action(this, Actions.Walking, Speed);
-        else
-            Printer.Print_Cannot(this, Actions.Walk);
-    }
-
-    public override IEnumerable<Actions> Actions_Possible
-    {
-        get
-        {
-            if (Is_Charged)
-                return [Actions.Walk, Actions.Charge];
-            return [Actions.Charge];
-        }
+        yield return Actions.Charge;
+        foreach (var action in base.Get_Actions())
+            yield return action;
     }
 }

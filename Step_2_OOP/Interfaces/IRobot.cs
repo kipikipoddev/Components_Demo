@@ -1,6 +1,6 @@
 ﻿namespace Step_2_OOP;
 
-public interface IRobot : IWalker
+public interface IRobot : IEntity
 {
     bool Is_Charged { get; }
     int Charges { get; }

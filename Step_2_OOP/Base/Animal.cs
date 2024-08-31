@@ -1,8 +1,11 @@
-﻿namespace Step_2_OOP;
+﻿
+namespace Step_2_OOP;
 
-public class Animal : Entity, IAnimal
+public abstract class Animal : Entity, IAnimal
 {
     public bool Is_Injured { get; private set; }
+    public bool Can_Injure => !Is_Injured;
+    public bool Can_Heal => Is_Injured;
 
     public Animal(IAction_Printer printer, Speed speed)
         : base(printer, speed)
@@ -26,9 +29,18 @@ public class Animal : Entity, IAnimal
         {
             Printer.Print_Action(this, Actions.Healing);
             Is_Injured = false;
-             Printer.Print_Cannot(this, Actions.Healed);
         }
         else
             Printer.Print_Cannot(this, Actions.Heal);
+    }
+
+    public override IEnumerable<Actions> Get_Actions()
+    {
+        if (Is_Injured)
+            yield return Actions.Heal;
+        else
+            yield return Actions.Injure;
+        foreach (var action in base.Get_Actions())
+            yield return action;
     }
 }

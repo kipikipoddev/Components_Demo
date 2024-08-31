@@ -1,6 +1,6 @@
 ﻿namespace Step_2_OOP;
 
-public interface IBarker : IEntity
+public interface IDog : IAnimal
 {
     bool Can_Bark { get; }
     void Bark();

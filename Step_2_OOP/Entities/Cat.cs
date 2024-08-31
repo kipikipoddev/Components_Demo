@@ -3,8 +3,9 @@ namespace Step_2_OOP;
 
 public class Cat : Animal, ICat
 {
+    public override bool Can_Swim => false;
+    public override bool Can_Walk => !Is_Injured;
     public bool Can_Meow => !Is_Injured;
-    public bool Can_Walk => !Is_Injured;
 
     public Cat(IAction_Printer printer, Speed speed)
         : base(printer, speed)
@@ -19,21 +20,11 @@ public class Cat : Animal, ICat
             Printer.Print_Cannot(this, Actions.Meow);
     }
 
-    public virtual void Walk()
+    public override IEnumerable<Actions> Get_Actions()
     {
-        if (Can_Walk)
-            Printer.Print_Action(this, Actions.Walking, Speed);
-        else
-            Printer.Print_Cannot(this, Actions.Walk);
-    }
-
-    public override IEnumerable<Actions> Actions_Possible
-    {
-        get
-        {
-            if (!Is_Injured)
-                return [Actions.Meow, Actions.Walk];
-            return base.Actions_Possible;
-        }
+        if (!Is_Injured)
+            yield return Actions.Meow;
+        foreach (var action in base.Get_Actions())
+            yield return action;
     }
 }
