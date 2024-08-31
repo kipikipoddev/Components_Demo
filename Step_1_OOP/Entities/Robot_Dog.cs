@@ -1,4 +1,4 @@
-﻿namespace Step_1_OOP;
+﻿namespace Components_Demo;
 
 public class Robot_Dog : Robot, IRobot_Dog
 {

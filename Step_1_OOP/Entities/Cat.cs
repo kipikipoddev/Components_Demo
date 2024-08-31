@@ -1,5 +1,5 @@
 ﻿
-namespace Step_1_OOP;
+namespace Components_Demo;
 
 public class Cat : Animal, ICat
 {
