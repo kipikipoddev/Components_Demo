@@ -2,7 +2,7 @@
 
 public interface IComponents : IComponent
 {
-    void Add(IComponent component);
+    void Set(IComponent component);
 
     void Remove<T>()
          where T : IComponent;

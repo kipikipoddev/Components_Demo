@@ -7,8 +7,8 @@ public interface IInjure_Component : IComponent
 
 public static class Injure_Extension
 {
-    public static IInjure_Component Injure(this IComponents components)
+    public static void Injure(this IComponents components)
     {
-        return components.Get<IInjure_Component>();
+        components.Get<IInjure_Component>().Is_Injured = true;
     }
 }

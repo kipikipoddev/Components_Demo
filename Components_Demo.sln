@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_1_Copy_Paste", "Step_1_Copy_Paste\Step_1_Copy_Paste.csproj", "{0FB0AEEF-35A7-4447-8C37-24C7330CA399}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_2_OOP", "Step_2_OOP\Step_2_OOP.csproj", "{4D7AAC47-F808-404A-9082-5CF0BA8F2F21}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_1_OOP", "Step_1_OOP\Step_1_OOP.csproj", "{4D7AAC47-F808-404A-9082-5CF0BA8F2F21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Step_3_Components", "Step_3_Components\Step_3_Components.csproj", "{DE1994EF-3D52-4260-B0AC-B60038B44B54}"
 EndProject

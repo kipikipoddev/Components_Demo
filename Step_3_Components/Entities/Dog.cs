@@ -6,11 +6,11 @@ public class Dog : Components
 {
     public Dog(Speed speed)
     {
-        Add(new Data_Component(GetType().Name, speed, Types.Dog));
-        Add(new Injured_Writer_Component());
-        Add(new Animal_Injure_Component());
-        Add(new Walk_Component());
-        Add(new Bark_Component());
-        Add(new Swim_Component());
+        Set(new Data_Component(GetType().Name, speed, Types.Dog));
+        Set(new Injured_Writer_Component());
+        Set(new Animal_Injure_Component());
+        Set(new Walk_Component());
+        Set(new Bark_Component());
+        Set(new Swim_Component());
     }
 }
