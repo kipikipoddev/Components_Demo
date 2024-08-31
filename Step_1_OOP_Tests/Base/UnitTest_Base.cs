@@ -2,19 +2,25 @@ using Step_1_OOP;
 
 namespace Step_1_OOP_Tests;
 
-public class UnitTest_Base
+public abstract class UnitTest_Base<T>
+    where T : IEntity
 {
-    protected Test_Priner Priner;
+    protected Test_Printer Priner;
+
+    protected T Subject;
 
     [SetUp]
     public virtual void Setup()
     {
-        Priner = new Test_Priner();
+        Priner = new Test_Printer();
+        Subject = Get_Subject();
     }
 
-    protected void Test_Actions(Entity entity, params Actions[] actions)
+    protected abstract T Get_Subject();
+
+    protected void Test_Actions(params Actions[] actions)
     {
-        var entity_actions = entity.Get_Actions().ToArray();
+        var entity_actions = Subject.Get_Actions().ToArray();
         Assert.That(entity_actions.Length, Is.EqualTo(actions.Length));
         foreach (var entity_action in entity_actions)
             Assert.True(actions.Contains(entity_action));
@@ -35,10 +41,18 @@ public class UnitTest_Base
         Assert.That(Priner.Messages.Last(), Is.EqualTo(message));
     }
 
-    protected void Test_Action_Message(string message, Actions action, Speed? speed = null)
+    protected void Test_Action_Message(Actions action, Speed? speed = null)
     {
         var speed_str = speed != null ? Get_Speed(speed) : string.Empty;
-        Test_Message(message + action.ToString().ToLower() + speed_str);
+        var action_set = action.ToString().ToLower();
+        Test_Message($"{Subject.Name} is {action_set}{speed_str}");
+    }
+
+
+    protected void Test_Cannot_Action(Actions action)
+    {
+        var action_set = action.ToString().ToLower();
+        Test_Message($"{Subject.Name} cannot {action_set}");
     }
 
     private static string Get_Speed(Speed? speed)

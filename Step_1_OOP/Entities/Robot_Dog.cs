@@ -1,6 +1,6 @@
 ﻿namespace Step_1_OOP;
 
-public class Robot_Dog : Robot, IDog
+public class Robot_Dog : Robot, IRobot_Dog
 {
     public bool Can_Bark => Is_Charged;
     public bool Is_Injured => false;

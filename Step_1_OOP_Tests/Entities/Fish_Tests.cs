@@ -2,22 +2,25 @@ using Step_1_OOP;
 
 namespace Step_1_OOP_Tests;
 
-public class Fish_Tests : UnitTest_Base
+public class Fish_Tests : UnitTest_Base<IAnimal>
 {
     [Test]
     public void Test_Actions()
     {
-        var fish = new Fish(Priner, Speed.Fast);
-        Cannot(fish.Can_Walk);
-        Can(fish.Can_Injure);
-        Can(fish.Can_Swim);
-        Cannot(fish.Can_Heal);
+        Cannot(Subject.Can_Walk);
+        Can(Subject.Can_Injure);
+        Can(Subject.Can_Swim);
+        Cannot(Subject.Can_Heal);
     }
 
     [Test]
     public void Test_Get_Actions()
     {
-        var fish = new Fish(Priner, Speed.Fast);
-        Test_Actions(fish, Actions.Swim, Actions.Injure);
+        Test_Actions(Actions.Swim, Actions.Injure);
+    }
+
+    protected override IAnimal Get_Subject()
+    {
+        return new Fish(Priner, Speed.Fast);
     }
 }

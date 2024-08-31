@@ -2,14 +2,14 @@ using Step_1_OOP;
 
 namespace Step_1_OOP_Tests;
 
-public class Injure_Tests : UnitTest_Base
+public class Injure_Tests : UnitTest_Base<ICat>
 {
     [Test]
     public void Test_Injure()
     {
         var cat = new Cat(Priner, Speed.Fast);
         cat.Injure();
-        Test_Action_Message("Cat is ", Actions.Injured);
+        Test_Action_Message(Actions.Injured);
     }
 
     [Test]
@@ -18,7 +18,7 @@ public class Injure_Tests : UnitTest_Base
         var cat = new Cat(Priner, Speed.Fast);
         cat.Injure();
         cat.Heal();
-        Test_Action_Message("Cat is ", Actions.Healing);
+        Test_Action_Message(Actions.Healing);
     }
 
 
@@ -27,31 +27,34 @@ public class Injure_Tests : UnitTest_Base
     {
         var cat = new Cat(Priner, Speed.Fast);
         cat.Heal();
-        Test_Action_Message("Cat cannot ", Actions.Heal);
+        Test_Cannot_Action(Actions.Heal);
     }
 
     [Test]
     public void Test_Injure_Actions()
     {
-        var cat = new Cat(Priner, Speed.Normal);
-        cat.Injure();
-        Cannot(cat.Can_Walk);
-        Cannot(cat.Can_Meow);
-        Cannot(cat.Can_Injure);
-        Cannot(cat.Can_Swim);
-        Can(cat.Can_Heal);
+        Subject.Injure();
+        Cannot(Subject.Can_Walk);
+        Cannot(Subject.Can_Meow);
+        Cannot(Subject.Can_Injure);
+        Cannot(Subject.Can_Swim);
+        Can(Subject.Can_Heal);
     }
 
     [Test]
     public void Test_Heal_Actions()
     {
-        var cat = new Cat(Priner, Speed.Normal);
-        cat.Injure();
-        cat.Heal();
-        Can(cat.Can_Walk);
-        Can(cat.Can_Meow);
-        Can(cat.Can_Injure);
-        Cannot(cat.Can_Swim);
-        Cannot(cat.Can_Heal);
+        Subject.Injure();
+        Subject.Heal();
+        Can(Subject.Can_Walk);
+        Can(Subject.Can_Meow);
+        Can(Subject.Can_Injure);
+        Cannot(Subject.Can_Swim);
+        Cannot(Subject.Can_Heal);
+    }
+
+    protected override ICat Get_Subject()
+    {
+        return new Cat(Priner, Speed.Normal);
     }
 }

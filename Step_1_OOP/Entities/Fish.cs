@@ -1,7 +1,7 @@
 ﻿
 namespace Step_1_OOP;
 
-public class Fish : Animal
+public class Fish : Animal, IFIsh
 {
     public override bool Can_Swim => !Is_Injured;
     public override bool Can_Walk => false;

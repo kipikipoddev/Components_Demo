@@ -2,7 +2,7 @@ using Step_1_OOP;
 
 namespace Step_1_OOP_Tests;
 
-public class Test_Priner : Action_Printer
+public class Test_Printer : Action_Printer
 {
     private readonly List<string> messages = new();
 

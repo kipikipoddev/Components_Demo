@@ -2,26 +2,20 @@ using Step_1_OOP;
 
 namespace Step_1_OOP_Tests;
 
-public class Walk_Tests : UnitTest_Base
+public class Walk_Tests : UnitTest_Base<ICat>
 {
-    [Test]
-    public void Test_Walk_Fast()
+    [TestCase(Speed.Fast)]
+    [TestCase(Speed.Normal)]
+    [TestCase(Speed.Slow)]
+    public void Test_Walk(Speed speed)
     {
-        new Cat(Priner, Speed.Fast).Walk();
-        Test_Action_Message("Cat is ", Actions.Walking, Speed.Fast);
+        Subject = new Cat(Priner, speed);
+        Subject.Walk();
+        Test_Action_Message(Actions.Walking, speed);
     }
 
-    [Test]
-    public void Test_Walk_Slow()
+    protected override ICat Get_Subject()
     {
-        new Cat(Priner, Speed.Slow).Walk();
-        Test_Action_Message("Cat is ", Actions.Walking, Speed.Slow);
-    }
-
-    [Test]
-    public void Test_Walk_Normal()
-    {
-        new Cat(Priner, Speed.Normal).Walk();
-        Test_Action_Message("Cat is ", Actions.Walking, Speed.Normal);
+        return new Cat(Priner, Speed.Normal);
     }
 }
