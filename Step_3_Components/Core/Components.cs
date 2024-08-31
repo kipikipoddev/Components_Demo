@@ -4,7 +4,7 @@ public class Components : Component, IComponents
 {
     private readonly Dictionary<Type, IComponent> components = new();
 
-    public void Add(IComponent component)
+    public void Set(IComponent component)
     {
         component.Parent = this;
         foreach (var type in Get_Types(component))

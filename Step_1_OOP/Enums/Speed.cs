@@ -1,4 +1,4 @@
-﻿namespace Step_1_Copy_Paste;
+﻿namespace Step_1_OOP;
 
 public enum Speed
 {

@@ -6,11 +6,11 @@ public class Robot : Components
 {
     public Robot(Speed speed)
     {
-        Add(new Data_Component(GetType().Name, speed, Types.Robot));
-        Add(new Writer_Component());
-        Add(new Robot_Injure_Component());
-        Add(new Recharge_Component());
-        Add(new Walk_Component());
-        Add(new Beep_Component());
+        Set(new Data_Component(GetType().Name, speed, Types.Robot));
+        Set(new Writer_Component());
+        Set(new Robot_Injure_Component());
+        Set(new Recharge_Component());
+        Set(new Walk_Component());
+        Set(new Beep_Component());
     }
 }

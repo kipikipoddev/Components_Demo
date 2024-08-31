@@ -6,11 +6,11 @@ public class Fish_Robot : Components
 {
     public Fish_Robot(Speed speed)
     {
-        Add(new Data_Component(GetType().Name, speed, Types.Fish));
-        Add(new Writer_Component());
-        Add(new Robot_Injure_Component());
-        Add(new Recharge_Component());
-        Add(new Swim_Component());
-        Add(new Beep_Component());
+        Set(new Data_Component(GetType().Name, speed, Types.Fish));
+        Set(new Writer_Component());
+        Set(new Robot_Injure_Component());
+        Set(new Recharge_Component());
+        Set(new Swim_Component());
+        Set(new Beep_Component());
     }
 }
