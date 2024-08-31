@@ -1,6 +1,6 @@
 using Components_Demo;
 
-namespace OOP_Unit_Tests;
+namespace Step_1_OOP_Tests;
 
 public class Cat_Tests : UnitTest_Base<ICat>
 {
