@@ -8,20 +8,20 @@ public class Walk_Tests : UnitTest_Base
     public void Test_Walk_Fast()
     {
         new Cat(Priner, Speed.Fast).Walk();
-        Test_Message("Cat is walking fast");
+        Test_Action_Message("Cat is ", Actions.Walking, Speed.Fast);
     }
 
     [Test]
     public void Test_Walk_Slow()
     {
         new Cat(Priner, Speed.Slow).Walk();
-        Test_Message("Cat is walking slowly");
+        Test_Action_Message("Cat is ", Actions.Walking, Speed.Slow);
     }
 
     [Test]
     public void Test_Walk_Normal()
     {
         new Cat(Priner, Speed.Normal).Walk();
-        Test_Message("Cat is walking");
+        Test_Action_Message("Cat is ", Actions.Walking, Speed.Normal);
     }
 }

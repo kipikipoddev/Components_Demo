@@ -2,25 +2,25 @@
 
 public class Robot_Dog : Robot, IDog
 {
-    private readonly Dog dog;
-
-    public override bool Can_Swim => Is_Charged;
     public bool Can_Bark => Is_Charged;
     public bool Is_Injured => false;
     public bool Can_Injure => false;
     public bool Can_Heal => false;
 
-    public Robot_Dog(IAction_Printer printer, Speed speed)
-        : base(printer, speed)
+    public Robot_Dog(IAction_Printer printer, int max_charges, Speed speed)
+        : base(printer, max_charges, speed)
     {
-        dog = new Dog(printer, speed);
     }
 
     public void Bark()
     {
-        if (Is_Charged)
+        if (Can_Bark)
+        {
             Charges--;
-        dog.Bark();
+            Printer.Print_Action(this, Actions.Barking, Speed);
+        }
+        else
+            Printer.Print_Cannot(this, Actions.Bark);
     }
 
     public override IEnumerable<Actions> Get_Actions()
@@ -33,11 +33,11 @@ public class Robot_Dog : Robot, IDog
 
     public void Injure()
     {
-        dog.Injure();
+        Printer.Print_Cannot(this, Actions.Injure);
     }
 
     public void Heal()
     {
-        dog.Heal();
+        Printer.Print_Cannot(this, Actions.Heal);
     }
 }

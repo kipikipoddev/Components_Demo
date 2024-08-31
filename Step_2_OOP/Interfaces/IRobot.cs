@@ -5,5 +5,6 @@ public interface IRobot : IEntity
     bool Is_Charged { get; }
     int Charges { get; }
     int Max_Charges { get; }
-    void Charge(int charges);
+    bool Can_Recharge { get; }
+    void Recharge();
 }

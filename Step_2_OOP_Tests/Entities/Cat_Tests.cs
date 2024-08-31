@@ -5,7 +5,7 @@ namespace Step_2_OOP_Tests;
 public class Cat_Tests : UnitTest_Base
 {
     [Test]
-    public void Test_Cat_Actins()
+    public void Test_Actions()
     {
         var cat = new Cat(Priner, Speed.Fast);
         Can(cat.Can_Walk);
@@ -16,9 +16,16 @@ public class Cat_Tests : UnitTest_Base
     }
 
     [Test]
-    public void Test_Cat_Meow()
+    public void Test_Get_Actions()
+    {
+        var cat = new Cat(Priner, Speed.Fast);
+        Test_Actions(cat, Actions.Meow, Actions.Walk, Actions.Injure);
+    }
+
+    [Test]
+    public void Test_Meow()
     {
         new Cat(Priner, Speed.Normal).Meow();
-        Test_Message("Cat is meowing");
+        Test_Action_Message("Cat is ", Actions.Meowing);
     }
 }

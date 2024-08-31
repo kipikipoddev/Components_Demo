@@ -15,7 +15,7 @@ public enum Actions
     Healing,
     Injure,
     Injured,
-    Charge,
-    Charged,
-    Charging,
+    Recharge,
+    Recharged,
+    Recharging,
 }

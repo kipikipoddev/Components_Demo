@@ -9,7 +9,7 @@ public class Injure_Tests : UnitTest_Base
     {
         var cat = new Cat(Priner, Speed.Fast);
         cat.Injure();
-        Test_Message("Cat is injured");
+        Test_Action_Message("Cat is ", Actions.Injured);
     }
 
     [Test]
@@ -18,7 +18,7 @@ public class Injure_Tests : UnitTest_Base
         var cat = new Cat(Priner, Speed.Fast);
         cat.Injure();
         cat.Heal();
-        Test_Message("Cat is healing");
+        Test_Action_Message("Cat is ", Actions.Healing);
     }
 
 
@@ -27,9 +27,9 @@ public class Injure_Tests : UnitTest_Base
     {
         var cat = new Cat(Priner, Speed.Fast);
         cat.Heal();
-        Test_Message("Cat cannot heal");
+        Test_Action_Message("Cat cannot ", Actions.Heal);
     }
-    
+
     [Test]
     public void Test_Injure_Actions()
     {
