@@ -3,42 +3,44 @@ namespace Components_Demo;
 
 public abstract class Action_Printer : IAction_Printer
 {
+    private readonly IEntity entity;
+
     protected abstract void Print(string message);
 
-    public void Print_Action(IEntity entity, Actions action, Speed? speed)
+    public Action_Printer(IEntity entity)
     {
-        var speed_str = speed != null ? To_String(entity.Speed) : string.Empty;
-        Print($"{entity.Name} is {To_String(action)}{speed_str}");
+        this.entity = entity;
     }
 
-    public void Print_Cannot(IEntity entity, Actions action)
+    public void Print_Action(IAction action, bool add_speed = false)
     {
-        Print($"{entity.Name} cannot {To_String(action)}");
+        var speed_str = add_speed ? To_String(entity.Speed) : string.Empty;
+        Print($"{entity.Name} is {action.Doing}{speed_str}");
     }
 
-    public void Print_Actions(IEntity entity)
+    public void Print_Cannot(IAction action)
     {
-        var actions = new Actions[0];// entity.Actions();
+        Print($"{entity.Name} cannot {action.Name}");
+    }
+
+    public void Print_Actions()
+    {
+        var actions = entity.Actions.Select(a => a.Name).ToArray();
         if (actions.Any())
             Print(entity.Name + " can: " + To_String(actions));
         else
             Print(entity.Name + " cannot do anything");
     }
 
-    private static string To_String(IEnumerable<Actions> actions)
+    private static string To_String(string[] actions)
     {
-        var strings = actions.Select(a => To_String(a)).ToArray();
-        if (strings.Length == 1)
-            return strings[0];
-        if (strings.Length == 2)
-            return string.Join(" and ", strings);
-        return string.Join(", ", strings, 0, strings.Length - 1) + " and " + strings[^1];
+        if (actions.Length == 1)
+            return actions[0];
+        if (actions.Length == 2)
+            return string.Join(" and ", actions);
+        return string.Join(", ", actions, 0, actions.Length - 1) + " and " + actions[^1];
     }
 
-    private static string To_String(Actions action)
-    {
-        return action.ToString().ToLower();
-    }
     private static string To_String(Speed speed)
     {
         switch (speed)
