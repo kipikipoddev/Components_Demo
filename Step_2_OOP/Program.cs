@@ -12,42 +12,9 @@ public class Program
             new Cat(printer,Speed.Fast),
             new Dog(printer,Speed.Normal),
             new Fish(printer,Speed.Fast),
-            new Human_Robot(printer,Speed.Slow),
-            new Robot_Dog(printer,Speed.Normal),
-            new Fish_Robot(printer,Speed.Fast),
+            new Robot(printer,Speed.Slow),
+            new Robot_Dog(printer,Speed.Normal)
         };
-
-        foreach (var entity in entities)
-            Do_All(entity);
     }
 
-    private static void Do_All(IEntity entity)
-    {
-        Console.WriteLine($" -- {entity.Name} -- ");
-        printer.Print_Actions(entity);
-        Do_Actions(entity);
-
-        if (entity is IAnimal animal)
-        {
-            animal.Injure();
-            printer.Print_Actions(entity);
-            animal.Heal();
-            printer.Print_Actions(entity);
-        }
-        else if (entity is IRobot robot)
-        {
-            robot.Charge();
-            printer.Print_Actions(entity);
-            Do_Actions(entity);
-        }
-
-        Console.WriteLine();
-    }
-
-    private static void Do_Actions(IEntity entity)
-    {
-        entity.Walk();
-        entity.Make_Sound();
-        entity.Swim();
-    }
 }

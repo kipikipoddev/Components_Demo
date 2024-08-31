@@ -5,61 +5,48 @@ public abstract class Action_Printer : IAction_Printer
 {
     protected abstract void Print(string message);
 
-    public void Print_Action(IEntity entity, object message, bool add_speed, string? extra = null)
+    public void Print_Action(IEntity entity, Actions action, Speed? speed)
     {
-        var speed = add_speed ? Get_Speed(entity.Speed) : string.Empty;
-        Print($"{entity.Name} is {message.ToString()!.ToLower()} {speed}{extra ?? string.Empty}");
+        var speed_str = speed != null ? To_String(entity.Speed) : string.Empty;
+        Print($"{entity.Name} is {To_String(action)}{speed_str}");
     }
 
-    public void Print_Cannot(IEntity entity, object message)
+    public void Print_Cannot(IEntity entity, Actions action)
     {
-        Print($"{entity.Name} cannot {message.ToString()!.ToLower()}");
+        Print($"{entity.Name} cannot {To_String(action)}");
     }
 
     public void Print_Actions(IEntity entity)
     {
-        var actions = Get_Actions(entity);
+        var actions = entity.Actions_Possible;
         if (actions.Any())
-            Print(entity.Name + " can: " + Actions_To_string(actions));
+            Print(entity.Name + " can: " + To_String(actions));
         else
             Print(entity.Name + " cannot do anything");
     }
 
-    private static IEnumerable<Actions> Get_Actions(IEntity entity)
+    private static string To_String(IEnumerable<Actions> actions)
     {
-        if (entity.Can_Walk)
-            yield return Actions.Walk;
-        if (entity.Can_Make_Sound)
-            yield return Actions.Make_Sound;
-        if (entity.Can_Swim)
-            yield return Actions.Swim;
+        var strings = actions.Select(a => To_String(a)).ToArray();
+        if (strings.Length == 1)
+            return strings[0];
+        if (strings.Length == 2)
+            return string.Join(" and ", strings);
+        return string.Join(", ", strings, 0, strings.Length - 1) + " and " + strings[^1];
     }
 
-    private static string Actions_To_string(IEnumerable<Actions> actions)
+    private static string To_String(Actions action)
     {
-        var strings = actions
-            .Select(a => a.ToString().ToLower().Replace('_', ' '))
-            .ToArray();
-        return Actions_To_string(strings);
+        return action.ToString().ToLower();
     }
-
-    private static string Actions_To_string(string[] actions)
-    {
-        if (actions.Length == 1)
-            return actions[0];
-        if (actions.Length == 2)
-            return string.Join(" and ", actions);
-        return string.Join(", ", actions, 0, actions.Length - 1) + " and " + actions[^1];
-    }
-
-    private static string Get_Speed(Speed speed)
+    private static string To_String(Speed speed)
     {
         switch (speed)
         {
             case Speed.Slow:
-                return "slowly";
+                return " slowly";
             case Speed.Fast:
-                return "fast";
+                return " fast";
             default:
                 return string.Empty;
         }

@@ -1,15 +1,10 @@
 ﻿namespace Step_2_OOP;
 
-public abstract class Entity : IEntity
+public class Entity : IEntity
 {
     protected IAction_Printer Printer { get; }
-    protected virtual Sounds Sound { get; }
-
     public Speed Speed { get; }
     public string Name { get; set; }
-    public virtual bool Can_Swim { get; protected set; }
-    public virtual bool Can_Make_Sound { get; protected set; }
-    public virtual bool Can_Walk { get; protected set; }
 
     public Entity(IAction_Printer printer, Speed speed)
     {
@@ -18,27 +13,11 @@ public abstract class Entity : IEntity
         Speed = speed;
     }
 
-    public virtual void Make_Sound()
+    public virtual IEnumerable<Actions> Actions_Possible
     {
-        if (Can_Make_Sound)
-            Printer.Print_Action(this, Sound);
-        else
-            Printer.Print_Cannot(this, Actions.Make_Sound);
-    }
-
-    public virtual void Swim()
-    {
-        if (Can_Swim)
-            Printer.Print_Action(this, Actions.Swiming, true);
-        else
-            Printer.Print_Cannot(this, Actions.Swim);
-    }
-
-    public virtual void Walk()
-    {
-        if (Can_Walk)
-            Printer.Print_Action(this, Actions.Walking, true);
-        else
-            Printer.Print_Cannot(this, Actions.Walk);
+        get
+        {
+            return [0];
+        }
     }
 }

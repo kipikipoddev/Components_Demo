@@ -2,17 +2,20 @@
 
 public enum Actions
 {
+    Meow,
+    Meowing,
+    Bark,
+    Barking,
     Swim,
     Swiming,
     Walk,
     Walking,
-    Make_Sound,
     Heal,
-    Healing,
     Healed,
+    Healing,
     Injure,
     Injured,
     Charge,
+    Charged,
     Charging,
-    Charged
 }
