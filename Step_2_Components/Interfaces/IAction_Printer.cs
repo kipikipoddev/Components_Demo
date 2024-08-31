@@ -2,7 +2,7 @@
 
 public interface IAction_Printer
 {
-    void Print_Action(IAction action, bool add_speed);
-    void Print_Cannot(IAction action);
-    void Print_Actions();
+    void Print_Action(IAction_Component action, bool add_speed);
+    void Print_Cannot(IAction_Component action);
+    void Print_Actions(IComponents components);
 }

@@ -1,9 +1,7 @@
 ﻿namespace Components_Demo;
 
-public interface IAction
+public interface IAction_Component : IComponent
 {
     string Name { get; }
     string Doing { get; }
-    bool Can { get; }
-    void Do();
 }

@@ -3,33 +3,27 @@ namespace Components_Demo;
 
 public abstract class Action_Printer : IAction_Printer
 {
-    private readonly IEntity entity;
-
     protected abstract void Print(string message);
 
-    public Action_Printer(IEntity entity)
+    public void Print_Action(IAction_Component action, bool add_speed = false)
     {
-        this.entity = entity;
+        var speed_str = add_speed ? To_String(action.Parent.Speed()) : string.Empty;
+        Print($"{action.Parent.Name()} is {action.Doing}{speed_str}");
     }
 
-    public void Print_Action(IAction action, bool add_speed = false)
+    public void Print_Cannot(IAction_Component action)
     {
-        var speed_str = add_speed ? To_String(entity.Speed) : string.Empty;
-        Print($"{entity.Name} is {action.Doing}{speed_str}");
+        Print($"{action.Parent.Name()} cannot {action.Name}");
     }
 
-    public void Print_Cannot(IAction action)
+    public void Print_Actions(IComponents components)
     {
-        Print($"{entity.Name} cannot {action.Name}");
-    }
-
-    public void Print_Actions()
-    {
-        var actions = entity.Actions.Select(a => a.Name).ToArray();
+        var actions = components.Get_All<IAction_Component>()
+            .Select(a => a.Name).ToArray();
         if (actions.Any())
-            Print(entity.Name + " can: " + To_String(actions));
+            Print(components.Name() + " can: " + To_String(actions));
         else
-            Print(entity.Name + " cannot do anything");
+            Print(components.Name() + " cannot do anything");
     }
 
     private static string To_String(string[] actions)
