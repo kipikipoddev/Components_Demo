@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Step_2_OOP",
+            "name": "Step_1_OOP",
             "type": "dotnet",
             "request": "launch",
-            "projectPath": "${workspaceFolder}/Step_2_OOP/Step_2_OOP.csproj"
+            "projectPath": "${workspaceFolder}/Step_1_OOP/Step_1_OOP.csproj"
         }
     ]
 }
