@@ -12,14 +12,14 @@ public static class Creator
     public static T Create<T>()
         where T : class, IEntity
     {
-        if (typeof(T) == typeof(IAnimal) || typeof(T) == typeof(ICat))
+        if (typeof(T) == typeof(IAnimal) || typeof(T) == typeof(IFIsh))
+            return new Fish(printer) as T;
+
+        if (typeof(T) == typeof(ICat))
             return new Cat(printer) as T;
 
         if (typeof(T) == typeof(IDog))
             return new Dog(printer) as T;
-
-        if (typeof(T) == typeof(IFIsh))
-            return new Fish(printer) as T;
 
         if (typeof(T) == typeof(IRobot) || typeof(T) == typeof(IRobot_Dog))
             return new Robot_Dog(printer) as T;

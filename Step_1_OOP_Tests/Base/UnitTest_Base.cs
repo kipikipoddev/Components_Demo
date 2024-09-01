@@ -21,31 +21,32 @@ public class UnitTest_Base<T>
             Assert.True(actions.Contains(entity_action));
     }
 
-    protected void Can(bool expected)
-    {
-        Assert.That(expected, Is.True);
-    }
-
-    protected void Cannot(bool expected)
-    {
-        Assert.That(expected, Is.False);
-    }
-
-    protected void Test_Message(string message)
-    {
-        Assert.That(Creator.Printer.Messages.Last(), Is.EqualTo(message));
-    }
-
     protected void Test_Action_Message(Actions action)
     {
-        var action_set = action.ToString().ToLower();
-        Test_Message($"{Subject.Name} was {action_set}");
+        var actual = Creator.Printer.Messages.Last();
+        Test_Was_Action(actual, action);
     }
-
 
     protected void Test_Cannot_Action(Actions action)
     {
-        var action_set = action.ToString().ToLower();
-        Test_Message($"{Subject.Name} cannot {action_set}");
+        var actual = Creator.Printer.Messages.Last();
+        Test_Cannot_Action(actual, action);
+    }
+
+    protected void Test_Was_Action(string actual, Actions action)
+    {
+        Test_Action(actual, action, "was");
+    }
+
+    protected void Test_Cannot_Action(string actual, Actions action)
+    {
+        Test_Action(actual, action, "cannot");
+    }
+
+    protected void Test_Action(string actual, Actions action, string middle)
+    {
+        var action_str = action.ToString().ToLower();
+        var expected = $"{Subject.Name} {middle} {action_str}";
+        Assert.That(actual, Is.EqualTo(expected));
     }
 }

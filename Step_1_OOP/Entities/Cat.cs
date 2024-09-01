@@ -25,6 +25,14 @@ public class Cat : Animal, ICat
             Printer.Print_Action(this, Actions.Walked);
     }
 
+    public override void Injure()
+    {
+        var is_injured = Is_Injured;
+        base.Injure();
+        if (!is_injured)
+            Printer.Print_Action(this, Actions.Meowed);
+    }
+
     public override IEnumerable<Actions> Get_Actions()
     {
         if (!Is_Injured)

@@ -33,6 +33,21 @@ public class Dog_Tests : UnitTest_Base<IDog>
     }
 
     [Test]
+    public void Test_Bark_When_Injure()
+    {
+        Subject.Injure();
+        Test_Action_Message(Actions.Barked);
+    }
+
+    [Test]
+    public void Test_Not_Bark_When_Injure()
+    {
+        Subject.Injure();
+        Subject.Injure();
+        Test_Cannot_Action(Actions.Injure);
+    }
+
+    [Test]
     public void Test_Walk()
     {
         Subject.Walk();

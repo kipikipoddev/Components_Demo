@@ -10,7 +10,7 @@ public abstract class Animal : Entity, IAnimal
     {
     }
 
-    public void Injure()
+    public virtual void Injure()
     {
         if (Is_Injured)
             Printer.Print_Cannot(this, Actions.Injure);

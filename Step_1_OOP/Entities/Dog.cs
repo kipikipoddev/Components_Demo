@@ -31,6 +31,14 @@ public class Dog : Animal, IDog
             Printer.Print_Action(this, Actions.Swam);
     }
 
+    public override void Injure()
+    {
+        var is_injured = Is_Injured;
+        base.Injure();
+        if (!is_injured)
+            Printer.Print_Action(this, Actions.Barked);
+    }
+
     public override IEnumerable<Actions> Get_Actions()
     {
         if (!Is_Injured)

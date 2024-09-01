@@ -5,7 +5,7 @@ public class Name_Component(string name) : Component
     public string Name { get; } = name;
 }
 
-public static class Entity_Component_Ext
+public static class Name_Component_Ext
 {
     public static string Name(this IComponents components)
     {

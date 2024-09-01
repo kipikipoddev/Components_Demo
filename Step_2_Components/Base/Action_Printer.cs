@@ -8,7 +8,7 @@ public abstract class Action_Printer : IAction_Printer
     public void Print_Action(IAction_Component action, bool add_speed = false)
     {
         var speed_str = add_speed ? To_String(action.Parent.Speed()) : string.Empty;
-        Print($"{action.Parent.Name()} is {action.Doing}{speed_str}");
+        Print($"{action.Parent.Name()} is {action.Did}{speed_str}");
     }
 
     public void Print_Cannot(IAction_Component action)

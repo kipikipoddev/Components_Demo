@@ -25,6 +25,21 @@ public class Cat_Tests : UnitTest_Base<ICat>
     }
 
     [Test]
+    public void Test_Meow_When_Injure()
+    {
+        Subject.Injure();
+        Test_Action_Message(Actions.Meowed);
+    }
+
+    [Test]
+    public void Test_Not_Meow_When_Injure()
+    {
+        Subject.Injure();
+        Subject.Injure();
+        Test_Cannot_Action(Actions.Injure);
+    }
+
+    [Test]
     public void Test_Cannot_Meow()
     {
         Subject.Injure();
