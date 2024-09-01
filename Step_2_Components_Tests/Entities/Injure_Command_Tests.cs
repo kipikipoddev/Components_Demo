@@ -16,6 +16,12 @@ public class Injure_Command_Tests : UnitTest_Base
     }
 
     [Test]
+    public void Test_Can_Injure()
+    {
+        Test_Was_Action<Injure_Command>();
+    }
+
+    [Test]
     public void Test_Cannot_Meow_If_Injured()
     {
         new Injure_Command(Subject);
@@ -39,6 +45,14 @@ public class Injure_Command_Tests : UnitTest_Base
     [Test]
     public void Test_Cannot_Heal()
     {
+        Test_Cannot_Action<Heal_Command>();
+    }
+
+    [Test]
+    public void Test_Cannot_Heal_Again()
+    {
+        new Injure_Command(Subject);
+        new Heal_Command(Subject);
         Test_Cannot_Action<Heal_Command>();
     }
 }
