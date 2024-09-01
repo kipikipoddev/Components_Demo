@@ -5,19 +5,9 @@ public class Injure_Component
 {
     public bool Is_Injured { get; private set; }
 
-    public bool Is_Valid(Injure_Command cmd)
-    {
-        return !Is_Injured;
-    }
-
     public void Handle(Injure_Command cmd)
     {
         Is_Injured = true;
-    }
-
-    public bool Is_Valid(Heal_Command cmd)
-    {
-        return Is_Injured;
     }
 
     public void Handle(Heal_Command cmd)
