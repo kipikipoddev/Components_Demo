@@ -1,7 +1,13 @@
 namespace Components_Demo;
 
-public class Meow_Command(IComponents components)
-    : Action_Command(components)
+public class Meow_Command : Action_Command
 {
-    public override Actions Name => Actions.Meow;
+    public override string Name => "meow";
+    public override string Did => "meowed";
+
+    public Meow_Command(IComponents components)
+        : base(components)
+    {
+        Send(this);
+    }
 }

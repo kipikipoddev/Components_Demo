@@ -8,7 +8,7 @@ public class Robot_Tests : UnitTest_Base<IRobot>
     public void Test_Charged()
     {
         Subject.Charge();
-        Test_Action_Message(Actions.Charged);
+        Test_Was_Action(Actions.Charged);
     }
 
     [Test]

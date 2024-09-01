@@ -1,18 +1,16 @@
-﻿
-
-namespace Components_Demo;
+﻿namespace Components_Demo;
 
 public class Components : Component, IComponents
 {
     private readonly Dictionary<Type, List<IComponent>> components = new();
 
-    public void Add<T>(IComponent component)
-        where T : IComponent
+    public IComponents Add(IComponent component)
     {
-        var type = typeof(T);
-        if (!components.ContainsKey(type))
-            components[type] = new();
-        components[type].Add(component);
+        var type = component.GetType();
+        Add(component, type);
+        foreach (var t in type.GetInterfaces())
+            Add(component, t);
+        return this;
     }
 
     public T Get<T>()
@@ -35,5 +33,13 @@ public class Components : Component, IComponents
         where T : IComponent
     {
         return components.ContainsKey(typeof(T));
+    }
+
+    private void Add(IComponent component, Type type)
+    {
+        if (!components.ContainsKey(type))
+            components[type] = new();
+        components[type].Add(component);
+        component.Set_Parent(this);
     }
 }

@@ -22,7 +22,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     {
         Subject.Charge();
         Subject.Bark();
-        Test_Action_Message(Actions.Barked);
+        Test_Was_Action(Actions.Barked);
     }
 
     [Test]
@@ -37,7 +37,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     {
         Subject.Charge();
         Subject.Walk();
-        Test_Action_Message(Actions.Walked);
+        Test_Was_Action(Actions.Walked);
     }
 
     [Test]
@@ -52,7 +52,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     {
         Subject.Charge();
         Subject.Swim();
-        Test_Action_Message(Actions.Swam);
+        Test_Was_Action(Actions.Swam);
     }
 
     [Test]

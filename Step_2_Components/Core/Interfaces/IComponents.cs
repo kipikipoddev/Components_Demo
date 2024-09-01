@@ -3,8 +3,7 @@ namespace Components_Demo;
 
 public interface IComponents : IComponent
 {
-    void Add<T>(IComponent component)
-        where T : IComponent;
+    IComponents Add(IComponent component);
 
     T Get<T>()
         where T : IComponent;

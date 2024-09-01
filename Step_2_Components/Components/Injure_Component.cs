@@ -1,25 +1,18 @@
-﻿namespace Components_Demo;
+﻿
+namespace Components_Demo;
 
 public class Injure_Component
     : Component, IHandler<Injure_Command>, IHandler<Heal_Command>
 {
     public bool Is_Injured { get; private set; }
 
-    public void Handle(Injure_Command cmd)
+    public void Handle(Injure_Command cmd, Action next)
     {
-        if (Is_Injured)
-            Parent.Print_Cannot(Actions.Injure);
-        else
-            Parent.Print_Action(Actions.Injured);
         Is_Injured = true;
     }
 
-    public void Handle(Heal_Command cmd)
+    public void Handle(Heal_Command cmd, Action next)
     {
-        if (Is_Injured)
-            Parent.Print_Action(Actions.Healed);
-        else
-            Parent.Print_Cannot(Actions.Heal);
         Is_Injured = false;
     }
 }

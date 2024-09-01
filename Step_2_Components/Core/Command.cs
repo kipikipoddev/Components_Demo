@@ -12,8 +12,10 @@ public abstract class Command
     public static void Send<T>(T cmd)
         where T : Command
     {
-        var handlers = cmd.Components.Get_All<IHandler<T>>();
+        var handlers = cmd.Components.Get_All<IHandler<T>>().ToArray();
+        var action = () => { };
         foreach (var handler in handlers)
-            handler.Handle(cmd);
+            action = () => handler.Handle(cmd, action);
+        action();
     }
 }

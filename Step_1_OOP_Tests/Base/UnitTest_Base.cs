@@ -21,32 +21,21 @@ public class UnitTest_Base<T>
             Assert.True(actions.Contains(entity_action));
     }
 
-    protected void Test_Action_Message(Actions action)
+    protected void Test_Was_Action(Actions action)
     {
-        var actual = Creator.Printer.Messages.Last();
-        Test_Was_Action(actual, action);
+        Test_Action(action, "was");
     }
 
     protected void Test_Cannot_Action(Actions action)
     {
-        var actual = Creator.Printer.Messages.Last();
-        Test_Cannot_Action(actual, action);
+        Test_Action(action, "cannot");
     }
 
-    protected void Test_Was_Action(string actual, Actions action)
-    {
-        Test_Action(actual, action, "was");
-    }
-
-    protected void Test_Cannot_Action(string actual, Actions action)
-    {
-        Test_Action(actual, action, "cannot");
-    }
-
-    protected void Test_Action(string actual, Actions action, string middle)
+    protected void Test_Action(Actions action, string middle)
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Name} {middle} {action_str}";
+        var actual = Creator.Printer.Messages.Last();
         Assert.That(actual, Is.EqualTo(expected));
     }
 }

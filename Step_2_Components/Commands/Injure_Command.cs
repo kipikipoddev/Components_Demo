@@ -1,7 +1,13 @@
 namespace Components_Demo;
 
-public class Injure_Command(IComponents components) 
-    : Action_Command(components)
+public class Injure_Command : Action_Command
 {
-    public override Actions Name => Actions.Injure;
+    public override string Name => "injure";
+    public override string Did => "injured";
+
+    public Injure_Command(IComponents components)
+        : base(components)
+    {
+        Send(this);
+    }
 }

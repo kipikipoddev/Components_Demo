@@ -8,7 +8,7 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     public void Test_Injure()
     {
         Subject.Injure();
-        Test_Action_Message(Actions.Injured);
+        Test_Was_Action(Actions.Injured);
     }
 
     [Test]
@@ -31,6 +31,6 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     {
         Subject.Injure();
         Subject.Heal();
-        Test_Action_Message(Actions.Healed);
+        Test_Was_Action(Actions.Healed);
     }
 }

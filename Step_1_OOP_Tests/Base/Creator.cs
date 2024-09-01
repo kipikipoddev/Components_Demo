@@ -5,8 +5,6 @@ namespace Step_1_OOP_Tests;
 public static class Creator
 {
     private static Test_Printer printer = new Test_Printer();
-
-    public static int Max_Charges = 2;
     public static Test_Printer Printer => printer;
 
     public static T Create<T>()
