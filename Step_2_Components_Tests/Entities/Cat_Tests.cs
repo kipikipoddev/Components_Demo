@@ -24,4 +24,15 @@ public class Cat_Tests : UnitTest_Base
         Subject.Add(new Did_Handler<Walk_Command>());
         Subject.Add(new Did_Handler<Meow_Command>());
     }
+
+    private Action Get(Action action)
+    {
+        for (int i = 0; i < 10; i++)
+            action = () =>
+            {
+                System.Console.WriteLine(i);
+                action();
+            };
+        action();
+    }
 }
