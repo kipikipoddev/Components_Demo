@@ -22,7 +22,7 @@ public class Robot_Fish_Tests : UnitTest_Base<IRobot_Fish>
     {
         Subject.Charge();
         Subject.Swim();
-        Test_Was_Action(Actions.Swam);
+        Test_Was_Action(Actions.Swiming);
     }
 
     [Test]

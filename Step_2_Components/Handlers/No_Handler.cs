@@ -3,12 +3,11 @@ namespace Components_Demo;
 
 public class No_Handler : Component, IHandler<Action_Command>
 {
-    public void Handle(Action_Command cmd, Cancel_Token token)
+    public void Handle(Action_Command cmd, Action next)
     {
-        if (Parent.Is_Injured() & cmd is not Heal_Command)
-        {
+        if (next == Command.Defualt_Action)
             Parent.Print_Cannot(cmd.Name);
-            token.Cancel();
-        }
+        else
+            next();
     }
 }

@@ -11,7 +11,7 @@ public class Robot_Dog : Robot, IRobot_Dog
     public void Bark()
     {
         if (Is_Charged)
-            Printer.Print_Action(this, Actions.Barked);
+            Printer.Print_Action(this, Actions.Barking);
         else
             Printer.Print_Cannot(this, Actions.Bark);
     }
@@ -19,7 +19,7 @@ public class Robot_Dog : Robot, IRobot_Dog
     public void Walk()
     {
         if (Is_Charged)
-            Printer.Print_Action(this, Actions.Walked);
+            Printer.Print_Action(this, Actions.Walking);
         else
             Printer.Print_Cannot(this, Actions.Walk);
     }
@@ -27,7 +27,7 @@ public class Robot_Dog : Robot, IRobot_Dog
     public void Swim()
     {
         if (Is_Charged)
-            Printer.Print_Action(this, Actions.Swam);
+            Printer.Print_Action(this, Actions.Swiming);
         else
             Printer.Print_Cannot(this, Actions.Swim);
     }

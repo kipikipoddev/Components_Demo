@@ -5,7 +5,7 @@ public class Charged_Component : Component, ICharged_Component, IHandler<Charge_
 {
     public bool Is_Charged { get; private set; }
 
-    public void Handle(Charge_Command cmd, Cancel_Token token)
+    public void Handle(Charge_Command cmd, Action next)
     {
         Is_Charged = true;
     }

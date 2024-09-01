@@ -12,7 +12,7 @@ public class Dog : Animal, IDog
         if (Is_Injured)
             Printer.Print_Cannot(this, Actions.Bark);
         else
-            Printer.Print_Action(this, Actions.Barked);
+            Printer.Print_Action(this, Actions.Barking);
     }
 
     public void Walk()
@@ -20,7 +20,7 @@ public class Dog : Animal, IDog
         if (Is_Injured)
             Printer.Print_Cannot(this, Actions.Walk);
         else
-            Printer.Print_Action(this, Actions.Walked);
+            Printer.Print_Action(this, Actions.Walking);
     }
 
     public void Swim()
@@ -28,7 +28,7 @@ public class Dog : Animal, IDog
         if (Is_Injured)
             Printer.Print_Cannot(this, Actions.Swim);
         else
-            Printer.Print_Action(this, Actions.Swam);
+            Printer.Print_Action(this, Actions.Swiming);
     }
 
     public override void Injure()
@@ -36,7 +36,7 @@ public class Dog : Animal, IDog
         var is_injured = Is_Injured;
         base.Injure();
         if (!is_injured)
-            Printer.Print_Action(this, Actions.Barked);
+            Printer.Print_Action(this, Actions.Barking);
     }
 
     public override IEnumerable<Actions> Get_Actions()

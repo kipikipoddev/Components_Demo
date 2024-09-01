@@ -21,14 +21,14 @@ public class Cat_Tests : UnitTest_Base<ICat>
     public void Test_Meow()
     {
         Subject.Meow();
-        Test_Was_Action(Actions.Meowed);
+        Test_Was_Action(Actions.Meowing);
     }
 
     [Test]
     public void Test_Meow_When_Injure()
     {
         Subject.Injure();
-        Test_Was_Action(Actions.Meowed);
+        Test_Was_Action(Actions.Meowing);
     }
 
     [Test]
@@ -51,7 +51,7 @@ public class Cat_Tests : UnitTest_Base<ICat>
     public void Test_Walk()
     {
         Subject.Walk();
-        Test_Was_Action(Actions.Walked);
+        Test_Was_Action(Actions.Walking);
     }
 
     [Test]

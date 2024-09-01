@@ -13,6 +13,7 @@ public abstract class UnitTest_Base
         Test_Printer.Reset();
         Subject = new Components()
             .Add(new Test_Printer())
+            .Add(new No_Handler())
             .Add(new Name_Component(Name));
     }
 

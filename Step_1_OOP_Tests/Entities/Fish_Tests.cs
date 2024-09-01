@@ -21,7 +21,7 @@ public class Fish_Tests : UnitTest_Base<IFIsh>
     public void Test_Swim()
     {
         Subject.Swim();
-        Test_Was_Action(Actions.Swam);
+        Test_Was_Action(Actions.Swiming);
     }
 
     [Test]

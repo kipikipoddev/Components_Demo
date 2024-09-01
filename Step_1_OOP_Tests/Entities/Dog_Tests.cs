@@ -21,7 +21,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     public void Test_Bark()
     {
         Subject.Bark();
-        Test_Was_Action(Actions.Barked);
+        Test_Was_Action(Actions.Barking);
     }
 
     [Test]
@@ -36,7 +36,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     public void Test_Bark_When_Injure()
     {
         Subject.Injure();
-        Test_Was_Action(Actions.Barked);
+        Test_Was_Action(Actions.Barking);
     }
 
     [Test]
@@ -51,7 +51,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     public void Test_Walk()
     {
         Subject.Walk();
-        Test_Was_Action(Actions.Walked);
+        Test_Was_Action(Actions.Walking);
     }
 
     [Test]
@@ -66,7 +66,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     public void Test_Swim()
     {
         Subject.Swim();
-        Test_Was_Action(Actions.Swam);
+        Test_Was_Action(Actions.Swiming);
     }
 
     [Test]

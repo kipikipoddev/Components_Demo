@@ -11,7 +11,7 @@ public class Robot_Fish : Robot, IRobot_Fish
     public void Swim()
     {
         if (Is_Charged)
-            Printer.Print_Action(this, Actions.Swam);
+            Printer.Print_Action(this, Actions.Swiming);
         else
             Printer.Print_Cannot(this, Actions.Swim);
     }

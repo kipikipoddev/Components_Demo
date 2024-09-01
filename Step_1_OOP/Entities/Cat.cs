@@ -14,7 +14,7 @@ public class Cat : Animal, ICat
         if (Is_Injured)
             Printer.Print_Cannot(this, Actions.Meow);
         else
-            Printer.Print_Action(this, Actions.Meowed);
+            Printer.Print_Action(this, Actions.Meowing);
     }
 
     public void Walk()
@@ -22,7 +22,7 @@ public class Cat : Animal, ICat
         if (Is_Injured)
             Printer.Print_Cannot(this, Actions.Walk);
         else
-            Printer.Print_Action(this, Actions.Walked);
+            Printer.Print_Action(this, Actions.Walking);
     }
 
     public override void Injure()
@@ -30,7 +30,7 @@ public class Cat : Animal, ICat
         var is_injured = Is_Injured;
         base.Injure();
         if (!is_injured)
-            Printer.Print_Action(this, Actions.Meowed);
+            Printer.Print_Action(this, Actions.Meowing);
     }
 
     public override IEnumerable<Actions> Get_Actions()

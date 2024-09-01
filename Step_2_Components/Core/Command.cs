@@ -6,6 +6,7 @@ namespace Components_Demo;
 public abstract class Command
 {
     private static MethodInfo send_method;
+    public static Action Defualt_Action = () => { };
 
     public IComponents Components { get; }
 
@@ -13,33 +14,42 @@ public abstract class Command
     {
         Components = components;
         if (send_method == null)
-            send_method = typeof(Command).GetMethod("Send_Command", BindingFlags.Static | BindingFlags.NonPublic)!;
+            send_method = typeof(Command).GetMethod("Get_Action", BindingFlags.Static | BindingFlags.NonPublic)!;
     }
 
     public static void Send<T>(T cmd)
         where T : Command
     {
-        var token = new Cancel_Token();
-        Send_Base(cmd, cmd.GetType().BaseType, token);
-        Send_Command(cmd, token);
+        var action = Defualt_Action;
+        action = Get_Action(cmd, action);
+        action = Get_Base(cmd, cmd.GetType().BaseType, action);
+        if (action != null)
+            action();
     }
 
-    private static void Send_Command<T>(T cmd, Cancel_Token token)
+    private static Action Get_Action<T>(T cmd, Action action)
         where T : Command
     {
         var handlers = cmd.Components.Get_All<IHandler<T>>();
         foreach (var handler in handlers)
-            if (!token.Is_Canceled)
-                handler.Handle(cmd, token);
+            action = Get_Handler_Action(cmd, action, handler);
+        return action;
     }
 
-    private static void Send_Base(Command cmd, Type? type, Cancel_Token token)
+    private static Action Get_Base(Command cmd, Type? type, Action action)
     {
         if (type != typeof(object))
         {
             var gen_method = send_method.MakeGenericMethod(type);
-            gen_method.Invoke(null, [cmd, token]);
-            Send_Base(cmd, type.BaseType, token);
+            action = (Action)gen_method.Invoke(null, [cmd, action]);
+            Get_Base(cmd, type.BaseType, action);
         }
+        return action;
+    }
+
+    private static Action Get_Handler_Action<T>(T cmd, Action action, IHandler<T> handler)
+        where T : Command
+    {
+        return () => handler.Handle(cmd, action);
     }
 }

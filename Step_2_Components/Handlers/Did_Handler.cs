@@ -3,8 +3,9 @@
 public class Did_Handler<T> : Component, IHandler<T>
     where T : Action_Command
 {
-    public void Handle(T cmd,  Cancel_Token token)
+    public void Handle(T cmd, Action next)
     {
         Parent.Print_Action(cmd.Did);
+        next();
     }
 }

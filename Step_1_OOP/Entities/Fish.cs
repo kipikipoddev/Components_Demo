@@ -13,7 +13,7 @@ public class Fish : Animal, IFIsh
         if (Is_Injured)
             Printer.Print_Cannot(this, Actions.Swim);
         else
-            Printer.Print_Action(this, Actions.Swam);
+            Printer.Print_Action(this, Actions.Swiming);
     }
 
     public override IEnumerable<Actions> Get_Actions()
