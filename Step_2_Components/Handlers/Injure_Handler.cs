@@ -1,27 +1,14 @@
 ﻿namespace Components_Demo;
 
-public class Injure_Handler
-    : Component, IHandler<Injure_Command>, IHandler<Heal_Command>
+public class Injure_Handler<T> : Component, IHandler<T>
+    where T : Action_Command
 {
-    public bool Is_Injured { get; private set; }
-
-    public bool Is_Valid(Injure_Command cmd)
+    public void Handle(T cmd, Cancel_Token t)
     {
-        return !Is_Injured;
-    }
-
-    public void Handle(Injure_Command cmd)
-    {
-        Parent.Print_Action()
-    }
-
-    public bool Is_Valid(Heal_Command cmd)
-    {
-        return Is_Injured;
-    }
-
-    public void Handle(Heal_Command cmd)
-    {
-        Is_Injured = false;
+        if (Parent.Is_Injured())
+        {
+            Parent.Print_Cannot(cmd.Name);
+            t.Cancel();
+        }
     }
 }

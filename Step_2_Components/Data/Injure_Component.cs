@@ -7,11 +7,19 @@ public class Injure_Component
 
     public void Handle(Injure_Command cmd)
     {
+        if (Is_Injured)
+            Parent.Print_Cannot(Actions.Injure);
+        else
+            Parent.Print_Action(Actions.Injured);
         Is_Injured = true;
     }
 
     public void Handle(Heal_Command cmd)
     {
+        if (Is_Injured)
+            Parent.Print_Action(Actions.Healed);
+        else
+            Parent.Print_Cannot(Actions.Heal);
         Is_Injured = false;
     }
 }
