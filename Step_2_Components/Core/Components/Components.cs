@@ -6,9 +6,7 @@ public class Components : Component, IComponents
 
     public IComponents Add(IComponent component)
     {
-        var type = component.GetType();
-        Add(component, type);
-        foreach (var t in type.GetInterfaces())
+        foreach (var t in component.GetType().GetInterfaces())
             Add(component, t);
         return this;
     }
@@ -24,8 +22,13 @@ public class Components : Component, IComponents
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
-        if (components.ContainsKey(typeof(T)))
-            return components[typeof(T)].Select(c => (T)c);
+        return Get_All(typeof(T)).Select(c => (T)c);
+    }
+
+    public IEnumerable<IComponent> Get_All(Type type)
+    {
+        if (components.ContainsKey(type))
+            return components[type];
         return [];
     }
 

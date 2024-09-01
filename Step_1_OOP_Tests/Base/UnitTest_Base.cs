@@ -23,15 +23,15 @@ public class UnitTest_Base<T>
 
     protected void Test_Was_Action(Actions action)
     {
-        Test_Action(action, "was");
+        Test_Action("was", action);
     }
 
     protected void Test_Cannot_Action(Actions action)
     {
-        Test_Action(action, "cannot");
+        Test_Action("cannot", action);
     }
 
-    protected void Test_Action(Actions action, string middle)
+    private void Test_Action(string middle, Actions action)
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Name} {middle} {action_str}";
