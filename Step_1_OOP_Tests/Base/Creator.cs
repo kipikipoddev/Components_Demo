@@ -9,19 +9,24 @@ public static class Creator
     public static int Max_Charges = 2;
     public static Test_Printer Printer => printer;
 
-    public static T Create<T>(Speed speed = Speed.Normal, int? charges = null)
+    public static T Create<T>()
         where T : class, IEntity
     {
-        if (typeof(T) == typeof(ICat))
-            return new Cat(printer, speed) as T;
+        if (typeof(T) == typeof(IAnimal) || typeof(T) == typeof(ICat))
+            return new Cat(printer) as T;
+
         if (typeof(T) == typeof(IDog))
-            return new Dog(printer, speed) as T;
+            return new Dog(printer) as T;
+
         if (typeof(T) == typeof(IFIsh))
-            return new Fish(printer, speed) as T;
-        if (typeof(T) == typeof(IRobot_Dog))
-            return new Robot_Dog(printer, charges ?? Max_Charges, speed) as T;
-        if (typeof(T) == typeof(IRobot))
-            return new Robot(printer, charges ?? Max_Charges, speed) as T;
+            return new Fish(printer) as T;
+
+        if (typeof(T) == typeof(IRobot) || typeof(T) == typeof(IRobot_Dog))
+            return new Robot_Dog(printer) as T;
+
+        if (typeof(T) == typeof(IRobot_Fish))
+            return new Robot_Fish(printer) as T;
+
         return null;
     }
 }

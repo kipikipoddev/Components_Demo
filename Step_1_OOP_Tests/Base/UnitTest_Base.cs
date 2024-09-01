@@ -36,11 +36,10 @@ public class UnitTest_Base<T>
         Assert.That(Creator.Printer.Messages.Last(), Is.EqualTo(message));
     }
 
-    protected void Test_Action_Message(Actions action, Speed? speed = null)
+    protected void Test_Action_Message(Actions action)
     {
-        var speed_str = speed != null ? Get_Speed(speed) : string.Empty;
         var action_set = action.ToString().ToLower();
-        Test_Message($"{Subject.Name} is {action_set}{speed_str}");
+        Test_Message($"{Subject.Name} was {action_set}");
     }
 
 
@@ -48,15 +47,5 @@ public class UnitTest_Base<T>
     {
         var action_set = action.ToString().ToLower();
         Test_Message($"{Subject.Name} cannot {action_set}");
-    }
-
-    private static string Get_Speed(Speed? speed)
-    {
-        return speed switch
-        {
-            Speed.Slow => " slowly",
-            Speed.Fast => " fast",
-            _ => string.Empty,
-        };
     }
 }

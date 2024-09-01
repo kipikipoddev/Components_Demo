@@ -2,24 +2,25 @@ using Components_Demo;
 
 namespace Step_1_OOP_Tests;
 
-public class Fish_Tests : UnitTest_Base<IFIsh>
+public class Robot_Fish_Tests : UnitTest_Base<IRobot_Fish>
 {
     [Test]
     public void Test_Get_Actions()
     {
-        Test_Actions(Actions.Swim, Actions.Injure);
+        Test_Actions(Actions.Charge);
     }
 
     [Test]
-    public void Test_Get_Injured_Actions()
+    public void Test_Get_Charged_Actions()
     {
-        Subject.Injure();
-        Test_Actions(Actions.Heal);
+        Subject.Charge();
+        Test_Actions(Actions.Swim);
     }
 
     [Test]
     public void Test_Swim()
     {
+        Subject.Charge();
         Subject.Swim();
         Test_Action_Message(Actions.Swam);
     }
@@ -27,7 +28,6 @@ public class Fish_Tests : UnitTest_Base<IFIsh>
     [Test]
     public void Test_Cannot_Swim()
     {
-        Subject.Injure();
         Subject.Swim();
         Test_Cannot_Action(Actions.Swim);
     }

@@ -5,10 +5,9 @@ public abstract class Action_Printer : IAction_Printer
 {
     protected abstract void Print(string message);
 
-    public void Print_Action(IEntity entity, Actions action, Speed? speed)
+    public void Print_Action(IEntity entity, Actions action)
     {
-        var speed_str = speed != null ? To_String(entity.Speed) : string.Empty;
-        Print($"{entity.Name} is {To_String(action)}{speed_str}");
+        Print($"{entity.Name} was {To_String(action)}");
     }
 
     public void Print_Cannot(IEntity entity, Actions action)
@@ -27,7 +26,7 @@ public abstract class Action_Printer : IAction_Printer
 
     private static string To_String(IEnumerable<Actions> actions)
     {
-        var strings = actions.Select(a => To_String(a)).ToArray();
+        var strings = actions.Select(To_String).ToArray();
         if (strings.Length == 1)
             return strings[0];
         if (strings.Length == 2)
@@ -38,17 +37,5 @@ public abstract class Action_Printer : IAction_Printer
     private static string To_String(Actions action)
     {
         return action.ToString().ToLower();
-    }
-    private static string To_String(Speed speed)
-    {
-        switch (speed)
-        {
-            case Speed.Slow:
-                return " slowly";
-            case Speed.Fast:
-                return " fast";
-            default:
-                return string.Empty;
-        }
     }
 }

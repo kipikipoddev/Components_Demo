@@ -5,55 +5,60 @@ namespace Step_1_OOP_Tests;
 public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
 {
     [Test]
-    public void Test_Actions()
-    {
-        Cannot(Subject.Can_Walk);
-        Cannot(Subject.Can_Swim);
-        Cannot(Subject.Can_Bark);
-        Cannot(Subject.Can_Injure);
-        Cannot(Subject.Can_Heal);
-        Can(Subject.Can_Recharge);
-    }
-
-    [Test]
     public void Test_Get_Actions()
     {
-        Test_Actions(Actions.Recharge);
+        Test_Actions(Actions.Charge);
     }
 
     [Test]
-    public void Test_Get_Actions_After_Charge()
+    public void Test_Get_Charged_Actions()
     {
-        Subject.Recharge();
+        Subject.Charge();
         Test_Actions(Actions.Walk, Actions.Swim, Actions.Bark);
-    }
-
-    [Test]
-    public void Test_Actions_After_Charge()
-    {
-        Subject.Recharge();
-        Can(Subject.Can_Walk);
-        Can(Subject.Can_Swim);
-        Can(Subject.Can_Bark);
-        Cannot(Subject.Can_Injure);
-        Cannot(Subject.Can_Heal);
-        Cannot(Subject.Can_Recharge);
     }
 
     [Test]
     public void Test_Bark()
     {
-        Subject.Recharge();
+        Subject.Charge();
         Subject.Bark();
-        Test_Action_Message(Actions.Barking);
+        Test_Action_Message(Actions.Barked);
     }
 
     [Test]
-    public void Test_Heal_And_Injure()
+    public void Test_Cannot_Bark()
     {
-        Subject.Heal();
-        Test_Cannot_Action(Actions.Heal);
-        Subject.Injure();
-        Test_Cannot_Action(Actions.Injure);
+        Subject.Bark();
+        Test_Cannot_Action(Actions.Bark);
+    }
+
+    [Test]
+    public void Test_Walk()
+    {
+        Subject.Charge();
+        Subject.Walk();
+        Test_Action_Message(Actions.Walked);
+    }
+
+    [Test]
+    public void Test_Cannot_Walk()
+    {
+        Subject.Walk();
+        Test_Cannot_Action(Actions.Walk);
+    }
+
+    [Test]
+    public void Test_Swim()
+    {
+        Subject.Charge();
+        Subject.Swim();
+        Test_Action_Message(Actions.Swam);
+    }
+
+    [Test]
+    public void Test_Cannot_Swim()
+    {
+        Subject.Swim();
+        Test_Cannot_Action(Actions.Swim);
     }
 }
