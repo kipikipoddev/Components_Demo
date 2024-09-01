@@ -10,13 +10,11 @@ public abstract class UnitTest_Base
     [SetUp]
     public virtual void Setup()
     {
+        Test_Printer.Reset();
         Subject = new Components()
             .Add(new Test_Printer())
             .Add(new Name_Component(Name));
-        Add();
     }
-
-    protected abstract void Add();
 
     protected void Test_Was_Action<T>()
         where T : Action_Command
@@ -36,7 +34,7 @@ public abstract class UnitTest_Base
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Name()} {middle} {action_str}";
-        var actual = Subject.Get<Test_Printer>().Messages.LastOrDefault();
+        var actual = Test_Printer.Message;
         Assert.That(actual, Is.EqualTo(expected));
     }
 

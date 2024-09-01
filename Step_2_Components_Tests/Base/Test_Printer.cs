@@ -4,12 +4,15 @@ namespace Step_2_Components_Tests;
 
 public class Test_Printer : Printer_Component
 {
-    private readonly List<string> messages = new();
+    public static string Message { get; private set; }
 
-    public IEnumerable<string> Messages => messages;
+    public static void Reset()
+    {
+        Message = null;
+    }
 
     protected override void Print(string message)
     {
-        messages.Add(message);
+        Message = message;
     }
 }

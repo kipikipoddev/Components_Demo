@@ -1,46 +1,45 @@
+using System.Data.SqlTypes;
 using System.Reflection;
 
 namespace Components_Demo;
 
 public abstract class Command
 {
-    private static MethodInfo action_method;
+    private static MethodInfo send_method;
 
     public IComponents Components { get; }
 
     public Command(IComponents components)
     {
         Components = components;
-        if (action_method == null)
-            action_method = typeof(Command).GetMethod("Get_Action", BindingFlags.Static | BindingFlags.NonPublic)!;
+        if (send_method == null)
+            send_method = typeof(Command).GetMethod("Send_Command", BindingFlags.Static | BindingFlags.NonPublic)!;
     }
 
     public static void Send<T>(T cmd)
         where T : Command
     {
-        var action = () => { };
-        action = Get_Action(cmd, action);
-        action = Get_Base(cmd, action);
-        action();
+        var token = new Cancel_Token();
+        Send_Base(cmd, cmd.GetType().BaseType, token);
+        Send_Command(cmd, token);
     }
 
-    private static Action Get_Action<T>(T cmd, Action action)
+    private static void Send_Command<T>(T cmd, Cancel_Token token)
         where T : Command
     {
         var handlers = cmd.Components.Get_All<IHandler<T>>();
         foreach (var handler in handlers)
-            action = () => handler.Handle(cmd, action);
-        return action;
+            if (!token.Is_Canceled)
+                handler.Handle(cmd, token);
     }
 
-    private static Action Get_Base(Command cmd, Action action)
+    private static void Send_Base(Command cmd, Type? type, Cancel_Token token)
     {
-        var base_type = cmd.GetType().BaseType;
-        if (base_type != null)
+        if (type != typeof(object))
         {
-            var gen_method = action_method.MakeGenericMethod(base_type);
-            return (Action)gen_method.Invoke(null, [cmd, action])!;
+            var gen_method = send_method.MakeGenericMethod(type);
+            gen_method.Invoke(null, [cmd, token]);
+            Send_Base(cmd, type.BaseType, token);
         }
-        return action;
     }
 }
