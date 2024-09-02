@@ -1,11 +1,13 @@
 ﻿
 namespace Components_Solution;
 
-public class No_Handler_Handler : Component, IHandler<No_Handler_Command>
+public class No_Handler_Handler : Component, IHandler<Action_Command>
 {
-    public void Handle(No_Handler_Command cmd)
+    public void Handle(Action_Command cmd, Action next)
     {
-        if (cmd.Command is Action_Command action)
-            new Print_Command(action, false);
+        if (next == Mediator.Defualt_Action)
+            new Print_Command(cmd, false);
+        else
+            next();
     }
 }

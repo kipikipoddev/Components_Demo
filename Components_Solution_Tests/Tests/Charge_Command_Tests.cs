@@ -9,7 +9,7 @@ public class Charge_Command_Tests : UnitTest_Base
     {
         base.Setup();
         Subject.Add(new Charged_Component())
-            .Add(new Charged_Validator())
+            .Add(new Charged_Handler())
             .Add(new Did_Handler<Charge_Command>())
             .Add(new Did_Handler<Meow_Command>());
     }

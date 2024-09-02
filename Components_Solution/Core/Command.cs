@@ -14,10 +14,4 @@ public abstract class Command
     {
         Mediator.Send(cmd);
     }
-
-    public static bool Is_Valid<T>(T cmd)
-        where T : Command
-    {
-        return Mediator.Is_Valid(cmd);
-    }
 }

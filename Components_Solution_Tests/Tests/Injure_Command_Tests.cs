@@ -9,7 +9,7 @@ public class Injure_Command_Tests : UnitTest_Base
     {
         base.Setup();
         Subject.Add(new Injure_Component())
-            .Add(new Injure_Validator())
+            .Add(new Injure_Handler())
             .Add(new Did_Handler<Injure_Command>())
             .Add(new Did_Handler<Heal_Command>())
             .Add(new Did_Handler<Meow_Command>());
