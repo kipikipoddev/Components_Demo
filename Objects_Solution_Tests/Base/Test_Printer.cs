@@ -4,12 +4,15 @@ namespace Step_1_OOP_Tests;
 
 public class Test_Printer : Action_Printer
 {
-    private readonly List<string> messages = new();
+    public string Message { get; private set; }
 
-    public IEnumerable<string> Messages => messages;
+    public void Clear()
+    {
+        Message = null;
+    }
 
     protected override void Print(string message)
     {
-        messages.Add(message);
+        Message = message;
     }
 }

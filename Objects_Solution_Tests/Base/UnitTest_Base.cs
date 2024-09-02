@@ -10,6 +10,7 @@ public class UnitTest_Base<T>
     [SetUp]
     public virtual void Setup()
     {
+        Creator.Printer.Clear();
         Subject = Creator.Create<T>();
     }
 
@@ -35,7 +36,6 @@ public class UnitTest_Base<T>
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Name} {middle} {action_str}";
-        var actual = Creator.Printer.Messages.Last();
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.That(Creator.Printer.Message, Is.EqualTo(expected));
     }
 }
