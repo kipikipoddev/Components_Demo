@@ -5,48 +5,64 @@ namespace Components_Solution;
 public static class Mediator
 {
     private static MethodInfo send_method;
-    public static Action Defualt_Action = () => { };
+    private static MethodInfo validate_method;
 
-    public static void Send<T>(T cmd)
-        where T : Command
+    public static bool Is_Valid(Command cmd)
     {
         Init();
-        var action = Defualt_Action;
-        action = Get_Action(cmd, action);
-        action = Get_Base(cmd, cmd.GetType().BaseType, action);
-        if (action != null)
-            action();
+        return Validate_Gen_Command(cmd, cmd.GetType());
     }
 
-    private static Action Get_Action<T>(T cmd, Action action)
+    public static void Send(Command cmd)
+    {
+        Init();
+        Send_Gen_Command(cmd, cmd.GetType());
+    }
+
+    private static void Send_Gen_Command(Command cmd, Type? type)
+    {
+        if (type == null || type == typeof(object))
+            return;
+        var gen_method = send_method.MakeGenericMethod(type!);
+        gen_method.Invoke(null, [cmd]);
+        Send_Gen_Command(cmd, type.BaseType);
+    }
+
+    private static bool Validate_Gen_Command(Command cmd, Type? type)
+    {
+        if (type == null || type == typeof(object))
+            return true;
+        var gen_method = validate_method.MakeGenericMethod(type!);
+        var result = gen_method.Invoke(null, [cmd]);
+        if (!(bool)result)
+            return false;
+        return Validate_Gen_Command(cmd, type.BaseType);
+    }
+
+    private static void Send_Command<T>(T cmd)
         where T : Command
     {
         var handlers = cmd.Components.Get_All<IHandler<T>>();
         foreach (var handler in handlers)
-            action = Get_Handler_Action(cmd, action, handler);
-        return action;
+            handler.Handle(cmd);
     }
 
-    private static Action Get_Base(Command cmd, Type? type, Action action)
-    {
-        if (type != typeof(object))
-        {
-            var gen_method = send_method.MakeGenericMethod(type);
-            action = (Action)gen_method.Invoke(null, [cmd, action]);
-            Get_Base(cmd, type.BaseType, action);
-        }
-        return action;
-    }
-
-    private static Action Get_Handler_Action<T>(T cmd, Action action, IHandler<T> handler)
+    private static bool Validate_Command<T>(T cmd)
         where T : Command
     {
-        return () => handler.Handle(cmd, action);
+        var validators = cmd.Components.Get_All<IValidator<T>>();
+        foreach (var validator in validators)
+            if (!validator.Is_Valid(cmd))
+                return false;
+        return true;
     }
 
     private static void Init()
     {
         if (send_method == null)
-            send_method = typeof(Mediator).GetMethod("Get_Action", BindingFlags.Static | BindingFlags.NonPublic)!;
+        {
+            send_method = typeof(Mediator).GetMethod("Send_Command", BindingFlags.Static | BindingFlags.NonPublic)!;
+            validate_method = typeof(Mediator).GetMethod("Validate_Command", BindingFlags.Static | BindingFlags.NonPublic)!;
+        }
     }
 }

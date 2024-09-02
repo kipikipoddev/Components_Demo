@@ -10,6 +10,5 @@ public class Print_Command : Command
     {
         Action = action;
         Is_Success = is_success;
-        Send(this);
     }
 }

@@ -1,11 +1,12 @@
 namespace Components_Solution;
 
-[Action(Actions.Injure, Actions.Injured)]
 public class Injure_Command : Action_Command
 {
+    public override Actions Name => Actions.Injure;
+    public override Actions Did => Actions.Injured;
+
     public Injure_Command(IComponents components)
         : base(components)
     {
-        Send(this);
     }
 }

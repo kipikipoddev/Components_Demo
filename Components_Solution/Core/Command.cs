@@ -9,9 +9,13 @@ public abstract class Command
         Components = components;
     }
 
-    public static void Send<T>(T cmd)
-        where T : Command
+    public void Send()
     {
-        Mediator.Send(cmd);
+        Mediator.Send(this);
+    }
+
+    public bool Is_Valid()
+    {
+        return Mediator.Is_Valid(this);
     }
 }

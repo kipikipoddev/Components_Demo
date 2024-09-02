@@ -1,11 +1,12 @@
 namespace Components_Solution;
 
-[Action(Actions.Heal, Actions.Healed)]
 public class Heal_Command : Action_Command
 {
+    public override Actions Name => Actions.Heal;
+    public override Actions Did => Actions.Healed;
+    
     public Heal_Command(IComponents components)
         : base(components)
     {
-        Send(this);
     }
 }
