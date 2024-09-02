@@ -1,6 +1,6 @@
 using Components_Solution;
 
-namespace Step_2_Components_Tests;
+namespace Components_Solution_Tests;
 
 public class Injure_Command_Tests : UnitTest_Base
 {
@@ -9,7 +9,7 @@ public class Injure_Command_Tests : UnitTest_Base
     {
         base.Setup();
         Subject.Add(new Injure_Component())
-            .Add(new Injure_Handler())
+            .Add(new Injure_Validator())
             .Add(new Did_Handler<Injure_Command>())
             .Add(new Did_Handler<Heal_Command>())
             .Add(new Did_Handler<Meow_Command>());

@@ -6,12 +6,12 @@ public class Injure_Component
 {
     public bool Is_Injured { get; private set; }
 
-    public void Handle(Injure_Command cmd, Action next)
+    public void Handle(Injure_Command cmd)
     {
         Is_Injured = true;
     }
 
-    public void Handle(Heal_Command cmd, Action next)
+    public void Handle(Heal_Command cmd)
     {
         Is_Injured = false;
     }

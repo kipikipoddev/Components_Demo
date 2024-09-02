@@ -1,6 +1,6 @@
 using Components_Solution;
 
-namespace Step_2_Components_Tests;
+namespace Components_Solution_Tests;
 
 public class Charge_Command_Tests : UnitTest_Base
 {
@@ -9,7 +9,7 @@ public class Charge_Command_Tests : UnitTest_Base
     {
         base.Setup();
         Subject.Add(new Charged_Component())
-            .Add(new Charged_Handler())
+            .Add(new Charged_Validator())
             .Add(new Did_Handler<Charge_Command>())
             .Add(new Did_Handler<Meow_Command>());
     }

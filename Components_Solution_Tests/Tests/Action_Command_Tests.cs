@@ -1,6 +1,6 @@
 using Components_Solution;
 
-namespace Step_2_Components_Tests;
+namespace Components_Solution_Tests;
 
 public class Action_Command_Tests : UnitTest_Base
 {

@@ -1,6 +1,6 @@
 using Components_Solution;
 
-namespace Step_2_Components_Tests;
+namespace Components_Solution_Tests;
 
 public abstract class UnitTest_Base
 {
@@ -13,7 +13,7 @@ public abstract class UnitTest_Base
         Test_Printer.Reset();
         Subject = new Components()
             .Add(new Test_Printer())
-            .Add(new No_Handler())
+            .Add(new No_Handler_Handler())
             .Add(new Name_Component(Name));
     }
 

@@ -1,6 +1,6 @@
 using Objects_Solution;
 
-namespace Step_1_OOP_Tests;
+namespace Objects_Solution_Tests;
 
 public class Animal_Tests : UnitTest_Base<IAnimal>
 {
