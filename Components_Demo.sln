@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects_Solution", "Objects
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects_Solution_Tests", "Objects_Solution_Tests\Objects_Solution_Tests.csproj", "{B04F918F-3F22-4192-969E-0D09808886B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects_Action_Solution", "Objects_Action_Solution\Objects_Action_Solution.csproj", "{E611221A-1739-42EF-ADD4-9EAED615C237}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
