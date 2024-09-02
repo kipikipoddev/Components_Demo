@@ -11,6 +11,4 @@ public abstract class Entity : IEntity
         Printer = printer;
         Name = GetType().Name;
     }
-
-    public abstract IEnumerable<Actions> Get_Actions();
 }

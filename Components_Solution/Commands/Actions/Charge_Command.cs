@@ -1,10 +1,8 @@
 namespace Components_Solution;
 
+[Action(Actions.Charge, Actions.Charged)]
 public class Charge_Command : Action_Command
 {
-    public override string Name => "charge";
-    public override string Did => "charged";
-
     public Charge_Command(IComponents components)
         : base(components)
     {

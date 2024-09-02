@@ -5,19 +5,6 @@ namespace Objects_Solution_Tests;
 public class Cat_Tests : UnitTest_Base<ICat>
 {
     [Test]
-    public void Test_Get_Actions()
-    {
-        Test_Actions(Actions.Meow, Actions.Walk, Actions.Injure);
-    }
-
-    [Test]
-    public void Test_Get_Injured_Actions()
-    {
-        Subject.Injure();
-        Test_Actions(Actions.Heal);
-    }
-
-    [Test]
     public void Test_Meow()
     {
         Subject.Meow();
@@ -28,7 +15,8 @@ public class Cat_Tests : UnitTest_Base<ICat>
     public void Test_Meow_When_Injure()
     {
         Subject.Injure();
-        Test_Was_Action(Actions.Meowing);
+        Subject.Meow();
+        Test_Cannot_Action(Actions.Meow);
     }
 
     [Test]

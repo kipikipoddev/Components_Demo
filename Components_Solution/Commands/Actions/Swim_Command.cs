@@ -1,10 +1,8 @@
 namespace Components_Solution;
 
+[Action(Actions.Swim, Actions.Swiming)]
 public class Swim_Command : Action_Command
 {
-    public override string Name => "swim";
-    public override string Did => "swimming";
-
     public Swim_Command(IComponents components)
         : base(components)
     {

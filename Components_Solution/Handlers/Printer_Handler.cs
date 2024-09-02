@@ -7,8 +7,8 @@ public abstract class Printer_Handler : Component, IHandler<Print_Command>
     public void Handle(Print_Command cmd, Action next)
     {
         if (cmd.Is_Success)
-            Print($"{Parent.Name()} was {cmd.Action.Did}");
+            Print($"{Parent.Name()} was {cmd.Action}");
         else
-            Print($"{Parent.Name()} cannot {cmd.Action.Name}");
+            Print($"{Parent.Name()} cannot {cmd.Action}");
     }
 }

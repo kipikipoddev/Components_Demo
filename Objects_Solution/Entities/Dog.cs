@@ -9,45 +9,40 @@ public class Dog : Animal, IDog
 
     public void Bark()
     {
-        if (Is_Injured)
-            Printer.Print_Cannot(this, Actions.Bark);
-        else
+        if (Can_Bark())
             Printer.Print_Action(this, Actions.Barking);
+        else
+            Printer.Print_Cannot(this, Actions.Bark);
     }
 
     public void Walk()
     {
-        if (Is_Injured)
-            Printer.Print_Cannot(this, Actions.Walk);
-        else
+        if (Can_Walk())
             Printer.Print_Action(this, Actions.Walking);
+        else
+            Printer.Print_Cannot(this, Actions.Walk);
     }
 
     public void Swim()
     {
-        if (Is_Injured)
-            Printer.Print_Cannot(this, Actions.Swim);
-        else
+        if (Can_Swim())
             Printer.Print_Action(this, Actions.Swiming);
+        else
+            Printer.Print_Cannot(this, Actions.Swim);
     }
 
-    public override void Injure()
+    public bool Can_Bark()
     {
-        var is_injured = Is_Injured;
-        base.Injure();
-        if (!is_injured)
-            Printer.Print_Action(this, Actions.Barking);
+        return !Is_Injured;
     }
 
-    public override IEnumerable<Actions> Get_Actions()
+    public bool Can_Walk()
     {
-        if (!Is_Injured)
-        {
-            yield return Actions.Bark;
-            yield return Actions.Walk;
-            yield return Actions.Swim;
-        }
-        foreach (var action in base.Get_Actions())
-            yield return action;
+        return !Is_Injured;
+    }
+
+    public bool Can_Swim()
+    {
+        return !Is_Injured;
     }
 }

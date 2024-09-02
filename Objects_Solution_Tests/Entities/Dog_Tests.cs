@@ -5,19 +5,6 @@ namespace Objects_Solution_Tests;
 public class Dog_Tests : UnitTest_Base<IDog>
 {
     [Test]
-    public void Test_Get_Actions()
-    {
-        Test_Actions(Actions.Bark, Actions.Swim, Actions.Walk, Actions.Injure);
-    }
-
-    [Test]
-    public void Test_Get_Injured_Actions()
-    {
-        Subject.Injure();
-        Test_Actions(Actions.Heal);
-    }
-
-    [Test]
     public void Test_Bark()
     {
         Subject.Bark();
@@ -36,7 +23,8 @@ public class Dog_Tests : UnitTest_Base<IDog>
     public void Test_Bark_When_Injure()
     {
         Subject.Injure();
-        Test_Was_Action(Actions.Barking);
+        Subject.Bark();
+        Test_Cannot_Action(Actions.Bark);
     }
 
     [Test]

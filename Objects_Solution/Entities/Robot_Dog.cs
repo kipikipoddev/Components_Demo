@@ -10,7 +10,7 @@ public class Robot_Dog : Robot, IRobot_Dog
 
     public void Bark()
     {
-        if (Is_Charged)
+        if (Can_Bark())
             Printer.Print_Action(this, Actions.Barking);
         else
             Printer.Print_Cannot(this, Actions.Bark);
@@ -18,29 +18,33 @@ public class Robot_Dog : Robot, IRobot_Dog
 
     public void Walk()
     {
-        if (Is_Charged)
+        if (Can_Walk())
             Printer.Print_Action(this, Actions.Walking);
         else
             Printer.Print_Cannot(this, Actions.Walk);
+
     }
 
     public void Swim()
     {
-        if (Is_Charged)
+        if (Can_Swim())
             Printer.Print_Action(this, Actions.Swiming);
         else
             Printer.Print_Cannot(this, Actions.Swim);
     }
 
-    public override IEnumerable<Actions> Get_Actions()
+    public bool Can_Bark()
     {
-        if (Is_Charged)
-        {
-            yield return Actions.Bark;
-            yield return Actions.Walk;
-            yield return Actions.Swim;
-        }
-        else
-            yield return Actions.Charge;
+        return Is_Charged;
+    }
+
+    public bool Can_Walk()
+    {
+        return Is_Charged;
+    }
+
+    public bool Can_Swim()
+    {
+        return Is_Charged;
     }
 }

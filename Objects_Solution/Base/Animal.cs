@@ -12,27 +12,29 @@ public abstract class Animal : Entity, IAnimal
 
     public virtual void Injure()
     {
-        if (Is_Injured)
-            Printer.Print_Cannot(this, Actions.Injure);
-        else
+        if (Can_Injure())
             Printer.Print_Action(this, Actions.Injured);
+        else
+            Printer.Print_Cannot(this, Actions.Injure);
         Is_Injured = true;
     }
 
     public void Heal()
     {
-        if (Is_Injured)
+        if (Can_Heal())
             Printer.Print_Action(this, Actions.Healed);
         else
             Printer.Print_Cannot(this, Actions.Heal);
         Is_Injured = false;
     }
 
-    public override IEnumerable<Actions> Get_Actions()
+    public bool Can_Injure()
     {
-        if (Is_Injured)
-            yield return Actions.Heal;
-        else
-            yield return Actions.Injure;
+        return !Is_Injured;
+    }
+
+    public bool Can_Heal()
+    {
+        return Is_Injured;
     }
 }

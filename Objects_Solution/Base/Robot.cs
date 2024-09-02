@@ -12,16 +12,15 @@ public class Robot : Entity, IRobot
 
     public void Charge()
     {
-        if (Is_Charged)
-            Printer.Print_Cannot(this, Actions.Charge);
-        else
+        if (Can_Charge())
             Printer.Print_Action(this, Actions.Charged);
+        else
+            Printer.Print_Cannot(this, Actions.Charge);
         Is_Charged = true;
     }
 
-    public override IEnumerable<Actions> Get_Actions()
+    public bool Can_Charge()
     {
-        if (!Is_Charged)
-            yield return Actions.Charge;
+        return !Is_Charged;
     }
 }

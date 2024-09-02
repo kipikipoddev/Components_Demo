@@ -11,36 +11,27 @@ public class Cat : Animal, ICat
 
     public void Meow()
     {
-        if (Is_Injured)
-            Printer.Print_Cannot(this, Actions.Meow);
-        else
+        if (Can_Meow())
             Printer.Print_Action(this, Actions.Meowing);
+        else
+            Printer.Print_Cannot(this, Actions.Meow);
     }
 
     public void Walk()
     {
-        if (Is_Injured)
-            Printer.Print_Cannot(this, Actions.Walk);
-        else
+        if (Can_Walk())
             Printer.Print_Action(this, Actions.Walking);
+        else
+            Printer.Print_Cannot(this, Actions.Walk);
     }
 
-    public override void Injure()
+    public bool Can_Walk()
     {
-        var is_injured = Is_Injured;
-        base.Injure();
-        if (!is_injured)
-            Printer.Print_Action(this, Actions.Meowing);
+        return !Is_Injured;
     }
 
-    public override IEnumerable<Actions> Get_Actions()
+    public bool Can_Meow()
     {
-        if (!Is_Injured)
-        {
-            yield return Actions.Meow;
-            yield return Actions.Walk;
-        }
-        foreach (var action in base.Get_Actions())
-            yield return action;
+        return !Is_Injured;
     }
 }

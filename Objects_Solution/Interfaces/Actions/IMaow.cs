@@ -1,6 +1,7 @@
 ﻿namespace Objects_Solution;
 
-public interface IMeow
+public interface IMaow
 {
+    bool Can_Meow();
     void Meow();
 }

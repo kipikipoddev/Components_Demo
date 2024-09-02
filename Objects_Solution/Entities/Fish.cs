@@ -8,19 +8,16 @@ public class Fish : Animal, IFIsh
     {
     }
 
-    public void Swim()
+    public bool Can_Swim()
     {
-        if (Is_Injured)
-            Printer.Print_Cannot(this, Actions.Swim);
-        else
-            Printer.Print_Action(this, Actions.Swiming);
+        return !Is_Injured;
     }
 
-    public override IEnumerable<Actions> Get_Actions()
+    public void Swim()
     {
-        if (!Is_Injured)
-            yield return Actions.Swim;
-        foreach (var action in base.Get_Actions())
-            yield return action;
+        if (Can_Swim())
+            Printer.Print_Action(this, Actions.Swiming);
+        else
+            Printer.Print_Cannot(this, Actions.Swim);
     }
 }

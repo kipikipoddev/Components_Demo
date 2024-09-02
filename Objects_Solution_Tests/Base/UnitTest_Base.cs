@@ -14,14 +14,6 @@ public class UnitTest_Base<T>
         Subject = Creator.Create<T>();
     }
 
-    protected void Test_Actions(params Actions[] actions)
-    {
-        var entity_actions = Subject.Get_Actions().ToArray();
-        Assert.That(entity_actions.Length, Is.EqualTo(actions.Length));
-        foreach (var entity_action in entity_actions)
-            Assert.True(actions.Contains(entity_action));
-    }
-
     protected void Test_Was_Action(Actions action)
     {
         Test_Action("was", action);
