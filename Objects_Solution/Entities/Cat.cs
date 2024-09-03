@@ -5,7 +5,7 @@ namespace Objects_Solution;
 public class Cat : Animal, ICat
 {
     public Cat(IAction_Printer printer)
-        : base(printer)
+        : base(printer, "Cat")
     {
     }
 
@@ -14,7 +14,7 @@ public class Cat : Animal, ICat
         if (Can_Meow())
             Printer.Print_Action(this, Actions.Meowing);
         else
-            Printer.Print_Cannot(this, Actions.Meow);
+            Printer.Print_Cant(this, Actions.Meow);
     }
 
     public void Walk()
@@ -22,7 +22,7 @@ public class Cat : Animal, ICat
         if (Can_Walk())
             Printer.Print_Action(this, Actions.Walking);
         else
-            Printer.Print_Cannot(this, Actions.Walk);
+            Printer.Print_Cant(this, Actions.Walk);
     }
 
     public bool Can_Walk()

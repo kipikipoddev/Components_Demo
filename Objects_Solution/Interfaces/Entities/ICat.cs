@@ -1,6 +1,6 @@
 ﻿namespace Objects_Solution;
 
-public interface ICat : IAnimal, IWalk, IMaow
+public interface ICat : IAnimal, IWalk, IMeow
 {
 
 }

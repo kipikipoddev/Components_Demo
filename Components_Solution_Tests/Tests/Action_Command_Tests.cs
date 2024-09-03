@@ -28,6 +28,6 @@ public class Action_Command_Tests : UnitTest_Base
     [Test]
     public void Test_No_Handler_Command()
     {
-        Test_Cannot_Action<Bark_Command>();
+        Test_Cant_Action<Bark_Command>();
     }
 }

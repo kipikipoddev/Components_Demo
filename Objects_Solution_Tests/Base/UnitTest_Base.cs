@@ -19,9 +19,9 @@ public class UnitTest_Base<T>
         Test_Action("was", action);
     }
 
-    protected void Test_Cannot_Action(Actions action)
+    protected void Test_Cant_Action(Actions action)
     {
-        Test_Action("cannot", action);
+        Test_Action("can't", action);
     }
 
     private void Test_Action(string middle, Actions action)

@@ -12,10 +12,10 @@ public class Fish_Tests : UnitTest_Base<IFIsh>
     }
 
     [Test]
-    public void Test_Cannot_Swim()
+    public void Test_cant_Swim()
     {
         Subject.Injure();
         Subject.Swim();
-        Test_Cannot_Action(Actions.Swim);
+        Test_Cant_Action(Actions.Swim);
     }
 }

@@ -13,10 +13,10 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     }
 
     [Test]
-    public void Test_Cannot_Bark()
+    public void Test_cant_Bark()
     {
         Subject.Bark();
-        Test_Cannot_Action(Actions.Bark);
+        Test_Cant_Action(Actions.Bark);
     }
 
     [Test]
@@ -28,24 +28,9 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     }
 
     [Test]
-    public void Test_Cannot_Walk()
+    public void Test_cant_Walk()
     {
         Subject.Walk();
-        Test_Cannot_Action(Actions.Walk);
-    }
-
-    [Test]
-    public void Test_Swim()
-    {
-        Subject.Charge();
-        Subject.Swim();
-        Test_Was_Action(Actions.Swiming);
-    }
-
-    [Test]
-    public void Test_Cannot_Swim()
-    {
-        Subject.Swim();
-        Test_Cannot_Action(Actions.Swim);
+        Test_Cant_Action(Actions.Walk);
     }
 }

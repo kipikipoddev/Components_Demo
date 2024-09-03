@@ -10,9 +10,9 @@ public abstract class Action_Printer : IAction_Printer
         Print($"{entity.Name} was {To_String(action)}");
     }
 
-    public void Print_Cannot(IEntity entity, Actions action)
+    public void Print_Cant(IEntity entity, Actions action)
     {
-        Print($"{entity.Name} cannot {To_String(action)}");
+        Print($"{entity.Name} can't {To_String(action)}");
     }
 
     private static string To_String(Actions action)

@@ -9,6 +9,6 @@ public abstract class Printer_Handler : Component, IHandler<Print_Command>
         if (cmd.Is_Success)
             Print($"{Parent.Name()} was {cmd.Action}");
         else
-            Print($"{Parent.Name()} cannot {cmd.Action}");
+            Print($"{Parent.Name()} cant {cmd.Action}");
     }
 }

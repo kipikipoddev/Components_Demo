@@ -12,11 +12,11 @@ public class Dog_Tests : UnitTest_Base<IDog>
     }
 
     [Test]
-    public void Test_Cannot_Bark()
+    public void Test_cant_Bark()
     {
         Subject.Injure();
         Subject.Bark();
-        Test_Cannot_Action(Actions.Bark);
+        Test_Cant_Action(Actions.Bark);
     }
 
     [Test]
@@ -24,7 +24,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     {
         Subject.Injure();
         Subject.Bark();
-        Test_Cannot_Action(Actions.Bark);
+        Test_Cant_Action(Actions.Bark);
     }
 
     [Test]
@@ -32,7 +32,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     {
         Subject.Injure();
         Subject.Injure();
-        Test_Cannot_Action(Actions.Injure);
+        Test_Cant_Action(Actions.Injure);
     }
 
     [Test]
@@ -43,11 +43,11 @@ public class Dog_Tests : UnitTest_Base<IDog>
     }
 
     [Test]
-    public void Test_Cannot_Walk()
+    public void Test_cant_Walk()
     {
         Subject.Injure();
         Subject.Walk();
-        Test_Cannot_Action(Actions.Walk);
+        Test_Cant_Action(Actions.Walk);
     }
 
     [Test]
@@ -58,10 +58,10 @@ public class Dog_Tests : UnitTest_Base<IDog>
     }
 
     [Test]
-    public void Test_Cannot_Swim()
+    public void Test_cant_Swim()
     {
         Subject.Injure();
         Subject.Swim();
-        Test_Cannot_Action(Actions.Swim);
+        Test_Cant_Action(Actions.Swim);
     }
 }

@@ -9,15 +9,15 @@ public class Charge_Command_Tests : UnitTest_Base
     {
         base.Setup();
         Subject.Add(new Charged_Component())
-            .Add(new Charged_Handler())
+            .Add(new Charged_Component())
             .Add(new Did_Handler<Charge_Command>())
             .Add(new Did_Handler<Meow_Command>());
     }
 
     [Test]
-    public void Test_Cannot_Meow_If_Not_Charged()
+    public void Test_cant_Meow_If_Not_Charged()
     {
-        Test_Cannot_Action<Meow_Command>();
+        Test_Cant_Action<Meow_Command>();
     }
 
     [Test]
@@ -28,9 +28,9 @@ public class Charge_Command_Tests : UnitTest_Base
     }
 
     [Test]
-    public void Test_Cannot_Charge_If_Charged()
+    public void Test_cant_Charge_If_Charged()
     {
         new Charge_Command(Subject);
-        Test_Cannot_Action<Charge_Command>();
+        Test_Cant_Action<Charge_Command>();
     }
 }

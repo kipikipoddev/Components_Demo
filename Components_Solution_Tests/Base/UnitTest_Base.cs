@@ -24,14 +24,14 @@ public abstract class UnitTest_Base
         Test_Action("was", cmd.Did);
     }
 
-    protected void Test_Cannot_Action<T>()
+    protected void Test_Cant_Action<T>()
             where T : Action_Command
     {
         var cmd = Get_Command<T>();
-        Test_Action("cannot", cmd.Name);
+        Test_Action("cant", cmd.Name);
     }
 
-    private void Test_Action(string middle, string action)
+    private void Test_Action(string middle, Actions action)
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Name()} {middle} {action_str}";

@@ -16,14 +16,14 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     {
         Subject.Injure();
         Subject.Injure();
-        Test_Cannot_Action(Actions.Injure);
+        Test_Cant_Action(Actions.Injure);
     }
 
     [Test]
     public void Test_Heal()
     {
         Subject.Heal();
-        Test_Cannot_Action(Actions.Heal);
+        Test_Cant_Action(Actions.Heal);
     }
 
     [Test]

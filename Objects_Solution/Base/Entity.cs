@@ -6,9 +6,9 @@ public abstract class Entity : IEntity
 
     public string Name { get; set; }
 
-    public Entity(IAction_Printer printer)
+    public Entity(IAction_Printer printer, string name)
     {
         Printer = printer;
-        Name = GetType().Name;
+        Name = name;
     }
 }

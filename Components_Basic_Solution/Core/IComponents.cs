@@ -1,0 +1,10 @@
+﻿
+namespace Components_Basic_Solution;
+
+public interface IComponents : IComponent
+{
+    IComponents Add(IComponent component);
+
+    T Get<T>()
+        where T : IComponent;
+}

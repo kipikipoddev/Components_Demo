@@ -5,17 +5,17 @@ public class Robot : Entity, IRobot
 {
     public bool Is_Charged { get; private set; }
 
-    public Robot(IAction_Printer printer)
-        : base(printer)
+    public Robot(IAction_Printer printer, string name)
+        : base(printer, name)
     {
     }
 
-    public void Charge()
+    public virtual void Charge()
     {
         if (Can_Charge())
             Printer.Print_Action(this, Actions.Charged);
         else
-            Printer.Print_Cannot(this, Actions.Charge);
+            Printer.Print_Cant(this, Actions.Charge);
         Is_Charged = true;
     }
 

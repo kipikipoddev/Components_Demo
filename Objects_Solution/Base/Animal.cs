@@ -5,8 +5,8 @@ public abstract class Animal : Entity, IAnimal
 {
     public bool Is_Injured { get; private set; }
 
-    public Animal(IAction_Printer printer)
-        : base(printer)
+    public Animal(IAction_Printer printer,string name)
+        : base(printer,name)
     {
     }
 
@@ -15,7 +15,7 @@ public abstract class Animal : Entity, IAnimal
         if (Can_Injure())
             Printer.Print_Action(this, Actions.Injured);
         else
-            Printer.Print_Cannot(this, Actions.Injure);
+            Printer.Print_Cant(this, Actions.Injure);
         Is_Injured = true;
     }
 
@@ -24,7 +24,7 @@ public abstract class Animal : Entity, IAnimal
         if (Can_Heal())
             Printer.Print_Action(this, Actions.Healed);
         else
-            Printer.Print_Cannot(this, Actions.Heal);
+            Printer.Print_Cant(this, Actions.Heal);
         Is_Injured = false;
     }
 

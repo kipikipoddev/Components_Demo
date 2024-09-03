@@ -16,6 +16,6 @@ public class Robot_Tests : UnitTest_Base<IRobot>
     {
         Subject.Charge();
         Subject.Charge();
-        Test_Cannot_Action(Actions.Charge);
+        Test_Cant_Action(Actions.Charge);
     }
 }

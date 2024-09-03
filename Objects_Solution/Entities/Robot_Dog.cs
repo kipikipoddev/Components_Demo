@@ -4,7 +4,7 @@ namespace Objects_Solution;
 public class Robot_Dog : Robot, IRobot_Dog
 {
     public Robot_Dog(IAction_Printer printer)
-        : base(printer)
+        : base(printer,"Robot_Dog")
     {
     }
 
@@ -13,7 +13,7 @@ public class Robot_Dog : Robot, IRobot_Dog
         if (Can_Bark())
             Printer.Print_Action(this, Actions.Barking);
         else
-            Printer.Print_Cannot(this, Actions.Bark);
+            Printer.Print_Cant(this, Actions.Bark);
     }
 
     public void Walk()
@@ -21,16 +21,7 @@ public class Robot_Dog : Robot, IRobot_Dog
         if (Can_Walk())
             Printer.Print_Action(this, Actions.Walking);
         else
-            Printer.Print_Cannot(this, Actions.Walk);
-
-    }
-
-    public void Swim()
-    {
-        if (Can_Swim())
-            Printer.Print_Action(this, Actions.Swiming);
-        else
-            Printer.Print_Cannot(this, Actions.Swim);
+            Printer.Print_Cant(this, Actions.Walk);
     }
 
     public bool Can_Bark()
@@ -39,11 +30,6 @@ public class Robot_Dog : Robot, IRobot_Dog
     }
 
     public bool Can_Walk()
-    {
-        return Is_Charged;
-    }
-
-    public bool Can_Swim()
     {
         return Is_Charged;
     }

@@ -13,9 +13,9 @@ public class Robot_Fish_Tests : UnitTest_Base<IRobot_Fish>
     }
 
     [Test]
-    public void Test_Cannot_Swim()
+    public void Test_cant_Swim()
     {
         Subject.Swim();
-        Test_Cannot_Action(Actions.Swim);
+        Test_Cant_Action(Actions.Swim);
     }
 }

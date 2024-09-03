@@ -16,7 +16,7 @@ public class Cat_Tests : UnitTest_Base<ICat>
     {
         Subject.Injure();
         Subject.Meow();
-        Test_Cannot_Action(Actions.Meow);
+        Test_Cant_Action(Actions.Meow);
     }
 
     [Test]
@@ -24,15 +24,15 @@ public class Cat_Tests : UnitTest_Base<ICat>
     {
         Subject.Injure();
         Subject.Injure();
-        Test_Cannot_Action(Actions.Injure);
+        Test_Cant_Action(Actions.Injure);
     }
 
     [Test]
-    public void Test_Cannot_Meow()
+    public void Test_cant_Meow()
     {
         Subject.Injure();
         Subject.Meow();
-        Test_Cannot_Action(Actions.Meow);
+        Test_Cant_Action(Actions.Meow);
     }
 
     [Test]
@@ -43,10 +43,10 @@ public class Cat_Tests : UnitTest_Base<ICat>
     }
 
     [Test]
-    public void Test_Cannot_Walk()
+    public void Test_cant_Walk()
     {
         Subject.Injure();
         Subject.Walk();
-        Test_Cannot_Action(Actions.Walk);
+        Test_Cant_Action(Actions.Walk);
     }
 }
