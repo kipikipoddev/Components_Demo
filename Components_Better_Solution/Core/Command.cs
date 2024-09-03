@@ -1,7 +1,7 @@
 ﻿
 namespace Components_Better_Solution;
 
-public class Command
+public abstract class Command
 {
     public IComponents Components { get; }
 
@@ -12,12 +12,11 @@ public class Command
 
     public virtual bool Is_Valid()
     {
-        return true;
+        return Mediator.Is_Valid(this);
     }
 
-    protected virtual void Send<T>(T cmd)
-        where T : Command
+    public virtual void Send()
     {
-        Mediator.Send(cmd);
+        Mediator.Send(this);
     }
 }

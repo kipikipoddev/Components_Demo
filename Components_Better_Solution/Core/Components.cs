@@ -17,6 +17,15 @@ public class Components : Component, IComponents
         return this;
     }
 
+    public IComponents Remove(IComponent component)
+    {
+        var int_types = component.GetType().GetInterfaces();
+        foreach (var int_type in int_types)
+            components[int_type].Remove(component);
+        component.Set_Parent(null);
+        return this;
+    }
+
     public T Get<T>()
         where T : IComponent
     {
@@ -26,12 +35,14 @@ public class Components : Component, IComponents
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
-        return components[typeof(T)].Select(c => (T)c);
+        if (components.ContainsKey(typeof(T)))
+            return components[typeof(T)].Select(c => (T)c);
+        return [];
     }
 
-    public bool Has<T>() 
+    public bool Has<T>()
         where T : IComponent
     {
-       return components.ContainsKey(typeof(T));
+        return components.ContainsKey(typeof(T));
     }
 }

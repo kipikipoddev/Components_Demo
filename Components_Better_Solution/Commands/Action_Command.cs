@@ -1,20 +1,16 @@
 ﻿
 namespace Components_Better_Solution;
 
-public abstract class Action_Command : Command
+public abstract class Action_Command(IComponents components)
+    : Command(components)
 {
     protected abstract Actions Action { get; }
 
-    public Action_Command(IComponents components)
-        : base(components)
+    public override void Send()
     {
-    }
-
-    protected override void Send<T>(T cmd)
-    {
-        if (cmd.Is_Valid())
-            base.Send(cmd);
+        if (Is_Valid())
+            base.Send();
         else
-            cmd.Components.Print_Cant(Action);
+            new Print_Command(Components, Action, false);
     }
 }

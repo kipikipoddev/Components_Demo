@@ -1,18 +1,8 @@
 ﻿
 namespace Components_Better_Solution;
 
-public class Bark_Command : Action_Command
+public class Bark_Command(IComponents components) 
+    : Action_Command(components)
 {
     protected override Actions Action => Actions.Bark;
-
-    public Bark_Command(IComponents components)
-        : base(components)
-    {
-        Send(this);
-    }
-
-    public override bool Is_Valid()
-    {
-        return Components.Has<Bark_Component>();
-    }
 }

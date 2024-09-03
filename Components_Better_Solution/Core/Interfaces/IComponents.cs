@@ -4,6 +4,7 @@ namespace Components_Better_Solution;
 public interface IComponents : IComponent
 {
     IComponents Add(IComponent component);
+    IComponents Remove(IComponent component);
 
     T Get<T>()
         where T : IComponent;

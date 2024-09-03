@@ -1,9 +1,12 @@
 ﻿
 namespace Components_Better_Solution;
 
-public interface IComponent
+public class Component : IComponent
 {
-    IComponents Parent { get; }
+    public IComponents Parent { get; private set; }
 
-    void Set_Parent(IComponents components);
+    public virtual void Set_Parent(IComponents components)
+    {
+        Parent = components;
+    }
 }

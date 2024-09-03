@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects_Solution_Tests", "O
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Basic_Solution", "Components_Basic_Solution\Components_Basic_Solution.csproj", "{EA7198AC-6555-44B7-ACCA-129F94DB961D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Better_Solution_Tests", "Components_Better_Solution_Tests\Components_Better_Solution_Tests.csproj", "{D2E2567C-0049-4C34-A9A4-09B6B87DD91A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{EA7198AC-6555-44B7-ACCA-129F94DB961D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7198AC-6555-44B7-ACCA-129F94DB961D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7198AC-6555-44B7-ACCA-129F94DB961D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2E2567C-0049-4C34-A9A4-09B6B87DD91A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E2567C-0049-4C34-A9A4-09B6B87DD91A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E2567C-0049-4C34-A9A4-09B6B87DD91A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E2567C-0049-4C34-A9A4-09B6B87DD91A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

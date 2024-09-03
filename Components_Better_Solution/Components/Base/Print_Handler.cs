@@ -1,18 +1,15 @@
 ﻿
 namespace Components_Better_Solution;
 
-public abstract class Print_Component : Component, IPrint_Component
+public abstract class Print_Handler : Component, IHandler<Print_Command>
 {
     protected abstract void Print(string message);
-
-    public void Print_Was(Actions action)
+    public void Handle(Print_Command cmd)
     {
-        Print("was", action);
-    }
-
-    public void Print_Cant(Actions action)
-    {
-        Print("can't", action);
+        if (cmd.Is_Was)
+            Print("was", cmd.Action);
+        else
+            Print("can't", cmd.Action);
     }
 
     private void Print(string middle, Actions action)
@@ -21,4 +18,6 @@ public abstract class Print_Component : Component, IPrint_Component
         var action_str = action.ToString().ToLower();
         Print($"{name} {middle} {action_str}");
     }
+
+
 }
