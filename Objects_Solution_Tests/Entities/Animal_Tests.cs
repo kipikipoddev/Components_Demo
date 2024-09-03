@@ -5,32 +5,55 @@ namespace Objects_Solution_Tests;
 public class Animal_Tests : UnitTest_Base<IAnimal>
 {
     [Test]
+    public void Test_Actions()
+    {
+        Assert_True(Subject.Can_Injure());
+        Assert_False(Subject.Can_Heal());
+    }
+
+
+    [Test]
+    public void Test_Actions_After_Injure()
+    {
+        Subject.Injure();
+
+        Assert_False(Subject.Can_Injure());
+        Assert_True(Subject.Can_Heal());
+    }
+
+    [Test]
     public void Test_Injure()
     {
         Subject.Injure();
-        Test_Was_Action(Actions.Injured);
+
+        Assert_Was_Printed(Actions.Injured);
     }
 
     [Test]
     public void Test_Injure_Again()
     {
         Subject.Injure();
+
         Subject.Injure();
-        Test_Cant_Action(Actions.Injure);
+
+        Assert_Cant_Printed(Actions.Injure);
     }
 
     [Test]
     public void Test_Heal()
     {
         Subject.Heal();
-        Test_Cant_Action(Actions.Heal);
+
+        Assert_Cant_Printed(Actions.Heal);
     }
 
     [Test]
     public void Test_Heal_After_Injure()
     {
         Subject.Injure();
+
         Subject.Heal();
-        Test_Was_Action(Actions.Healed);
+
+        Assert_Was_Printed(Actions.Healed);
     }
 }

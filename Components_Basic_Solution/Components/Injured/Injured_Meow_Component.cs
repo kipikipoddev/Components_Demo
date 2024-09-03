@@ -5,6 +5,6 @@ public class Injured_Meow_Component : Meow_Component
 {
     public override bool Can_Meow()
     {
-        return !Parent.Get<Injure_Component>().Is_Injured;
+        return !Parent.Get<IInjure_Component>().Is_Injured;
     }
 }

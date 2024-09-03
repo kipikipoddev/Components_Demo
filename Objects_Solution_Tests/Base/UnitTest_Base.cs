@@ -14,17 +14,27 @@ public class UnitTest_Base<T>
         Subject = Creator.Create<T>();
     }
 
-    protected void Test_Was_Action(Actions action)
+    protected static void Assert_True(bool action)
     {
-        Test_Action("was", action);
+        Assert.That(action, Is.True);
     }
 
-    protected void Test_Cant_Action(Actions action)
+    protected static void Assert_False(bool action)
     {
-        Test_Action("can't", action);
+        Assert.That(action, Is.False);
     }
 
-    private void Test_Action(string middle, Actions action)
+    protected void Assert_Was_Printed(Actions action)
+    {
+        Assert_Action_Printed("was", action);
+    }
+
+    protected void Assert_Cant_Printed(Actions action)
+    {
+        Assert_Action_Printed("can't", action);
+    }
+
+    private void Assert_Action_Printed(string middle, Actions action)
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Name} {middle} {action_str}";

@@ -1,46 +1,46 @@
-using Components_Solution;
+using Components_Basic_Solution;
 
 namespace Components_Solution_Tests;
 
 public abstract class UnitTest_Base
 {
-    protected const string Name = "Name";
     protected IComponents Subject;
 
     [SetUp]
     public virtual void Setup()
     {
         Test_Printer.Reset();
-        Subject = new Components()
-            .Add(new Test_Printer())
-            .Add(new No_Handler_Handler())
-            .Add(new Name_Component(Name));
+        Subject = Get_Subject();
+        Subject.Add(new Test_Printer());
     }
 
-    protected void Test_Was_Action<T>()
-        where T : Action_Command
+    protected abstract IComponents Get_Subject();
+
+    protected static void Assert_True(bool actual)
     {
-        var cmd = Get_Command<T>();
-        Test_Action("was", cmd.Did);
+        Assert.That(actual, Is.True);
     }
 
-    protected void Test_Cant_Action<T>()
-            where T : Action_Command
+    protected static void Assert_False(bool actual)
     {
-        var cmd = Get_Command<T>();
-        Test_Action("cant", cmd.Name);
+        Assert.That(actual, Is.False);
     }
 
-    private void Test_Action(string middle, Actions action)
+    protected void Assert_Was_Printed(Actions action)
+    {
+        Assert_Action_Printed("was", action);
+    }
+
+    protected void Assert_Cant_Printed(Actions action)
+    {
+        Assert_Action_Printed("can't", action);
+    }
+
+    private void Assert_Action_Printed(string middle, Actions action)
     {
         var action_str = action.ToString().ToLower();
-        var expected = $"{Subject.Name()} {middle} {action_str}";
+        var expected = $"{Subject.Get<IName_Component>().Name} {middle} {action_str}";
         var actual = Test_Printer.Message;
         Assert.That(actual, Is.EqualTo(expected));
-    }
-
-    private T Get_Command<T>() where T : Action_Command
-    {
-        return (T)Activator.CreateInstance(typeof(T), [Subject])!;
     }
 }

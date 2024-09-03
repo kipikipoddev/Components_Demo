@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Components_Solution\Components_Solution.csproj" />
+    <ProjectReference Include="..\Components_Basic_Solution\Components_Basic_Solution.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,8 +1,8 @@
-using Components_Solution;
+using Components_Basic_Solution;
 
 namespace Components_Solution_Tests;
 
-public class Test_Printer : Printer_Handler
+public class Test_Printer : Print_Component
 {
     public static string Message { get; private set; }
 

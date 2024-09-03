@@ -12,7 +12,7 @@ public abstract class Print_Component : Component, IPrint_Component
 
     public void Print_Cant(Actions action)
     {
-        Print("cant", action);
+        Print("can't", action);
     }
 
     private void Print(string middle, Actions action)
