@@ -1,5 +1,6 @@
 
 
+using System.Net;
 using Components_Better_Solution;
 
 namespace Components_Better_Solution_Tests;
@@ -17,6 +18,13 @@ public abstract class UnitTest_Base
     }
 
     protected abstract IComponents Get_Subject();
+
+    protected void Assert_Valid<T>(bool is_valid)
+        where T : Command
+    {
+        var command = (Command)Activator.CreateInstance(typeof(T), [Subject]);
+        Assert.That(command.Is_Valid(), Is.EqualTo(is_valid)); ;
+    }
 
     protected static void Assert_True(bool actual)
     {

@@ -7,9 +7,9 @@ public class Fish_Tests : UnitTest_Base<IFIsh>
     [Test]
     public void Test_Actions()
     {
-        Assert_True(Subject.Can_Swim());
-        Assert_True(Subject.Can_Injure());
-        Assert_False(Subject.Can_Heal());
+        Assert_True(Subject.Can_Swim);
+        Assert_True(Subject.Can_Injure);
+        Assert_False(Subject.Can_Heal);
     }
 
     [Test]
@@ -17,9 +17,9 @@ public class Fish_Tests : UnitTest_Base<IFIsh>
     {
         Subject.Injure();
 
-        Assert_False(Subject.Can_Swim());
-        Assert_False(Subject.Can_Injure());
-        Assert_True(Subject.Can_Heal());
+        Assert_False(Subject.Can_Swim);
+        Assert_False(Subject.Can_Injure);
+        Assert_True(Subject.Can_Heal);
     }
 
     [Test]

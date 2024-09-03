@@ -7,8 +7,8 @@ public class Robot_Fish_Tests : UnitTest_Base<IRobot_Fish>
     [Test]
     public void Test_Actions()
     {
-        Assert_False(Subject.Can_Swim());
-        Assert_True(Subject.Can_Charge());
+        Assert_False(Subject.Can_Swim);
+        Assert_True(Subject.Can_Charge);
     }
 
     [Test]
@@ -16,8 +16,8 @@ public class Robot_Fish_Tests : UnitTest_Base<IRobot_Fish>
     {
         Subject.Charge();
 
-        Assert_True(Subject.Can_Swim());
-        Assert_False(Subject.Can_Charge());
+        Assert_True(Subject.Can_Swim);
+        Assert_False(Subject.Can_Charge);
     }
 
     [Test]

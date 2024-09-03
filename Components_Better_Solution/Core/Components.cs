@@ -6,23 +6,37 @@ public class Components : Component, IComponents
 
     public IComponents Add(IComponent component)
     {
-        var int_types = component.GetType().GetInterfaces();
-        foreach (var int_type in int_types)
-        {
-            if (!components.ContainsKey(int_type))
-                components[int_type] = [];
-            components[int_type].Add(component);
-        }
+        foreach (var int_type in Get_Types(component))
+            Add(component, int_type);
+        component.Set_Parent(this);
+        return this;
+    }
+
+    public IComponents Add(params IComponent[] components)
+    {
+        foreach (var component in components)
+            Add(component);
+        return this;
+    }
+
+    public IComponents Add<T>(IComponent component)
+    {
+        Add(component, typeof(T));
         component.Set_Parent(this);
         return this;
     }
 
     public IComponents Remove(IComponent component)
     {
-        var int_types = component.GetType().GetInterfaces();
-        foreach (var int_type in int_types)
+        foreach (var int_type in Get_Types(component))
             components[int_type].Remove(component);
         component.Set_Parent(null);
+        return this;
+    }
+
+    public IComponents Remove<T>(IComponent component)
+    {
+        components[typeof(T)].Remove(component);
         return this;
     }
 
@@ -43,6 +57,18 @@ public class Components : Component, IComponents
     public bool Has<T>()
         where T : IComponent
     {
-        return components.ContainsKey(typeof(T));
+        return components.ContainsKey(typeof(T)) & components[typeof(T)].Any();
+    }
+
+    private void Add(IComponent component, Type type)
+    {
+        if (!components.ContainsKey(type))
+            components[type] = [];
+        components[type].Add(component);
+    }
+
+    private static Type[] Get_Types(IComponent component)
+    {
+        return component.GetType().GetInterfaces();
     }
 }

@@ -14,12 +14,12 @@ public class UnitTest_Base<T>
         Subject = Creator.Create<T>();
     }
 
-    protected static void Assert_True(bool action)
+    protected static void Assert_True(Func<bool> action)
     {
         Assert.That(action, Is.True);
     }
 
-    protected static void Assert_False(bool action)
+    protected static void Assert_False(Func<bool> action)
     {
         Assert.That(action, Is.False);
     }

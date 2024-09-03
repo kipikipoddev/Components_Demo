@@ -7,9 +7,9 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     [Test]
     public void Test_Actions()
     {
-        Assert_False(Subject.Can_Walk());
-        Assert_False(Subject.Can_Bark());
-        Assert_True(Subject.Can_Charge());
+        Assert_False(Subject.Can_Walk);
+        Assert_False(Subject.Can_Bark);
+        Assert_True(Subject.Can_Charge);
     }
 
     [Test]
@@ -17,9 +17,9 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     {
         Subject.Charge();
 
-        Assert_True(Subject.Can_Walk());
-        Assert_True(Subject.Can_Bark());
-        Assert_False(Subject.Can_Charge());
+        Assert_True(Subject.Can_Walk);
+        Assert_True(Subject.Can_Bark);
+        Assert_False(Subject.Can_Charge);
     }
 
     [Test]

@@ -7,10 +7,10 @@ public class Cat_Tests : UnitTest_Base<ICat>
     [Test]
     public void Test_Actions()
     {
-        Assert_True(Subject.Can_Meow());
-        Assert_True(Subject.Can_Walk());
-        Assert_True(Subject.Can_Injure());
-        Assert_False(Subject.Can_Heal());
+        Assert_True(Subject.Can_Meow);
+        Assert_True(Subject.Can_Walk);
+        Assert_True(Subject.Can_Injure);
+        Assert_False(Subject.Can_Heal);
     }
 
     [Test]
@@ -18,10 +18,10 @@ public class Cat_Tests : UnitTest_Base<ICat>
     {
         Subject.Injure();
 
-        Assert_False(Subject.Can_Meow());
-        Assert_False(Subject.Can_Walk());
-        Assert_False(Subject.Can_Injure());
-        Assert_True(Subject.Can_Heal());
+        Assert_False(Subject.Can_Meow);
+        Assert_False(Subject.Can_Walk);
+        Assert_False(Subject.Can_Injure);
+        Assert_True(Subject.Can_Heal);
     }
 
     [Test]

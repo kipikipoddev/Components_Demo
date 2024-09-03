@@ -7,7 +7,7 @@ public class Robot_Tests : UnitTest_Base<IRobot>
     [Test]
     public void Test_Actions()
     {
-        Assert_True(Subject.Can_Charge());
+        Assert_True(Subject.Can_Charge);
     }
 
     [Test]
@@ -15,7 +15,7 @@ public class Robot_Tests : UnitTest_Base<IRobot>
     {
         Subject.Charge();
 
-        Assert_False(Subject.Can_Charge());
+        Assert_False(Subject.Can_Charge);
     }
 
     [Test]

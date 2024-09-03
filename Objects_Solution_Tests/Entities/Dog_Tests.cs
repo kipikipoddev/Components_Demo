@@ -7,11 +7,11 @@ public class Dog_Tests : UnitTest_Base<IDog>
     [Test]
     public void Test_Actions()
     {
-        Assert_True(Subject.Can_Bark());
-        Assert_True(Subject.Can_Walk());
-        Assert_True(Subject.Can_Swim());
-        Assert_True(Subject.Can_Injure());
-        Assert_False(Subject.Can_Heal());
+        Assert_True(Subject.Can_Bark);
+        Assert_True(Subject.Can_Walk);
+        Assert_True(Subject.Can_Swim);
+        Assert_True(Subject.Can_Injure);
+        Assert_False(Subject.Can_Heal);
     }
 
     [Test]
@@ -19,11 +19,11 @@ public class Dog_Tests : UnitTest_Base<IDog>
     {
         Subject.Injure();
 
-        Assert_False(Subject.Can_Bark());
-        Assert_False(Subject.Can_Walk());
-        Assert_False(Subject.Can_Swim());
-        Assert_False(Subject.Can_Injure());
-        Assert_True(Subject.Can_Heal());
+        Assert_False(Subject.Can_Bark);
+        Assert_False(Subject.Can_Walk);
+        Assert_False(Subject.Can_Swim);
+        Assert_False(Subject.Can_Injure);
+        Assert_True(Subject.Can_Heal);
     }
 
     [Test]

@@ -7,8 +7,8 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     [Test]
     public void Test_Actions()
     {
-        Assert_True(Subject.Can_Injure());
-        Assert_False(Subject.Can_Heal());
+        Assert_True(Subject.Can_Injure);
+        Assert_False(Subject.Can_Heal);
     }
 
 
@@ -17,8 +17,8 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     {
         Subject.Injure();
 
-        Assert_False(Subject.Can_Injure());
-        Assert_True(Subject.Can_Heal());
+        Assert_False(Subject.Can_Injure);
+        Assert_True(Subject.Can_Heal);
     }
 
     [Test]
