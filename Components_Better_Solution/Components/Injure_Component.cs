@@ -4,19 +4,13 @@ namespace Components_Better_Solution;
 public class Injure_Component
     : Component, IInjure_Component, IHandler<Injure_Command>, IHandler<Heal_Command>
 {
-    private readonly IComponent[] disables;
+    private readonly Actions[] actions;
 
     public bool Is_Injured { get; private set; }
 
-    public Injure_Component(params IComponent[] disables)
+    public Injure_Component(params Actions[] actions)
     {
-        this.disables = disables;
-    }
-
-    public override void Set_Parent(IComponents parent)
-    {
-        base.Set_Parent(parent);
-        parent.Remove<IHandler<Heal_Command>>(this);
+        this.actions = actions;
     }
 
     public void Handle(Injure_Command cmd)
