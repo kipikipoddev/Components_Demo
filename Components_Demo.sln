@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Solution", "Components_Solution\Components_Solution.csproj", "{8C3A5D66-27C5-4EA8-A41E-A9590CAF2049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Better_Solution", "Components_Better_Solution\Components_Better_Solution.csproj", "{8C3A5D66-27C5-4EA8-A41E-A9590CAF2049}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Solution_Tests", "Components_Solution_Tests\Components_Solution_Tests.csproj", "{5CCE4EA4-7EC8-4F28-8D3C-450170D1E20C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Basic_Solution_Tests", "Components_Basic_Solution_Tests\Components_Basic_Solution_Tests.csproj", "{5CCE4EA4-7EC8-4F28-8D3C-450170D1E20C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects_Solution", "Objects_Solution\Objects_Solution.csproj", "{E7182FC8-86A6-40B7-A8FE-02096857006D}"
 EndProject

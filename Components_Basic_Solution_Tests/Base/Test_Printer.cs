@@ -1,6 +1,6 @@
 using Components_Basic_Solution;
 
-namespace Components_Solution_Tests;
+namespace Components_Basic_Solution_Tests;
 
 public class Test_Printer : Print_Component
 {
