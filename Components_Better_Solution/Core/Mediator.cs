@@ -6,7 +6,8 @@ namespace Components_Better_Solution;
 public static class Mediator
 {
     private static MethodInfo handle_method;
-    private static MethodInfo has_handler_method;
+    private static MethodInfo is_valid_method;
+    
     public static void Send(Command cmd)
     {
         Init();
@@ -23,7 +24,7 @@ public static class Mediator
     {
         if (type == null || type == typeof(object))
             return false;
-        var gen_method = has_handler_method.MakeGenericMethod(type!);
+        var gen_method = is_valid_method.MakeGenericMethod(type!);
         return (bool)gen_method.Invoke(null, [cmd]);
     }
 
@@ -43,10 +44,14 @@ public static class Mediator
             handler.Handle(cmd);
     }
 
-    private static bool Has_Handler_Gen<T>(T cmd)
+    private static bool Is_Valid_Gen<T>(T cmd)
         where T : Command
     {
-        return cmd.Components.Has<IHandler<T>>();
+        var validators = cmd.Components.Get_All<IValidator<T>>().ToArray();
+        foreach (var validator in validators)
+            if (!validator.Is_Valid(cmd))
+                return false;
+        return true;
     }
 
     private static void Init()
@@ -54,6 +59,6 @@ public static class Mediator
         if (handle_method != null)
             return;
         handle_method = typeof(Mediator).GetMethod("Handle_Gen", BindingFlags.Static | BindingFlags.NonPublic)!;
-        has_handler_method = typeof(Mediator).GetMethod("Has_Handler_Gen", BindingFlags.Static | BindingFlags.NonPublic)!;
+        is_valid_method = typeof(Mediator).GetMethod("Is_Valid_Gen", BindingFlags.Static | BindingFlags.NonPublic)!;
     }
 }

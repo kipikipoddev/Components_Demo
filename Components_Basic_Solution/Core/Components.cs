@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace Components_Basic_Solution;
+﻿namespace Components_Basic_Solution;
 
 public class Components : Component, IComponents
 {
