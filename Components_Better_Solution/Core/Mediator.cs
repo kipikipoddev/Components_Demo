@@ -7,7 +7,7 @@ public static class Mediator
 {
     private static MethodInfo handle_method;
     private static MethodInfo is_valid_method;
-    
+
     public static void Send(Command cmd)
     {
         Init();
@@ -23,9 +23,12 @@ public static class Mediator
     private static bool Is_Valid_Type(Command cmd, Type type)
     {
         if (type == null || type == typeof(object))
-            return false;
+            return true;
         var gen_method = is_valid_method.MakeGenericMethod(type!);
-        return (bool)gen_method.Invoke(null, [cmd]);
+        var is_valid = (bool)gen_method.Invoke(null, [cmd]);
+        if (!is_valid)
+            return false;
+        return Is_Valid_Type(cmd, type.BaseType);
     }
 
     private static void Send_Type(Command cmd, Type type)
@@ -34,6 +37,7 @@ public static class Mediator
             return;
         var gen_method = handle_method.MakeGenericMethod(type!);
         gen_method.Invoke(null, [cmd]);
+        Send_Type(cmd, type.BaseType);
     }
 
     private static void Handle_Gen<T>(T cmd)

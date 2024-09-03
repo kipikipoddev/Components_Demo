@@ -16,12 +16,12 @@ public class UnitTest_Base<T>
 
     protected static void Assert_True(Func<bool> action)
     {
-        Assert.That(action, Is.True);
+        Assert.That(action(), Is.True);
     }
 
     protected static void Assert_False(Func<bool> action)
     {
-        Assert.That(action, Is.False);
+        Assert.That(action(), Is.False);
     }
 
     protected void Assert_Was_Printed(Actions action)

@@ -16,9 +16,11 @@ public class Cat_Tests : UnitTest_Base
     [Test]
     public void Test_Actions_After_Injure()
     {
-        Assert_Valid<Meow_Command>(true);
-        Assert_Valid<Walk_Command>(true);
-        Assert_Valid<Injure_Command>(true);
+        new Injure_Command(Subject).Send();
+
+        Assert_Valid<Meow_Command>(false);
+        Assert_Valid<Walk_Command>(false);
+        Assert_Valid<Injure_Command>(false);
         Assert_Valid<Heal_Command>(true);
     }
 
