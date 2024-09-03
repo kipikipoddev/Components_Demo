@@ -12,34 +12,6 @@ public class Components : Component, IComponents
         return this;
     }
 
-    public IComponents Add(params IComponent[] components)
-    {
-        foreach (var component in components)
-            Add(component);
-        return this;
-    }
-
-    public IComponents Add<T>(IComponent component)
-    {
-        Add(component, typeof(T));
-        component.Set_Parent(this);
-        return this;
-    }
-
-    public IComponents Remove(IComponent component)
-    {
-        foreach (var int_type in Get_Types(component))
-            components[int_type].Remove(component);
-        component.Set_Parent(null);
-        return this;
-    }
-
-    public IComponents Remove<T>(IComponent component)
-    {
-        components[typeof(T)].Remove(component);
-        return this;
-    }
-
     public T Get<T>()
         where T : IComponent
     {

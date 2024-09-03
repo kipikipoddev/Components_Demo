@@ -3,13 +3,13 @@ namespace Components_Better_Solution;
 
 public class Change_Action_Command : Command
 {
-    public Actions Action { get; }
+    public Actions[] Actions { get; }
     public bool Is_Add { get; }
-    
-    public Change_Action_Command(IComponents components, Actions action, bool is_add)
+
+    public Change_Action_Command(IComponents components, bool is_add, params Actions[] actions)
         : base(components)
     {
-        Action = action;
+        Actions = actions;
         Is_Add = is_add;
     }
 }

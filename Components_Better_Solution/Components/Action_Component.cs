@@ -10,9 +10,10 @@ public class Action_Component : Component, IActions_Component, IHandler<Change_A
 
     public void Handle(Change_Action_Command cmd)
     {
-        if (cmd.Is_Add)
-            actions.Add(cmd.Action);
-        else
-            actions.Remove(cmd.Action);
+        foreach (var action in cmd.Actions)
+            if (cmd.Is_Add)
+                actions.Add(action);
+            else
+                actions.Remove(action);
     }
 }
