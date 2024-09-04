@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Better_Solution", "Components_Better_Solution\Components_Better_Solution.csproj", "{8C3A5D66-27C5-4EA8-A41E-A9590CAF2049}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_3_Commands_Tests", "Step_3_Commands_Tests\Step_3_Commands_Tests.csproj", "{8C3A5D66-27C5-4EA8-A41E-A9590CAF2049}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Basic_Solution_Tests", "Components_Basic_Solution_Tests\Components_Basic_Solution_Tests.csproj", "{5CCE4EA4-7EC8-4F28-8D3C-450170D1E20C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_2_Components_Tests", "Step_2_Components_Tests\Step_2_Components_Tests.csproj", "{5CCE4EA4-7EC8-4F28-8D3C-450170D1E20C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects_Solution", "Objects_Solution\Objects_Solution.csproj", "{E7182FC8-86A6-40B7-A8FE-02096857006D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_1_Objects", "Step_1_Objects\Step_1_Objects.csproj", "{E7182FC8-86A6-40B7-A8FE-02096857006D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Objects_Solution_Tests", "Objects_Solution_Tests\Objects_Solution_Tests.csproj", "{B04F918F-3F22-4192-969E-0D09808886B0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_1_Objects_Tests", "Step_1_Objects_Tests\Step_1_Objects_Tests.csproj", "{B04F918F-3F22-4192-969E-0D09808886B0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Basic_Solution", "Components_Basic_Solution\Components_Basic_Solution.csproj", "{EA7198AC-6555-44B7-ACCA-129F94DB961D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_2_Components", "Step_2_Components\Step_2_Components.csproj", "{EA7198AC-6555-44B7-ACCA-129F94DB961D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Components_Better_Solution_Tests", "Components_Better_Solution_Tests\Components_Better_Solution_Tests.csproj", "{D2E2567C-0049-4C34-A9A4-09B6B87DD91A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_3_Commands", "Step_3_Commands\Step_3_Commands.csproj", "{D2E2567C-0049-4C34-A9A4-09B6B87DD91A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
