@@ -1,6 +1,7 @@
-using Step_3_Commands;
 
-namespace Step_3_Commands_Tests;
+using Step_4_Files;
+
+namespace Step_4_Files_Tests;
 
 public abstract class UnitTest_Base
 {
@@ -10,11 +11,11 @@ public abstract class UnitTest_Base
     public virtual void Setup()
     {
         Test_Printer.Reset();
-        Subject = Get_Subject();
+        Subject = Components_Factory.Create(File_Name);
         Subject.Add(new Test_Printer());
     }
 
-    protected abstract IComponents Get_Subject();
+    protected abstract string File_Name { get; }
 
     protected void Assert_Valid<T>(bool is_valid)
         where T : Command
@@ -46,8 +47,7 @@ public abstract class UnitTest_Base
     private void Assert_Action_Printed(string middle, Actions action)
     {
         var action_str = action.ToString().ToLower();
-        var name = Subject.Get<IName_Component>().Name;
-        var expected = $"{name} {middle} {action_str}";
+        var expected = $"{File_Name} {middle} {action_str}";
         var actual = Test_Printer.Message;
         Assert.That(actual, Is.EqualTo(expected));
     }

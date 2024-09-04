@@ -1,9 +1,11 @@
-using Step_3_Commands;
+using Step_4_Files;
 
-namespace Step_3_Commands_Tests;
+namespace Step_4_Files_Tests;
 
 public class Robot_Dog_Tests : UnitTest_Base
 {
+    protected override string File_Name => "Robot_Dog";
+
     [Test]
     public void Test_Actions()
     {
@@ -40,10 +42,5 @@ public class Robot_Dog_Tests : UnitTest_Base
         new Bark_Command(Subject).Send();
 
         Assert_Was_Printed(Actions.Barking);
-    }
-
-    protected override IComponents Get_Subject()
-    {
-        return Components_Factory.Create_Robot_Dog();
     }
 }
