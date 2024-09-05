@@ -2,7 +2,7 @@
 namespace Step_3_Commands;
 
 public class Charge_Component
- : Action_Component<Charge_Command>, IValidator<Action_Command>
+ : Action_Component<Charge_Command>, ICharged_Component, IValidator<Action_Command>
 {
     public bool Is_Charged { get; private set; }
 

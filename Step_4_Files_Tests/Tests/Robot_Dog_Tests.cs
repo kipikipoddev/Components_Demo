@@ -13,6 +13,7 @@ public class Robot_Dog_Tests : UnitTest_Base
         Assert_Valid<Walk_Command>(false);
         Assert_Valid<Swim_Command>(false);
         Assert_Valid<Charge_Command>(true);
+        Assert_False(Subject.Get<ICharged_Component>().Is_Charged);
     }
 
     [Test]
@@ -24,6 +25,7 @@ public class Robot_Dog_Tests : UnitTest_Base
         Assert_Valid<Walk_Command>(true);
         Assert_Valid<Swim_Command>(true);
         Assert_Valid<Charge_Command>(false);
+        Assert_True(Subject.Get<ICharged_Component>().Is_Charged);
     }
 
     [Test]

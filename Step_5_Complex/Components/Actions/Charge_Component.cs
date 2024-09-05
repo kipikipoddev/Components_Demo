@@ -2,21 +2,31 @@
 namespace Step_5_Complex;
 
 public class Charge_Component
- : Action_Component<Charge_Command>, IValidator<Action_Command>
+ : Component, IHandler<Action_Command>, ICharged_Component, IValidator<Action_Command>
 {
-    public bool Is_Charged { get; private set; }
+    public bool Has_Charge => Charges > 0;
+    
+    public int Charges { get; private set; }
+    public int Max_Charges { get; private set; }
 
-    public override void Handle(Charge_Command cmd)
+    public Charge_Component(int max_charges)
     {
-        base.Handle(cmd);
-        Is_Charged = true;
+        Max_Charges = max_charges;
+    }
+
+    public void Handle(Action_Command cmd)
+    {
+        if (cmd is Charge_Command)
+            Charges = Max_Charges;
+        else
+            Charges--;
     }
 
     public bool Is_Valid(Action_Command cmd)
     {
         if (cmd is Charge_Command)
-            return !Is_Charged;
+            return !Has_Charge;
         else
-            return Is_Charged;
+            return Has_Charge;
     }
 }
