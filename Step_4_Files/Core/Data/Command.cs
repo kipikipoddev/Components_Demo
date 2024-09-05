@@ -1,5 +1,5 @@
 ﻿
-namespace Step_5_Complex;
+namespace Step_4_Files;
 
 public abstract class Command
 {
@@ -12,11 +12,11 @@ public abstract class Command
 
     public virtual bool Is_Valid()
     {
-        return Mediator.Is_Valid(this);
+        return Validation_Mediator.Is_Valid(this);
     }
 
     public virtual void Send()
     {
-        Mediator.Send(this);
+        Handling_Mediator.Send(this);
     }
 }

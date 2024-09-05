@@ -27,12 +27,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Files\Cat.json">
+    <None Update="Data\Cat.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Update="Files\Robot_Dog.json">
+    <None Update="Data\Robot_Dog.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace Step_4_Files;
+﻿namespace Step_5_Complex;
 
 public static class Components_Factory
 {
@@ -7,7 +7,7 @@ public static class Components_Factory
     public static IComponents Create(string file_name)
     {
         Init();
-        var file = File_Factory.Get_File(file_name);
+        var file = Components_Resource_Factory.Get_Resource(file_name);
         var components = new Components();
         foreach (var component_name in file.Keys)
         {
@@ -16,6 +16,7 @@ public static class Components_Factory
             var component = (IComponent)Activator.CreateInstance(type, ctor_args)!;
             components.Add(component);
         }
+        components.Add(new Name_Component(file_name));
         return components;
     }
 
