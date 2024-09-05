@@ -1,9 +1,14 @@
 ﻿
 namespace Step_5_Complex;
 
-public class Meow_Command(IComponents components, Volume volume) : Action_Command(components)
+public class Meow_Command : Action_Command
 {
     public override Actions Name => Actions.Meow;
-    public override Actions Was => Actions.Meowing;
-    public Volume Volume { get; } = volume;
+    public Volume Volume { get; }
+
+    public Meow_Command(IComponents components, Volume volume = Volume.Normal) 
+        : base(components)
+    {
+        Volume = volume;
+    }
 }

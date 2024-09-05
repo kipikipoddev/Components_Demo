@@ -2,7 +2,7 @@
 
 public enum Volume
 {
-    Low,
+    Quiet,
     Normal,
     Loud
 }

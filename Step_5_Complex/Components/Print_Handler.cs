@@ -8,12 +8,12 @@ public abstract class Print_Handler : Component, IHandler<Print_Command>
     public void Handle(Print_Command cmd)
     {
         if (cmd.Is_Was)
-            Print("was", cmd.Action);
+            Print("was", (Actions_Description)cmd.Action);
         else
             Print("can't", cmd.Action);
     }
 
-    private void Print(string middle, Actions action)
+    private void Print(string middle, object action)
     {
         var name = Parent.Get<IName_Component>().Name;
         var action_str = action.ToString().ToLower();

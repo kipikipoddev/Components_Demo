@@ -1,9 +1,14 @@
 ﻿
 namespace Step_5_Complex;
 
-public class Walk_Command(IComponents components, Speed speed) : Action_Command(components)
+public class Walk_Command : Action_Command
 {
     public override Actions Name => Actions.Walk;
-    public override Actions Was => Actions.Walking;
-    public Speed Speed { get; } = speed;
+    public Speed Speed { get; }
+
+    public Walk_Command(IComponents components, Speed speed = Speed.Normal)
+        : base(components)
+    {
+        Speed = speed;
+    }
 }

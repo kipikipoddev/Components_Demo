@@ -5,13 +5,12 @@ public abstract class Action_Command(IComponents components)
     : Command(components)
 {
     public abstract Actions Name { get; }
-    public abstract Actions Was { get; }
 
-    public override void Send()
+    public override bool Send()
     {
         if (Is_Valid())
-            base.Send();
-        else
-            new Print_Command(components, Name, false);
+            return base.Send();
+        new Print_Command(components, Name, false);
+        return false;
     }
 }
