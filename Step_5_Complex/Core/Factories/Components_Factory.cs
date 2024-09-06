@@ -16,7 +16,6 @@ public static class Components_Factory
             var component = (IComponent)Activator.CreateInstance(type, ctor_args)!;
             components.Add(component);
         }
-        components.Add(new Name_Component(file_name));
         return components;
     }
 

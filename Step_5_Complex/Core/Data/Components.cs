@@ -18,6 +18,11 @@ public class Components : Component, IComponents
         return (T)components[typeof(T)].First();
     }
 
+    public T? Get_Or_Defualt<T>() where T : IComponent
+    {
+        return Has<T>() ? Get<T>() : default;
+    }
+
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {

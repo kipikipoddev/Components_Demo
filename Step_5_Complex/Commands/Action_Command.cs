@@ -1,16 +1,20 @@
 ﻿
 namespace Step_5_Complex;
 
-public abstract class Action_Command(IComponents components)
-    : Command(components)
+public abstract class Action_Command : Command
 {
+    public Action_Command(IComponents components)
+        : base(components)
+    {
+    }
+
     public abstract Actions Name { get; }
 
     public override bool Send()
     {
-        if (Is_Valid())
-            return base.Send();
-        new Print_Command(components, Name, false);
-        return false;
+        var is_valid = base.Send();
+        if (!is_valid)
+            new Print_Cant_Command(Components, Name);
+        return is_valid;
     }
 }

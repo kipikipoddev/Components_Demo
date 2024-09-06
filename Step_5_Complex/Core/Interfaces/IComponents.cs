@@ -7,6 +7,8 @@ public interface IComponents : IComponent
 
     T Get<T>()
         where T : IComponent;
+    T? Get_Or_Defualt<T>()
+        where T : IComponent;
 
     IEnumerable<T> Get_All<T>()
         where T : IComponent;

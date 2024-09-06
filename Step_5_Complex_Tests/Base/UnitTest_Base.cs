@@ -6,15 +6,17 @@ public abstract class UnitTest_Base
 {
     protected IComponents Subject;
 
+    protected string Name => "Name";
+    protected abstract string File_Name { get; }
+
     [SetUp]
     public virtual void Setup()
     {
         Test_Printer.Reset();
         Subject = Components_Factory.Create(File_Name);
+        Subject.Add(new Name_Component(Name));
         Subject.Add(new Test_Printer());
     }
-
-    protected abstract string File_Name { get; }
 
     protected void Assert_Valid<T>(bool is_valid, params object[] args)
         where T : Command
@@ -34,9 +36,9 @@ public abstract class UnitTest_Base
         Assert.That(actual, Is.False);
     }
 
-    protected void Assert_Was_Printed(Actions_Description action)
+    protected void Assert_Was_Printed(Actions_Description action, object? extra = null)
     {
-        Assert_Action_Printed("was", action);
+        Assert_Action_Printed("was", action, extra);
     }
 
     protected void Assert_Cant_Printed(Actions action)
@@ -44,7 +46,12 @@ public abstract class UnitTest_Base
         Assert_Action_Printed("can't", action);
     }
 
-    private void Assert_Action_Printed(string middle, object action)
+    protected static void Assert_Printed(string message)
+    {
+        Assert.That(Test_Printer.Message, Is.EqualTo(message));
+    }
+
+    private void Assert_Action_Printed(string middle, object action, object? extra = null)
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{File_Name} {middle} {action_str}";
