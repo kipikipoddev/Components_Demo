@@ -1,20 +1,28 @@
 ﻿
 namespace Step_3_Commands;
 
-public class Injure_Component
-    : Action_Component<Injure_Command>, IInjure_Component, IHandler<Heal_Command>, IValidator<Action_Command>
+public class Injure_Component :
+    Action_Component<Injure_Command>,
+    IInjure_Component,
+    IHandler<Heal_Command>,
+    IValidator<Action_Command>
 {
     public bool Is_Injured { get; private set; }
 
+    public Injure_Component(params Type[] types)
+    {
+
+    }
+
     public override void Handle(Injure_Command cmd)
     {
-        base.Handle(cmd);
+        Print(cmd.Action);
         Is_Injured = true;
     }
 
     public void Handle(Heal_Command cmd)
     {
-        base.Handle(cmd);
+        Print(cmd.Action);
         Is_Injured = false;
     }
 

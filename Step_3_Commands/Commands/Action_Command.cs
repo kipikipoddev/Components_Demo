@@ -1,17 +1,20 @@
 ﻿
 namespace Step_3_Commands;
 
-public abstract class Action_Command(IComponents components)
-    : Command(components)
+public abstract class Action_Command : Command
 {
-    public abstract Actions Name { get; }
-    public abstract Actions Was { get; }
-
-    public override void Send()
+    public Action_Command(IComponents components)
+        : base(components)
     {
-        if (Is_Valid())
-            base.Send();
-        else
-            new Print_Command(components, Name, false);
+    }
+
+    public abstract Actions Action { get; }
+
+    public override bool Send()
+    {
+        var is_success = base.Send();
+        if (!is_success)
+            new Print_Command(Components, Action, false);
+        return is_success;
     }
 }

@@ -31,17 +31,17 @@ public class Robot_Dog_Tests : UnitTest_Base
     {
         new Bark_Command(Subject).Send();
 
-        Assert_Cant_Printed(Actions.Bark);
+        Assert_Printed("Robot_Dog can't bark");
     }
 
     [Test]
-    public void Test_Bark_When_Injure()
+    public void Test_Bark_After_Charge()
     {
         new Charge_Command(Subject).Send();
 
         new Bark_Command(Subject).Send();
 
-        Assert_Was_Printed(Actions.Barking);
+        Assert_Printed("Robot_Dog was barking");
     }
 
     protected override IComponents Get_Subject()
