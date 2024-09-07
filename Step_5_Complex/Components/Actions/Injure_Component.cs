@@ -11,19 +11,21 @@ public class Injure_Component
 
     public Injure_Component(int max_hp)
     {
+        Mediator.Add_Handler<Heal_Command>(this);
+        Mediator.Add_Validator(this);
         Hp = max_hp;
         Max_Hp = max_hp;
     }
 
     public override void Handle(Injure_Command cmd)
     {
-        base.Handle(cmd);
+        Print(cmd);
         Hp--;
     }
 
     public void Handle(Heal_Command cmd)
     {
-        base.Handle(cmd);
+        Print(cmd);
         Hp = Max_Hp;
     }
 

@@ -10,11 +10,11 @@ public class Action_Component<T> : Component, IHandler<T>
 
     public virtual void Handle(T cmd)
     {
-        Print(cmd.Action);
+        Print(cmd);
     }
 
-    protected void Print(Actions action)
+    protected void Print(Action_Command cmd)
     {
-        new Print_Command(Parent, action, true);
+        new Print_Command(Parent, cmd.Action, true);
     }
 }

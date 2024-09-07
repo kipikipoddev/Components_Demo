@@ -4,7 +4,7 @@ public class Meow_Component : Action_Component<Meow_Command>, IValidator<Meow_Co
 {
     public override void Handle(Meow_Command cmd)
     {
-        new Print_Action_Command(Parent, cmd.Name, cmd.Volume);
+        new Print_Action_Command(Parent, cmd.Action, cmd.Volume);
     }
 
     public bool Is_Valid(Meow_Command cmd)

@@ -3,13 +3,18 @@
 public class Action_Component<T> : Component, IHandler<T>
     where T : Action_Command
 {
-    public virtual void Handle(T cmd)
+    public Action_Component()
     {
-        Handle((Action_Command)cmd);
+        Mediator.Add_Handler(this);
     }
 
-    protected virtual void Handle(Action_Command cmd)
+    public virtual void Handle(T cmd)
     {
-        new Print_Action_Command(Parent, cmd.Name);
+        Print(cmd);
+    }
+
+    protected void Print(Action_Command cmd)
+    {
+        new Print_Action_Command(Parent, cmd.Action);
     }
 }

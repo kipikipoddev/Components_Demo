@@ -8,13 +8,13 @@ public abstract class Action_Command : Command
     {
     }
 
-    public abstract Actions Name { get; }
+    public abstract Actions Action { get; }
 
     public override bool Send()
     {
         var is_valid = base.Send();
         if (!is_valid)
-            new Print_Cant_Command(Components, Name);
+            new Print_Cant_Command(Components, Action);
         return is_valid;
     }
 }

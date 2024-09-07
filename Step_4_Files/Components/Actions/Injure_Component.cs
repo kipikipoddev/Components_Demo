@@ -17,13 +17,13 @@ public class Injure_Component :
 
     public override void Handle(Injure_Command cmd)
     {
-        Print(cmd.Action);
+        Print(cmd);
         Is_Injured = true;
     }
 
     public void Handle(Heal_Command cmd)
     {
-        Print(cmd.Action);
+        Print(cmd);
         Is_Injured = false;
     }
 
