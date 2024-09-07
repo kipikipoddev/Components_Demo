@@ -7,6 +7,8 @@ public abstract class UnitTest_Base
 {
     protected IComponents Subject;
 
+    protected abstract string File_Name { get; }
+
     [SetUp]
     public virtual void Setup()
     {
@@ -14,8 +16,6 @@ public abstract class UnitTest_Base
         Subject = Components_Factory.Create(File_Name);
         Subject.Add(new Test_Printer());
     }
-
-    protected abstract string File_Name { get; }
 
     protected void Assert_Valid<T>(bool is_valid)
         where T : Command
@@ -34,21 +34,8 @@ public abstract class UnitTest_Base
         Assert.That(actual, Is.False);
     }
 
-    protected void Assert_Was_Printed(Actions action)
+    protected static void Assert_Printed(string mesage)
     {
-        Assert_Action_Printed("was", action);
-    }
-
-    protected void Assert_Cant_Printed(Actions action)
-    {
-        Assert_Action_Printed("can't", action);
-    }
-
-    private void Assert_Action_Printed(string middle, Actions action)
-    {
-        var action_str = action.ToString().ToLower();
-        var expected = $"{File_Name} {middle} {action_str}";
-        var actual = Test_Printer.Message;
-        Assert.That(actual, Is.EqualTo(expected));
+        Assert.That(Test_Printer.Last_Message, Is.EqualTo(mesage));
     }
 }

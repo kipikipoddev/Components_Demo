@@ -12,11 +12,14 @@ public abstract class Command
 
     public virtual bool Is_Valid()
     {
-        return Validation_Mediator.Is_Valid(this);
+        return Mediator.Validate(this);
     }
 
-    public virtual void Send()
+    public virtual bool Send()
     {
-        Handling_Mediator.Send(this);
+        var is_valid = Is_Valid();
+        if (is_valid)
+            Mediator.Send(this);
+        return is_valid;
     }
 }

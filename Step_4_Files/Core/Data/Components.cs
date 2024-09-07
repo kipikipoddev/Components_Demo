@@ -8,7 +8,7 @@ public class Components : Component, IComponents
     {
         foreach (var int_type in Get_Types(component))
             Add(component, int_type);
-        component.Set_Parent(this);
+        component.Parent = this;
         return this;
     }
 

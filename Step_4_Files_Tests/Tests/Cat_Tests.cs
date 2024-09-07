@@ -31,7 +31,7 @@ public class Cat_Tests : UnitTest_Base
     {
         new Meow_Command(Subject).Send();
 
-        Assert_Was_Printed(Actions.Meowing);
+        Assert_Printed("Cat was meowing");
     }
 
     [Test]
@@ -41,6 +41,6 @@ public class Cat_Tests : UnitTest_Base
 
         new Meow_Command(Subject).Send();
 
-        Assert_Cant_Printed(Actions.Meow);
+        Assert_Printed("Cat can't meow");
     }
 }
