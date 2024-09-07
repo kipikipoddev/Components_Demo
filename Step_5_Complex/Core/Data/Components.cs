@@ -18,11 +18,6 @@ public class Components : Component, IComponents
         return (T)components[typeof(T)].First();
     }
 
-    public T? Get_Or_Defualt<T>() where T : IComponent
-    {
-        return Has<T>() ? Get<T>() : default;
-    }
-
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
@@ -34,7 +29,7 @@ public class Components : Component, IComponents
     public bool Has<T>()
         where T : IComponent
     {
-        return components.ContainsKey(typeof(T)) & components[typeof(T)].Any();
+        return components.ContainsKey(typeof(T)) && components[typeof(T)].Any();
     }
 
     private void Add(IComponent component, Type type)

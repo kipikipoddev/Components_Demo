@@ -1,15 +1,15 @@
 ﻿
 namespace Step_5_Complex;
 
-public class Injure_Component
-    : Action_Component<Injure_Command>, IInjure_Component, IHandler<Heal_Command>, IValidator<Action_Command>
+public class Hp_Component
+    : Action_Component<Injure_Command>, IHp_Component, IHandler<Heal_Command>, IValidator<Action_Command>
 {
     public int Hp { get; private set; }
     public int Max_Hp { get; private set; }
     public bool Is_Alive => Hp > 0;
     public bool Is_Injured => Hp < Max_Hp;
 
-    public Injure_Component(int max_hp)
+    public Hp_Component(int max_hp)
     {
         Mediator.Add_Handler<Heal_Command>(this);
         Mediator.Add_Validator(this);

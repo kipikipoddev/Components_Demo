@@ -36,27 +36,9 @@ public abstract class UnitTest_Base
         Assert.That(actual, Is.False);
     }
 
-    protected void Assert_Was_Printed(Actions_Description action, object? extra = null)
-    {
-        Assert_Action_Printed("was", action, extra);
-    }
-
-    protected void Assert_Cant_Printed(Actions action)
-    {
-        Assert_Action_Printed("can't", action);
-    }
-
     protected static void Assert_Printed(string message)
     {
         Assert.That(Test_Printer.Message, Is.EqualTo(message));
-    }
-
-    private void Assert_Action_Printed(string middle, object action, object? extra = null)
-    {
-        var action_str = action.ToString().ToLower();
-        var expected = $"{File_Name} {middle} {action_str}";
-        var actual = Test_Printer.Message;
-        Assert.That(actual, Is.EqualTo(expected));
     }
 
     private object[] Get_Args<T>(object[] args) where T : Command

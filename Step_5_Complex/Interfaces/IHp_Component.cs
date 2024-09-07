@@ -1,7 +1,7 @@
 ﻿
 namespace Step_5_Complex;
 
-public interface IInjure_Component : IComponent
+public interface IHp_Component : IComponent
 {
     bool Is_Alive { get; }
     bool Is_Injured { get; }

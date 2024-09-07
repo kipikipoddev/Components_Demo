@@ -3,5 +3,6 @@
 public enum Volume_Description
 {
     Quietly,
+    Normaly,
     Loudly
 }

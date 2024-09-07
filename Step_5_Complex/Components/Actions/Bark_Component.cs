@@ -1,16 +1,21 @@
 ﻿namespace Step_5_Complex;
 
-public class Bark_Component : Action_Component<Bark_Command>, IValidator<Meow_Command>
+public class Bark_Component : Action_Component<Bark_Command>, IValidator<Bark_Command>
 {
-    public override void Handle(Bark_Command cmd)
+    public Bark_Component()
     {
-        new Print_Action_Command(Parent, cmd.Action, cmd.Volume);
+        Mediator.Add_Validator(this);
     }
 
-    public bool Is_Valid(Meow_Command cmd)
+    public override void Handle(Bark_Command cmd)
     {
-        if (Parent.Has<IInjure_Component>())
-            if (Parent.Get<IInjure_Component>().Is_Injured)
+        new Print_Action_Command(Parent, cmd.Action, true, cmd.Volume);
+    }
+
+    public bool Is_Valid(Bark_Command cmd)
+    {
+        if (Parent.Has<IHp_Component>())
+            if (Parent.Get<IHp_Component>().Is_Injured)
                 return cmd.Volume == Volume.Quiet;
         return true;
     }

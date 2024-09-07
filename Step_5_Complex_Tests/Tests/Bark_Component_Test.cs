@@ -15,7 +15,7 @@ public class Bark_Component_Test : UnitTest_Base
     [Test]
     public void Test_Bark_After_Injure()
     {
-        Subject.Add(new Injure_Component(2));
+        Subject.Add(new Hp_Component(2));
 
         new Injure_Command(Subject).Send();
 
@@ -25,7 +25,7 @@ public class Bark_Component_Test : UnitTest_Base
     [Test]
     public void Test_Bark_After_Dead()
     {
-        Subject.Add(new Injure_Component(1));
+        Subject.Add(new Hp_Component(1));
 
         new Injure_Command(Subject).Send();
 
@@ -33,7 +33,7 @@ public class Bark_Component_Test : UnitTest_Base
     }
 
     [TestCase(Volume.Quiet, "Name was barking quietly")]
-    [TestCase(Volume.Normal, "Name was barking")]
+    [TestCase(Volume.Normal, "Name was barking normaly")]
     [TestCase(Volume.Loud, "Name was barking loudly")]
     public void Test_Bark_Volumes(Volume volume, string message)
     {
@@ -43,11 +43,11 @@ public class Bark_Component_Test : UnitTest_Base
     }
 
     [TestCase(Volume.Quiet, "Name was barking quietly")]
-    [TestCase(Volume.Normal, "Name can't bark normaly")]
-    [TestCase(Volume.Loud, "Name can't bark loudly")]
+    [TestCase(Volume.Normal, "Name can't bark")]
+    [TestCase(Volume.Loud, "Name can't bark")]
     public void Test_Bark_Volumes_When_Injureds(Volume volume, string message)
     {
-        Subject.Add(new Injure_Component(2));
+        Subject.Add(new Hp_Component(2));
         new Injure_Command(Subject).Send();
 
         new Bark_Command(Subject, volume).Send();
