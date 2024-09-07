@@ -9,9 +9,10 @@ public class Injure_Component :
 {
     public bool Is_Injured { get; private set; }
 
-    public Injure_Component(params Type[] types)
+    public Injure_Component()
     {
-
+        Mediator.Add_Handler<Heal_Command>(this);
+        Mediator.Add_Validator(this);
     }
 
     public override void Handle(Injure_Command cmd)

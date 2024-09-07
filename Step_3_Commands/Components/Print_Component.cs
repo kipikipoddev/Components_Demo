@@ -2,8 +2,10 @@
 
 public abstract class Print_Component : Component, IHandler<Print_Command>
 {
-    protected abstract void Print(string message);
-
+    public Print_Component()
+    {
+        Mediator.Add_Handler(this);
+    }
 
     public void Handle(Print_Command cmd)
     {
@@ -12,6 +14,8 @@ public abstract class Print_Component : Component, IHandler<Print_Command>
         else
             Print("can't", cmd.Actions);
     }
+
+    protected abstract void Print(string message);
 
     private void Print(string middle, object action)
     {
