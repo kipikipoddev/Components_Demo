@@ -1,0 +1,7 @@
+﻿
+namespace Step_5_Complex;
+
+public class Swim_Command(IComponents components) : Action_Command(components)
+{
+    public override Actions Action => Actions.Swim;
+}

@@ -1,8 +1,0 @@
-{
-    "Type": "Cat",
-    "Speed": "Fast",
-    "Writer": "Injured",
-    "Injure": "Animal",
-    "Walk": true,
-    "Sound": "Meow"
-}
