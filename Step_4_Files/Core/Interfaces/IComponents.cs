@@ -8,9 +8,6 @@ public interface IComponents : IComponent
     T Get<T>()
         where T : IComponent;
 
-    IEnumerable<T> Get_All<T>()
-        where T : IComponent;
-
     bool Has<T>()
         where T : IComponent;
 }

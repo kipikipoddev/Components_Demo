@@ -1,6 +1,6 @@
 using Step_5_Complex;
 
-namespace Step_4_Files_Tests;
+namespace Step_5_Complex_Tests;
 
 public class Bark_Component_Test : UnitTest_Base
 {
@@ -61,7 +61,7 @@ public class Bark_Component_Test : UnitTest_Base
         Subject.Remove<Bark_Component>();
         new Bark_Command(Subject, Volume.Loud).Send();
 
-        Assert_Valid<Bark_Command>(false);
-        Assert_Printed("Name can't bark");
+        Assert_Valid<Bark_Command>(true);
+        Assert_Printed(null);
     }
 }

@@ -20,15 +20,21 @@ public static class Mediator
     public static void Send(Command command)
     {
         foreach (var handler in Get_Data(handlers, command))
-            handler.Handler(command);
+            handler.Action(command);
     }
 
     public static bool Validate(Command command)
     {
         foreach (var validator in Get_Data(validators, command))
-            if (!validator.Validater(command))
+            if (!validator.Function(command))
                 return false;
         return true;
+    }
+
+    public static void Remove(IComponent component)
+    {
+        Remove_Data(handlers, component);
+        Remove_Data(validators, component);
     }
 
     private static IEnumerable<T> Get_Data<T>(List<T> data_list, Command command)
@@ -39,7 +45,15 @@ public static class Mediator
             if (data.Component.Parent == command.Components && types.Contains(data.Type))
                 yield return data;
     }
-    
+
+    private static void Remove_Data<T>(List<T> data_list, IComponent component)
+        where T : Data
+    {
+        for (int i = 0; i < data_list.Count; i++)
+            if (data_list[i].Component == component)
+                data_list.RemoveAt(i);
+    }
+
     private static IEnumerable<Type> Get_Base_Types(Type type)
     {
         while (type != typeof(object))
@@ -49,10 +63,10 @@ public static class Mediator
         }
     }
 
-    private record Handler_Data(IComponent Component, Type Type, Action<Command> Handler)
+    private record Handler_Data(IComponent Component, Type Type, Action<Command> Action)
         : Data(Component, Type)
     { }
-    private record Validator_Data(IComponent Component, Type Type, Func<Command, bool> Validater)
+    private record Validator_Data(IComponent Component, Type Type, Func<Command, bool> Function)
         : Data(Component, Type)
     { }
     private record Data(IComponent Component, Type Type) { }
