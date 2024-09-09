@@ -54,4 +54,14 @@ public class Bark_Component_Test : UnitTest_Base
 
         Assert_Printed(message);
     }
+
+    [Test]
+    public void Test_Bark_When_No_Component()
+    {
+        Subject.Remove<Bark_Component>();
+        new Bark_Command(Subject, Volume.Loud).Send();
+
+        Assert_Valid<Bark_Command>(false);
+        Assert_Printed("Name can't bark");
+    }
 }

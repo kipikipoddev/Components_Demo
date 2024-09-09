@@ -13,4 +13,7 @@ public interface IComponents : IComponent
 
     bool Has<T>()
         where T : IComponent;
+        
+    void Remove<T>()
+         where T : IComponent;
 }

@@ -43,4 +43,10 @@ public class Components : Component, IComponents
     {
         return component.GetType().GetInterfaces();
     }
+
+    public void Remove<T>() where T : IComponent
+    {
+        if (Has<T>())
+            components.Remove(typeof(T));
+    }
 }
