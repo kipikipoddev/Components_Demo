@@ -9,7 +9,7 @@ public class Components : Component, IComponents
         components[component.GetType()] = component;
         foreach (var int_type in Get_Int_Types(component))
             components[int_type] = component;
-        component.Parent = this;
+        component.Set_Parent(this);
         return this;
     }
 
@@ -31,6 +31,7 @@ public class Components : Component, IComponents
         if (components.ContainsKey(type))
         {
             Mediator.Remove(components[type]);
+            components[type].Remove();
             components.Remove(type);
         }
     }

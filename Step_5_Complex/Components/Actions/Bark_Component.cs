@@ -7,6 +7,11 @@ public class Bark_Component : Action_Component<Bark_Command>, IValidator<Bark_Co
         Mediator.Add_Validator(this);
     }
 
+    public override void Set_Parent(IComponents parent)
+    {
+        new Change_Action_Command(parent, Actions.Bark, true);
+    }
+
     public override void Handle(Bark_Command cmd)
     {
         new Print_Action_Command(Parent, cmd.Action, true, cmd.Volume);

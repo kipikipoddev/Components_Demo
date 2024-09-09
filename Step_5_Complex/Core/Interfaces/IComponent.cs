@@ -3,5 +3,7 @@ namespace Step_5_Complex;
 
 public interface IComponent
 {
-    IComponents Parent { get; set;}
+    IComponents Parent { get; }
+    void Set_Parent(IComponents parent);
+    void Remove();
 }
