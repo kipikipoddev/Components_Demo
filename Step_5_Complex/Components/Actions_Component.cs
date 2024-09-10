@@ -1,23 +1,13 @@
 ﻿
 namespace Step_5_Complex;
 
-public class Actions_Component : Component, IActions_Component, IHandler<Change_Action_Command>
+public class Actions_Component : Component, IActions_Component
 {
-    private readonly HashSet<Actions> actions;
-
-    public Actions_Component()
+    public IEnumerable<Actions> Available_Actions
     {
-        Mediator.Add_Handler(this);
-        actions = [];
+        get
+        {
+            return null;//var components = Parent.Get_All<IAction_Component>();
+        }
     }
-
-    public void Handle(Change_Action_Command cmd)
-    {
-        if (cmd.Is_Add)
-            actions.Add(cmd.Action);
-        else
-            actions.Remove(cmd.Action);
-    }
-
-    public IEnumerable<Actions> Actions => actions;
 }

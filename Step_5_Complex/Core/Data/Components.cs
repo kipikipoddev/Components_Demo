@@ -2,13 +2,12 @@
 
 public class Components : Component, IComponents
 {
-    private readonly Dictionary<Type, IComponent> components = new();
+    private readonly Dictionary<Type, List<IComponent>> components = new();
 
     public IComponents Add(IComponent component)
     {
-        components[component.GetType()] = component;
-        foreach (var int_type in Get_Int_Types(component))
-            components[int_type] = component;
+        foreach (var int_type in Get_Types(component))
+            Add(component, int_type);
         component.Set_Parent(this);
         return this;
     }
@@ -16,13 +15,21 @@ public class Components : Component, IComponents
     public T Get<T>()
         where T : IComponent
     {
-        return (T)components[typeof(T)];
+        return (T)components[typeof(T)].First();
+    }
+
+    public IEnumerable<T> Get_All<T>()
+        where T : IComponent
+    {
+        if (components.ContainsKey(typeof(T)))
+            return components[typeof(T)].Select(c => (T)c);
+        return [];
     }
 
     public bool Has<T>()
         where T : IComponent
     {
-        return components.ContainsKey(typeof(T));
+        return components.ContainsKey(typeof(T)) && components[typeof(T)].Any();
     }
 
     public void Remove<T>() where T : IComponent
@@ -30,12 +37,20 @@ public class Components : Component, IComponents
         var type = typeof(T);
         if (components.ContainsKey(type))
         {
-            Mediator.Remove(components[type]);
-            components[type].Remove();
-            components.Remove(type);
+            foreach (var component in components[type])
+                Mediator.Remove(component);
+            components.Remove(typeof(T));
         }
     }
-    private static Type[] Get_Int_Types(IComponent component)
+
+    private void Add(IComponent component, Type type)
+    {
+        if (!components.ContainsKey(type))
+            components[type] = [];
+        components[type].Add(component);
+    }
+
+    private static Type[] Get_Types(IComponent component)
     {
         return component.GetType().GetInterfaces();
     }

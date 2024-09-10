@@ -1,8 +1,11 @@
 ﻿
 namespace Step_5_Complex;
 
-public class Hp_Component
-    : Action_Component<Injure_Command>, IHp_Component, IHandler<Heal_Command>, IValidator<Action_Command>
+public class Hp_Component :
+    Action_Component<Injure_Command>,
+    IHp_Component,
+    IHandler<Heal_Command>,
+    IValidator<Action_Command>
 {
     public int Hp { get; private set; }
     public int Max_Hp { get; private set; }
@@ -15,6 +18,15 @@ public class Hp_Component
         Mediator.Add_Validator(this);
         Hp = max_hp;
         Max_Hp = max_hp;
+    }
+
+    public override IEnumerable<Actions> Available_Actions
+    {
+        get
+        {
+            yield return Actions.Injure;
+            yield return Actions.Heal;
+        }
     }
 
     public override void Handle(Injure_Command cmd)

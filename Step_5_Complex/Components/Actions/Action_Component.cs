@@ -1,12 +1,15 @@
-﻿namespace Step_5_Complex;
+﻿
+namespace Step_5_Complex;
 
-public class Action_Component<T> : Component, IHandler<T>
+public abstract class Action_Component<T> : Component, IHandler<T>, IAction_Component
     where T : Action_Command
 {
     public Action_Component()
     {
         Mediator.Add_Handler(this);
     }
+
+    public abstract IEnumerable<Actions> Available_Actions { get; }
 
     public virtual void Handle(T cmd)
     {

@@ -1,4 +1,5 @@
-﻿namespace Step_5_Complex;
+﻿
+namespace Step_5_Complex;
 
 public class Bark_Component : Action_Component<Bark_Command>, IValidator<Bark_Command>
 {
@@ -7,9 +8,12 @@ public class Bark_Component : Action_Component<Bark_Command>, IValidator<Bark_Co
         Mediator.Add_Validator(this);
     }
 
-    public override void Set_Parent(IComponents parent)
+    public override IEnumerable<Actions> Available_Actions
     {
-        new Change_Action_Command(parent, Actions.Bark, true);
+        get
+        {
+            yield return Actions.Bark;
+        }
     }
 
     public override void Handle(Bark_Command cmd)
