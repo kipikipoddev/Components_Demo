@@ -20,7 +20,7 @@ public class Hp_Component :
         Max_Hp = max_hp;
     }
 
-    public override IEnumerable<Actions> Available_Actions
+    public override IEnumerable<Actions> Actions_Handling
     {
         get
         {

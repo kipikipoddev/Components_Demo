@@ -2,7 +2,7 @@
 
 public class Walk_Component : Action_Component<Walk_Command>
 {
-    public override IEnumerable<Actions> Available_Actions
+    public override IEnumerable<Actions> Actions_Handling
     {
         get
         {

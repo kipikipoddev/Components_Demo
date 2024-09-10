@@ -8,7 +8,7 @@ public class Meow_Component :
         new Print_Action_Command(Parent, cmd.Action, true, cmd.Volume);
     }
 
-    public override IEnumerable<Actions> Available_Actions
+    public override IEnumerable<Actions> Actions_Handling
     {
         get
         {

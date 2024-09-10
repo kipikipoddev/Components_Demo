@@ -9,7 +9,7 @@ public abstract class Action_Component<T> : Component, IHandler<T>, IAction_Comp
         Mediator.Add_Handler(this);
     }
 
-    public abstract IEnumerable<Actions> Available_Actions { get; }
+    public abstract IEnumerable<Actions> Actions_Handling { get; }
 
     public virtual void Handle(T cmd)
     {

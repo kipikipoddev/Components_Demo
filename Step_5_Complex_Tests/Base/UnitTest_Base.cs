@@ -15,6 +15,7 @@ public abstract class UnitTest_Base
         Test_Printer.Reset();
         Subject = Components_Factory.Create(File_Name);
         Subject.Add(new Name_Component(Name));
+        Subject.Add(new Actions_Component());
         Subject.Add(new Test_Printer());
     }
 

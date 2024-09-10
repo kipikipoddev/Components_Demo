@@ -16,7 +16,7 @@ public class Charge_Component :
         Max_Charges = max_charges;
     }
 
-    public override IEnumerable<Actions> Available_Actions
+    public override IEnumerable<Actions> Actions_Handling
     {
         get
         {

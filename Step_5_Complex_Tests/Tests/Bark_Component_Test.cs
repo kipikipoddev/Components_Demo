@@ -56,12 +56,24 @@ public class Bark_Component_Test : UnitTest_Base
     }
 
     [Test]
+    public void Test_Bark_Actions()
+    {
+        var actions = Subject.Get<IActions_Component>().Available_Actions;
+        
+        Assert.That(actions.Contains(Actions.Bark), Is.True);
+
+        Subject.Remove<Bark_Component>();
+
+        Assert.That(actions.Contains(Actions.Bark), Is.False);
+    }
+
+    [Test]
     public void Test_Bark_When_No_Component()
     {
         Subject.Remove<Bark_Component>();
         new Bark_Command(Subject, Volume.Loud).Send();
 
-        Assert_Valid<Bark_Command>(true);
-        Assert_Printed(null);
+        Assert_Valid<Bark_Command>(false);
+        Assert_Printed("Name can't bark");
     }
 }

@@ -2,5 +2,5 @@
 
 public interface IAction_Component : IComponent
 {
-    IEnumerable<Actions> Available_Actions { get; }
+    IEnumerable<Actions> Actions_Handling { get; }
 }

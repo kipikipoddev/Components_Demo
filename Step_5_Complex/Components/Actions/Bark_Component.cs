@@ -8,7 +8,7 @@ public class Bark_Component : Action_Component<Bark_Command>, IValidator<Bark_Co
         Mediator.Add_Validator(this);
     }
 
-    public override IEnumerable<Actions> Available_Actions
+    public override IEnumerable<Actions> Actions_Handling
     {
         get
         {

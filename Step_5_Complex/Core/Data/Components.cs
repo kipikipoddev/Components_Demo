@@ -2,13 +2,13 @@
 
 public class Components : Component, IComponents
 {
-    private readonly Dictionary<Type, List<IComponent>> components = new();
+    private readonly Dictionary<Type, HashSet<IComponent>> components = [];
 
     public IComponents Add(IComponent component)
     {
-        foreach (var int_type in Get_Types(component))
-            Add(component, int_type);
-        component.Set_Parent(this);
+        foreach (var type in Get_Types(component.GetType()))
+            Add(component, type);
+        component.Parent = this;
         return this;
     }
 
@@ -32,14 +32,18 @@ public class Components : Component, IComponents
         return components.ContainsKey(typeof(T)) && components[typeof(T)].Any();
     }
 
-    public void Remove<T>() where T : IComponent
+    public void Remove<T>()
+        where T : IComponent
     {
-        var type = typeof(T);
-        if (components.ContainsKey(type))
+        foreach (var component in Get_All<T>().ToArray())
         {
-            foreach (var component in components[type])
-                Mediator.Remove(component);
-            components.Remove(typeof(T));
+            foreach (var type in components.Keys)
+            {
+                components[type].Remove(component);
+                if (!components[type].Any())
+                    components.Remove(type);
+            }
+            Mediator.Remove(component);
         }
     }
 
@@ -50,8 +54,14 @@ public class Components : Component, IComponents
         components[type].Add(component);
     }
 
-    private static Type[] Get_Types(IComponent component)
+    private static IEnumerable<Type> Get_Types(Type? type)
     {
-        return component.GetType().GetInterfaces();
+        if (type == null)
+            yield break;
+        yield return type;
+        foreach (var base_type in Get_Types(type.BaseType))
+            yield return base_type;
+        foreach (var int_type in type.GetInterfaces())
+            yield return int_type;
     }
 }
