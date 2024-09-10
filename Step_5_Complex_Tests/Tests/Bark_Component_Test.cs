@@ -59,12 +59,12 @@ public class Bark_Component_Test : UnitTest_Base
     public void Test_Bark_Actions()
     {
         var actions = Subject.Get<IActions_Component>().Available_Actions;
-        
-        Assert.That(actions.Contains(Actions.Bark), Is.True);
+
+        Assert.That(actions, Does.Contain(Actions.Bark));
 
         Subject.Remove<Bark_Component>();
 
-        Assert.That(actions.Contains(Actions.Bark), Is.False);
+        Assert.That(actions, Does.Not.Contain(Actions.Bark));
     }
 
     [Test]

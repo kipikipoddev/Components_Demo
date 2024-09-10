@@ -23,7 +23,7 @@ public class Robot_Tests : UnitTest_Base<IRobot>
     {
         Subject.Charge();
 
-        Assert_Was_Printed(Actions.Charged);
+        Assert_Was_Printed(Actions_Description.Charged);
     }
 
     [Test]

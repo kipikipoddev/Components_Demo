@@ -14,6 +14,11 @@ public class UnitTest_Base<T>
         Subject = Creator.Create<T>();
     }
 
+    protected static void Assert_Equivalent<R>(IEnumerable<R> list, params R[] objects)
+    {
+        Assert.That(list, Is.EquivalentTo(objects));
+    }
+
     protected static void Assert_True(Func<bool> action)
     {
         Assert.That(action(), Is.True);
@@ -24,7 +29,7 @@ public class UnitTest_Base<T>
         Assert.That(action(), Is.False);
     }
 
-    protected void Assert_Was_Printed(Actions action)
+    protected void Assert_Was_Printed(Actions_Description action)
     {
         Assert_Action_Printed("was", action);
     }
@@ -34,7 +39,7 @@ public class UnitTest_Base<T>
         Assert_Action_Printed("can't", action);
     }
 
-    private void Assert_Action_Printed(string middle, Actions action)
+    private void Assert_Action_Printed(string middle, object action)
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Name} {middle} {action_str}";

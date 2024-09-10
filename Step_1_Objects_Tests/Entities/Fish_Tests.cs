@@ -5,6 +5,12 @@ namespace Step_1_Objects_Tests;
 public class Fish_Tests : UnitTest_Base<IFIsh>
 {
     [Test]
+    public void Test_Available_Actions()
+    {
+        Assert_Equivalent(Subject.Available_Actions, Actions.Swim, Actions.Injure, Actions.Heal);
+    }
+
+    [Test]
     public void Test_Actions()
     {
         Assert_True(Subject.Can_Swim);
@@ -27,14 +33,14 @@ public class Fish_Tests : UnitTest_Base<IFIsh>
     {
         Subject.Swim();
 
-        Assert_Was_Printed(Actions.Swiming);
+        Assert_Was_Printed(Actions_Description.Swiming);
     }
 
     [Test]
     public void Test_cant_Swim()
     {
         Subject.Injure();
-        
+
         Subject.Swim();
 
         Assert_Cant_Printed(Actions.Swim);

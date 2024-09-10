@@ -8,6 +8,15 @@ public class Robot_Fish : Robot, IRobot_Fish
     {
     }
 
+    public override IEnumerable<Actions> Available_Actions
+    {
+        get
+        {
+            yield return Actions.Charge;
+            yield return Actions.Swim;
+        }
+    }
+
     public bool Can_Swim()
     {
         return Is_Charged;
@@ -16,7 +25,7 @@ public class Robot_Fish : Robot, IRobot_Fish
     public void Swim()
     {
         if (Can_Swim())
-            Printer.Print_Action(this, Actions.Swiming);
+            Printer.Print_Action(this, Actions_Description.Swiming);
         else
             Printer.Print_Cant(this, Actions.Swim);
     }
