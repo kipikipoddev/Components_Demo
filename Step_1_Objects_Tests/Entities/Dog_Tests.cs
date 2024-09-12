@@ -5,6 +5,12 @@ namespace Step_1_Objects_Tests;
 public class Dog_Tests : UnitTest_Base<IDog>
 {
     [Test]
+    public void Test_Available_Actions()
+    {
+        Assert_Equivalent(Subject.Available_Actions, Actions.Bark, Actions.Walk, Actions.Swim, Actions.Injure, Actions.Heal);
+    }
+
+    [Test]
     public void Test_Actions()
     {
         Assert_True(Subject.Can_Bark);
@@ -30,7 +36,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     public void Test_Bark()
     {
         Subject.Bark();
-        Assert_Was_Printed(Actions.Barking);
+        Assert_Was_Printed(Actions_Description.Barking);
     }
 
     [Test]
@@ -68,7 +74,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     {
         Subject.Walk();
 
-        Assert_Was_Printed(Actions.Walking);
+        Assert_Was_Printed(Actions_Description.Walking);
     }
 
     [Test]
@@ -86,7 +92,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     {
         Subject.Swim();
 
-        Assert_Was_Printed(Actions.Swiming);
+        Assert_Was_Printed(Actions_Description.Swiming);
     }
 
     [Test]

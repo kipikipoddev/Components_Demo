@@ -5,6 +5,12 @@ namespace Step_1_Objects_Tests;
 public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
 {
     [Test]
+    public void Test_Available_Actions()
+    {
+        Assert_Equivalent(Subject.Available_Actions, Actions.Walk, Actions.Bark, Actions.Charge);
+    }
+
+    [Test]
     public void Test_Actions()
     {
         Assert_False(Subject.Can_Walk);
@@ -29,7 +35,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
 
         Subject.Bark();
 
-        Assert_Was_Printed(Actions.Barking);
+        Assert_Was_Printed(Actions_Description.Barking);
     }
 
     [Test]
@@ -47,7 +53,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
 
         Subject.Walk();
 
-        Assert_Was_Printed(Actions.Walking);
+        Assert_Was_Printed(Actions_Description.Walking);
     }
 
     [Test]

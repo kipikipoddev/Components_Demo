@@ -5,6 +5,12 @@ namespace Step_1_Objects_Tests;
 public class Cat_Tests : UnitTest_Base<ICat>
 {
     [Test]
+    public void Test_Available_Actions()
+    {
+        Assert_Equivalent(Subject.Available_Actions, Actions.Meow, Actions.Walk, Actions.Injure, Actions.Heal);
+    }
+
+    [Test]
     public void Test_Actions()
     {
         Assert_True(Subject.Can_Meow);
@@ -29,7 +35,7 @@ public class Cat_Tests : UnitTest_Base<ICat>
     {
         Subject.Meow();
 
-        Assert_Was_Printed(Actions.Meowing);
+        Assert_Was_Printed(Actions_Description.Meowing);
     }
 
     [Test]
@@ -67,7 +73,7 @@ public class Cat_Tests : UnitTest_Base<ICat>
     {
         Subject.Walk();
 
-        Assert_Was_Printed(Actions.Walking);
+        Assert_Was_Printed(Actions_Description.Walking);
     }
 
     [Test]

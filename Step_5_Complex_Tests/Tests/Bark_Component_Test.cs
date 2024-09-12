@@ -1,6 +1,6 @@
 using Step_5_Complex;
 
-namespace Step_4_Files_Tests;
+namespace Step_5_Complex_Tests;
 
 public class Bark_Component_Test : UnitTest_Base
 {
@@ -53,5 +53,27 @@ public class Bark_Component_Test : UnitTest_Base
         new Bark_Command(Subject, volume).Send();
 
         Assert_Printed(message);
+    }
+
+    [Test]
+    public void Test_Bark_Actions()
+    {
+        var actions = Subject.Get<IActions_Component>().Available_Actions;
+
+        Assert.That(actions, Does.Contain(Actions.Bark));
+
+        Subject.Remove<Bark_Component>();
+
+        Assert.That(actions, Does.Not.Contain(Actions.Bark));
+    }
+
+    [Test]
+    public void Test_Bark_When_No_Component()
+    {
+        Subject.Remove<Bark_Component>();
+        new Bark_Command(Subject, Volume.Loud).Send();
+
+        Assert_Valid<Bark_Command>(false);
+        Assert_Printed("Name can't bark");
     }
 }

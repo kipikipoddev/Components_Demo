@@ -1,6 +1,6 @@
 using Step_5_Complex;
 
-namespace Step_4_Files_Tests;
+namespace Step_5_Complex_Tests;
 
 public abstract class UnitTest_Base
 {
@@ -15,6 +15,7 @@ public abstract class UnitTest_Base
         Test_Printer.Reset();
         Subject = Components_Factory.Create(File_Name);
         Subject.Add(new Name_Component(Name));
+        Subject.Add(new Actions_Component());
         Subject.Add(new Test_Printer());
     }
 

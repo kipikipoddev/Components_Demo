@@ -1,8 +1,10 @@
 ﻿
 namespace Step_5_Complex;
 
-public class Charge_Component
- : Component, IHandler<Action_Command>, ICharged_Component, IValidator<Action_Command>
+public class Charge_Component :
+    Action_Component<Action_Command>,
+    ICharged_Component,
+    IValidator<Action_Command>
 {
     public bool Has_Charge => Charges > 0;
 
@@ -14,10 +16,21 @@ public class Charge_Component
         Max_Charges = max_charges;
     }
 
-    public void Handle(Action_Command cmd)
+    public override IEnumerable<Actions> Actions_Handling
+    {
+        get
+        {
+            yield return Actions.Charge;
+        }
+    }
+
+    public override void Handle(Action_Command cmd)
     {
         if (cmd is Charge_Command)
+        {
             Charges = Max_Charges;
+            base.Handle(cmd);
+        }
         else
             Charges--;
     }

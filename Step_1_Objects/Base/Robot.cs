@@ -1,4 +1,5 @@
 ﻿
+
 namespace Step_1_Objects;
 
 public class Robot : Entity, IRobot
@@ -10,10 +11,18 @@ public class Robot : Entity, IRobot
     {
     }
 
+    public override IEnumerable<Actions> Available_Actions
+    {
+        get
+        {
+            yield return Actions.Charge;
+        }
+    }
+
     public virtual void Charge()
     {
         if (Can_Charge())
-            Printer.Print_Action(this, Actions.Charged);
+            Printer.Print_Action(this, Actions_Description.Charged);
         else
             Printer.Print_Cant(this, Actions.Charge);
         Is_Charged = true;
