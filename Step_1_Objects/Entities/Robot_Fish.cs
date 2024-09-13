@@ -12,8 +12,9 @@ public class Robot_Fish : Robot, IRobot_Fish
     {
         get
         {
-            yield return Actions.Charge;
             yield return Actions.Swim;
+            foreach (var action in base.Available_Actions)
+                yield return action;
         }
     }
 

@@ -13,10 +13,10 @@ public class Cat : Animal, ICat
     {
         get
         {
-            yield return Actions.Injure;
-            yield return Actions.Heal;
             yield return Actions.Meow;
             yield return Actions.Walk;
+            foreach (var action in base.Available_Actions)
+                yield return action;
         }
     }
 

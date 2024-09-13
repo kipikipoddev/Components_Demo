@@ -12,9 +12,9 @@ public class Fish : Animal, IFIsh
     {
         get
         {
-            yield return Actions.Injure;
-            yield return Actions.Heal;
             yield return Actions.Swim;
+            foreach (var action in base.Available_Actions)
+                yield return action;
         }
     }
 

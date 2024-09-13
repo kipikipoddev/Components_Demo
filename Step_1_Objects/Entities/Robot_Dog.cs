@@ -12,9 +12,10 @@ public class Robot_Dog : Robot, IRobot_Dog
     {
         get
         {
-            yield return Actions.Charge;
             yield return Actions.Bark;
             yield return Actions.Walk;
+            foreach (var action in base.Available_Actions)
+                yield return action;
         }
     }
 

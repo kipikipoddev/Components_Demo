@@ -11,11 +11,11 @@ public class Dog : Animal, IDog
     {
         get
         {
-            yield return Actions.Injure;
-            yield return Actions.Heal;
             yield return Actions.Bark;
             yield return Actions.Walk;
             yield return Actions.Swim;
+            foreach (var action in base.Available_Actions)
+                yield return action;
         }
     }
 
