@@ -26,6 +26,7 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     {
         Subject.Injure();
 
+        Assert_True(Subject.Is_Injured);
         Assert_Was_Printed(Actions_Description.Injured);
     }
 
@@ -36,6 +37,7 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
 
         Subject.Injure();
 
+        Assert_True(Subject.Is_Injured);
         Assert_Cant_Printed(Actions.Injure);
     }
 
@@ -44,6 +46,7 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     {
         Subject.Heal();
 
+        Assert_False(Subject.Is_Injured);
         Assert_Cant_Printed(Actions.Heal);
     }
 
@@ -54,6 +57,7 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
 
         Subject.Heal();
 
+        Assert_False(Subject.Is_Injured);
         Assert_Was_Printed(Actions_Description.Healed);
     }
 }

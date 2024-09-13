@@ -9,7 +9,7 @@ public abstract class Animal : Entity, IAnimal
         : base(printer, name)
     {
     }
-    
+
     public override IEnumerable<Actions> Available_Actions
     {
         get
@@ -22,19 +22,23 @@ public abstract class Animal : Entity, IAnimal
     public virtual void Injure()
     {
         if (Can_Injure())
+        {
+            Is_Injured = true;
             Printer.Print_Action(this, Actions_Description.Injured);
+        }
         else
             Printer.Print_Cant(this, Actions.Injure);
-        Is_Injured = true;
     }
 
     public void Heal()
     {
         if (Can_Heal())
+        {
+            Is_Injured = false;
             Printer.Print_Action(this, Actions_Description.Healed);
+        }
         else
             Printer.Print_Cant(this, Actions.Heal);
-        Is_Injured = false;
     }
 
     public bool Can_Injure()

@@ -22,10 +22,12 @@ public class Robot : Entity, IRobot
     public virtual void Charge()
     {
         if (Can_Charge())
+        {
+            Is_Charged = true;
             Printer.Print_Action(this, Actions_Description.Charged);
+        }
         else
             Printer.Print_Cant(this, Actions.Charge);
-        Is_Charged = true;
     }
 
     public bool Can_Charge()

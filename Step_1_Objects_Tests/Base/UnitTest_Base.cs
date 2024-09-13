@@ -24,9 +24,19 @@ public class UnitTest_Base<T>
         Assert.That(action(), Is.True);
     }
 
+    protected static void Assert_True(bool expected)
+    {
+        Assert.That(expected, Is.True);
+    }
+
     protected static void Assert_False(Func<bool> action)
     {
         Assert.That(action(), Is.False);
+    }
+
+    protected static void Assert_False(bool expected)
+    {
+        Assert.That(expected, Is.False);
     }
 
     protected void Assert_Was_Printed(Actions_Description action)
