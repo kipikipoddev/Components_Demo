@@ -10,7 +10,7 @@ public static class Creator
     public static T Create<T>()
         where T : class, IEntity
     {
-        if (typeof(T) == typeof(IAnimal) || typeof(T) == typeof(IFIsh))
+        if (typeof(T) == typeof(IAnimal) || typeof(T) == typeof(IFish))
             return new Fish(printer) as T;
 
         if (typeof(T) == typeof(ICat))

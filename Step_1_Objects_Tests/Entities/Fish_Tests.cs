@@ -2,7 +2,7 @@ using Step_1_Objects;
 
 namespace Step_1_Objects_Tests;
 
-public class Fish_Tests : UnitTest_Base<IFIsh>
+public class Fish_Tests : UnitTest_Base<IFish>
 {
     [Test]
     public void Test_Available_Actions()

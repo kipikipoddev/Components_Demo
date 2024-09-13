@@ -1,7 +1,7 @@
 ﻿
 namespace Step_1_Objects;
 
-public class Fish : Animal, IFIsh
+public class Fish : Animal, IFish
 {
     public Fish(IAction_Printer printer)
         : base(printer, "Fish")
