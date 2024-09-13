@@ -31,6 +31,14 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     [Test]
     public void Test_Bark()
     {
+        Subject.Bark();
+
+        Assert_Cant_Printed(Actions.Bark);
+    }
+
+    [Test]
+    public void Test_Bark_After_Charge()
+    {
         Subject.Charge();
 
         Subject.Bark();
@@ -39,15 +47,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     }
 
     [Test]
-    public void Test_Cant_Bark()
-    {
-        Subject.Bark();
-
-        Assert_Cant_Printed(Actions.Bark);
-    }
-
-    [Test]
-    public void Test_Walk()
+    public void Test_Walk_After_Charge()
     {
         Subject.Charge();
 
@@ -57,7 +57,7 @@ public class Robot_Dog_Tests : UnitTest_Base<IRobot_Dog>
     }
 
     [Test]
-    public void Test_Cant_Walk()
+    public void Test_Walk()
     {
         Subject.Walk();
 

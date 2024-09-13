@@ -9,16 +9,7 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     {
         Assert_True(Subject.Can_Injure);
         Assert_False(Subject.Can_Heal);
-    }
-
-
-    [Test]
-    public void Test_Actions_After_Injure()
-    {
-        Subject.Injure();
-
-        Assert_False(Subject.Can_Injure);
-        Assert_True(Subject.Can_Heal);
+        Assert_False(Subject.Is_Injured);
     }
 
     [Test]
@@ -26,6 +17,8 @@ public class Animal_Tests : UnitTest_Base<IAnimal>
     {
         Subject.Injure();
 
+        Assert_False(Subject.Can_Injure);
+        Assert_True(Subject.Can_Heal);
         Assert_True(Subject.Is_Injured);
         Assert_Was_Printed(Actions_Description.Injured);
     }

@@ -40,33 +40,13 @@ public class Dog_Tests : UnitTest_Base<IDog>
     }
 
     [Test]
-    public void Test_cant_Bark()
+    public void Test_Bark_When_Injured()
     {
         Subject.Injure();
 
         Subject.Bark();
 
         Assert_Cant_Printed(Actions.Bark);
-    }
-
-    [Test]
-    public void Test_Bark_When_Injure()
-    {
-        Subject.Injure();
-
-        Subject.Bark();
-
-        Assert_Cant_Printed(Actions.Bark);
-    }
-
-    [Test]
-    public void Test_Not_Bark_When_Injure()
-    {
-        Subject.Injure();
-
-        Subject.Injure();
-
-        Assert_Cant_Printed(Actions.Injure);
     }
 
     [Test]
@@ -78,7 +58,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     }
 
     [Test]
-    public void Test_cant_Walk()
+    public void Test_Walk_When_Injured()
     {
         Subject.Injure();
 
@@ -96,7 +76,7 @@ public class Dog_Tests : UnitTest_Base<IDog>
     }
 
     [Test]
-    public void Test_cant_Swim()
+    public void Test_Swim_When_Injured()
     {
         Subject.Injure();
 

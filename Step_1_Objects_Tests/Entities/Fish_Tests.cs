@@ -37,7 +37,7 @@ public class Fish_Tests : UnitTest_Base<IFish>
     }
 
     [Test]
-    public void Test_cant_Swim()
+    public void Test_Swim_When_Injured()
     {
         Subject.Injure();
 

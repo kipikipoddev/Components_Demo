@@ -27,7 +27,7 @@ public class Robot_Fish_Tests : UnitTest_Base<IRobot_Fish>
     }
 
     [Test]
-    public void Test_Swim()
+    public void Test_Swim_After_Charge()
     {
         Subject.Charge();
 
@@ -37,7 +37,7 @@ public class Robot_Fish_Tests : UnitTest_Base<IRobot_Fish>
     }
 
     [Test]
-    public void Test_Cant_Swim()
+    public void Test_Swim()
     {
         Subject.Swim();
 

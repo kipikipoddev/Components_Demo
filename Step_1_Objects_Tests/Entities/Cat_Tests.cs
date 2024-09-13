@@ -39,27 +39,7 @@ public class Cat_Tests : UnitTest_Base<ICat>
     }
 
     [Test]
-    public void Test_Meow_When_Injure()
-    {
-        Subject.Injure();
-
-        Subject.Meow();
-
-        Assert_Cant_Printed(Actions.Meow);
-    }
-
-    [Test]
-    public void Test_Not_Meow_When_Injure()
-    {
-        Subject.Injure();
-
-        Subject.Injure();
-
-        Assert_Cant_Printed(Actions.Injure);
-    }
-
-    [Test]
-    public void Test_Cant_Meow()
+    public void Test_Meow_When_Injured()
     {
         Subject.Injure();
 
@@ -77,7 +57,7 @@ public class Cat_Tests : UnitTest_Base<ICat>
     }
 
     [Test]
-    public void Test_cant_Walk()
+    public void Test_Walk_When_Injured()
     {
         Subject.Injure();
 
