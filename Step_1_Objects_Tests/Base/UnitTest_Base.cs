@@ -36,7 +36,7 @@ public class UnitTest_Base<T>
 
     protected static void Assert_False(bool expected)
     {
-        Assert.That(expected, Is.True);
+        Assert.That(expected, Is.False);
     }
 
     protected void Assert_Was_Printed(Actions_Description action)
