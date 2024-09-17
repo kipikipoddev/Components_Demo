@@ -2,12 +2,11 @@
 
 public class Components : Component, IComponents
 {
-    private readonly Dictionary<Type, HashSet<IComponent>> components = [];
+    private readonly HashSet<IComponent> components = [];
 
     public IComponents Add(IComponent component)
     {
-        foreach (var type in Get_Types(component.GetType()))
-            Add(component, type);
+        components.Add(component);
         component.Parent = this;
         return this;
     }
@@ -15,53 +14,35 @@ public class Components : Component, IComponents
     public T Get<T>()
         where T : IComponent
     {
-        return (T)components[typeof(T)].First();
+        return Get_All<T>().First();
     }
 
     public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
-        if (components.ContainsKey(typeof(T)))
-            return components[typeof(T)].Select(c => (T)c);
-        return [];
+        return components.Where(c => Is_Type(c, typeof(T))).Select(c => (T)c);
     }
 
     public bool Has<T>()
         where T : IComponent
     {
-        return components.ContainsKey(typeof(T)) && components[typeof(T)].Any();
+        return Get_All<T>().Any();
     }
 
     public void Remove<T>()
         where T : IComponent
     {
-        foreach (var component in Get_All<T>().ToArray())
-        {
-            foreach (var type in components.Keys)
-            {
-                components[type].Remove(component);
-                if (!components[type].Any())
-                    components.Remove(type);
-            }
-            Mediator.Remove(component);
-        }
+        components.Remove(Get<T>());
     }
 
-    private void Add(IComponent component, Type type)
+    public void Remove(IComponent component)
     {
-        if (!components.ContainsKey(type))
-            components[type] = [];
-        components[type].Add(component);
+        components.Remove(component);
+        Mediator.Remove(component);
     }
 
-    private static IEnumerable<Type> Get_Types(Type? type)
+    private static bool Is_Type(IComponent comp, Type type)
     {
-        if (type == null)
-            yield break;
-        yield return type;
-        foreach (var base_type in Get_Types(type.BaseType))
-            yield return base_type;
-        foreach (var int_type in type.GetInterfaces())
-            yield return int_type;
+        return comp.GetType() == type || comp.GetType().GetInterfaces().Contains(type);
     }
 }

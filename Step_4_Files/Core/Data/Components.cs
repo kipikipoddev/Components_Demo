@@ -2,13 +2,11 @@
 
 public class Components : Component, IComponents
 {
-    private readonly Dictionary<Type, IComponent> components = new();
+    private readonly HashSet<IComponent> components = [];
 
     public IComponents Add(IComponent component)
     {
-        components[component.GetType()] = component;
-        foreach (var int_type in Get_Int_Types(component))
-            components[int_type] = component;
+        components.Add(component);
         component.Parent = this;
         return this;
     }
@@ -16,17 +14,17 @@ public class Components : Component, IComponents
     public T Get<T>()
         where T : IComponent
     {
-        return (T)components[typeof(T)];
+        return Get_All<T>().First();
     }
 
-    public bool Has<T>()
+    public IEnumerable<T> Get_All<T>()
         where T : IComponent
     {
-        return components.ContainsKey(typeof(T));
+        return components.Where(c => Is_Type(c, typeof(T))).Select(c => (T)c);
     }
 
-    private static Type[] Get_Int_Types(IComponent component)
+    private static bool Is_Type(IComponent comp, Type type)
     {
-        return component.GetType().GetInterfaces();
+        return comp.GetType() == type || comp.GetType().GetInterfaces().Contains(type);
     }
 }
