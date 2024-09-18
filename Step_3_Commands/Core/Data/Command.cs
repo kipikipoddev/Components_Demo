@@ -1,15 +1,8 @@
 ﻿
 namespace Step_3_Commands;
 
-public abstract class Command
+public abstract record Command(IComponents components)
 {
-    public IComponents Components { get; }
-
-    public Command(IComponents components)
-    {
-        Components = components;
-    }
-
     public virtual bool Is_Valid()
     {
         return Mediator.Validate(this);

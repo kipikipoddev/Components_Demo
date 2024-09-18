@@ -15,6 +15,6 @@ public class Action_Component<T> : Component, IHandler<T>
 
     protected void Print(Action_Command cmd)
     {
-        new Print_Command(Parent, cmd.Action, true);
+        new Print_Was_Command(Parent, cmd.Action);
     }
 }

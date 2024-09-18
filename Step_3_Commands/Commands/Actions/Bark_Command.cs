@@ -1,7 +1,8 @@
 ﻿
 namespace Step_3_Commands;
 
-public class Bark_Command(IComponents components) : Action_Command(components)
+public record Bark_Command(IComponents components) : Action_Command(components)
 {
-    public override Actions Action => Actions.Bark;
+    public override Actions Name => Actions.Bark;
+    public override Actions_Description Action => Actions_Description.Barking;
 }

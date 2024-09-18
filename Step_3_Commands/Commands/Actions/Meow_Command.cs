@@ -1,8 +1,8 @@
 ﻿
 namespace Step_3_Commands;
 
-public class Meow_Command(IComponents components)
-    : Action_Command(components)
+public record Meow_Command(IComponents components) : Action_Command(components)
 {
-    public override Actions Action => Actions.Meow;
+    public override Actions Name => Actions.Meow;
+    public override Actions_Description Action => Actions_Description.Meowing;
 }
