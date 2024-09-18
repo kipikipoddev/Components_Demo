@@ -1,4 +1,5 @@
-﻿namespace Step_3_Commands;
+﻿
+namespace Step_5_Final;
 
 public class Components : Component, IComponents
 {
@@ -20,5 +21,15 @@ public class Components : Component, IComponents
     private static bool Is_Type<T>(IComponent comp)
     {
         return comp.GetType().GetInterfaces().Contains(typeof(T));
+    }
+
+    public bool Has<T>() where T : IComponent
+    {
+        return components.FirstOrDefault(Is_Type<T>) != null;
+    }
+
+    public IEnumerable<IComponent> Get_All()
+    {
+        return components;
     }
 }

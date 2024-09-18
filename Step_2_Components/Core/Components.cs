@@ -14,13 +14,7 @@ public class Components : Component, IComponents
     public T Get<T>()
         where T : IComponent
     {
-        return Get_All<T>().First();
-    }
-
-    public IEnumerable<T> Get_All<T>()
-        where T : IComponent
-    {
-        return components.Where(Is_Type<T>).Select(c => (T)c);
+        return (T)components.First(Is_Type<T>);
     }
 
     private static bool Is_Type<T>(IComponent comp)

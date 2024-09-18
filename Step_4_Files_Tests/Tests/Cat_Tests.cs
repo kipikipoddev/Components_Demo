@@ -4,7 +4,7 @@ namespace Step_4_Files_Tests;
 
 public class Cat_Tests : UnitTest_Base
 {
-    protected override string File_Name => "Cat";
+    protected override Entities Entity => Entities.Cat;
 
     [Test]
     public void Test_Actions()

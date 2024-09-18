@@ -6,17 +6,15 @@ namespace Step_4_Files_Tests;
 
 public abstract class UnitTest_Base
 {
-    private const string Path = ".\\Data\\{0}.json";
-
     protected IComponents Subject;
 
-    protected abstract string File_Name { get; }
+    protected abstract Entities Entity { get; }
 
     [SetUp]
     public virtual void Setup()
     {
         Test_Printer.Reset();
-        Subject = Components_Factory.Create(string.Format(Path, File_Name));
+        Subject = Components_Factory.Create(Entity);
         Subject.Add(new Test_Printer());
     }
 

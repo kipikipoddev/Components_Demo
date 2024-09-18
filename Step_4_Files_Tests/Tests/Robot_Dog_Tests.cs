@@ -6,7 +6,7 @@ namespace Step_4_Files_Tests;
 
 public class Robot_Dog_Tests : UnitTest_Base
 {
-    protected override string File_Name => "Robot_Dog";
+    protected override Entities Entity => Entities.Robot_Dog;
 
     [Test]
     public void Test_Actions()
