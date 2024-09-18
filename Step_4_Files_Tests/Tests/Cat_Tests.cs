@@ -9,27 +9,29 @@ public class Cat_Tests : UnitTest_Base
     [Test]
     public void Test_Actions()
     {
-        Assert_Valid<Meow_Command>(true);
-        Assert_Valid<Walk_Command>(true);
-        Assert_Valid<Injure_Command>(true);
-        Assert_Valid<Heal_Command>(false);
+        Assert_True(Subject.Get<IMeow_Component>().Can_Meow());
+        Assert_True(Subject.Get<IWalk_Component>().Can_Walk());
+        Assert_True(Subject.Get<IInjure_Component>().Can_Injure());
+        Assert_False(Subject.Get<IInjure_Component>().Can_Heal());
+        Assert_False(Subject.Get<IInjure_Component>().Is_Injured);
     }
 
     [Test]
     public void Test_Actions_After_Injure()
     {
-        new Injure_Command(Subject).Send();
+        Subject.Get<IInjure_Component>().Injure();
 
-        Assert_Valid<Meow_Command>(false);
-        Assert_Valid<Walk_Command>(false);
-        Assert_Valid<Injure_Command>(false);
-        Assert_Valid<Heal_Command>(true);
+        Assert_False(Subject.Get<IMeow_Component>().Can_Meow());
+        Assert_False(Subject.Get<IWalk_Component>().Can_Walk());
+        Assert_False(Subject.Get<IInjure_Component>().Can_Injure());
+        Assert_True(Subject.Get<IInjure_Component>().Can_Heal());
+        Assert_True(Subject.Get<IInjure_Component>().Is_Injured);
     }
 
     [Test]
     public void Test_Meow()
     {
-        new Meow_Command(Subject).Send();
+        Subject.Get<IMeow_Component>().Meow();
 
         Assert_Printed("Cat was meowing");
     }
@@ -37,9 +39,9 @@ public class Cat_Tests : UnitTest_Base
     [Test]
     public void Test_Meow_When_Injure()
     {
-        new Injure_Command(Subject).Send();
+        Subject.Get<IInjure_Component>().Injure();
 
-        new Meow_Command(Subject).Send();
+        Subject.Get<IMeow_Component>().Meow();
 
         Assert_Printed("Cat can't meow");
     }

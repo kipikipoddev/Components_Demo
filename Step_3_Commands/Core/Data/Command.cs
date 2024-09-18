@@ -1,18 +1,12 @@
 ﻿
 namespace Step_3_Commands;
 
-public abstract record Command(IComponents components)
+public abstract record Command
 {
-    public virtual bool Is_Valid()
+    public IComponents Components { get; }
+    protected Command(IComponents components)
     {
-        return Mediator.Validate(this);
-    }
-
-    public virtual bool Send()
-    {
-        var is_valid = Is_Valid();
-        if (is_valid)
-            Mediator.Send(this);
-        return is_valid;
+        Components = components;
+        Mediator.Send(this);
     }
 }

@@ -1,5 +1,11 @@
-[
-    "Injure_Component",
-    "Meow_Component",
-    "Walk_Component"
-]
+{
+    "Name_Component": [
+        "Cat"
+    ],
+    "Disabled_Component": [
+        false
+    ],
+    "Injure_Component": [],
+    "Meow_Component": [],
+    "Walk_Component": []
+}

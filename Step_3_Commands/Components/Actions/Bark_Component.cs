@@ -1,14 +1,17 @@
 ﻿namespace Step_3_Commands;
 
-public class Bark_Component : Action_Component<Bark_Command>, IBark_Component
+public class Bark_Component : Action_Component, IBark_Component
 {
     public void Bark()
     {
-        new Bark_Command(Parent).Send();
+        if (Can_Bark())
+            Print_Was(Actions_Description.Barking);
+        else
+            Print_Cant(Actions.Bark);
     }
 
     public bool Can_Bark()
     {
-        return new Bark_Command(Parent).Is_Valid();
+        return !Is_Disabled;
     }
 }

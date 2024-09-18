@@ -1,6 +1,11 @@
-[
-    "Charge_Component",
-    "Bark_Component",
-    "Walk_Component",
-    "Swim_Component"
-]
+{
+    "Name_Component": [
+        "Robot_Dog"
+    ],
+    "Disabled_Component": [
+        true
+    ],
+    "Charge_Component": [],
+    "Bark_Component": [],
+    "Walk_Component": []
+}

@@ -1,6 +1,8 @@
-﻿namespace Step_4_Files;
+﻿using System.Text.Json;
 
-public class Components_Resource : List<string>
+namespace Step_4_Files;
+
+public class Components_Resource 
+    : Dictionary<string, JsonElement[]>
 {
-
 }

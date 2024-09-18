@@ -1,10 +1,13 @@
 
+
 using Step_4_Files;
 
 namespace Step_4_Files_Tests;
 
 public abstract class UnitTest_Base
 {
+    private const string Path = ".\\Data\\{0}.json";
+
     protected IComponents Subject;
 
     protected abstract string File_Name { get; }
@@ -13,15 +16,8 @@ public abstract class UnitTest_Base
     public virtual void Setup()
     {
         Test_Printer.Reset();
-        Subject = Components_Factory.Create(File_Name);
+        Subject = Components_Factory.Create(string.Format(Path, File_Name));
         Subject.Add(new Test_Printer());
-    }
-
-    protected void Assert_Valid<T>(bool is_valid)
-        where T : Command
-    {
-        var command = (Command)Activator.CreateInstance(typeof(T), [Subject]);
-        Assert.That(command.Is_Valid(), Is.EqualTo(is_valid)); ;
     }
 
     protected static void Assert_True(bool actual)
