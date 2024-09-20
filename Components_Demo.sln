@@ -19,9 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_4_Files", "Step_4_File
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_4_Files_Tests", "Step_4_Files_Tests\Step_4_Files_Tests.csproj", "{C2746697-86DA-469E-B853-0D13CD26BA29}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_5_Final_Tests", "Step_5_Final_Tests\Step_5_Final_Tests.csproj", "{D6B923AC-74AB-4EC0-B3E5-C0B98DE7AB7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_5_Actions_Tests", "Step_5_Actions_Tests\Step_5_Actions_Tests.csproj", "{D6B923AC-74AB-4EC0-B3E5-C0B98DE7AB7D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_5_Final", "Step_5_Final\Step_5_Final.csproj", "{88A7746A-3188-4316-AAC4-F25A6E1D471B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Step_5_Actions", "Step_5_Actions\Step_5_Actions.csproj", "{88A7746A-3188-4316-AAC4-F25A6E1D471B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

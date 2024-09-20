@@ -13,14 +13,16 @@ public static class Components_Factory
         var file = Get_Resource(string.Format(Path, file_name));
         var components = new Components();
         foreach (var component_name in file.Keys)
-        {
-            var type = name_to_type[component_name];
-            var ctor_args = Get_Ctor_Args(file[component_name], type).ToArray();
-            var component = (IComponent)Activator.CreateInstance(type, ctor_args)!;
-            components.Add(component);
-        }
+            components.Add(Get_Component(file, component_name));
         components.Add(new Name_Component(file_name.ToString()));
         return components;
+    }
+
+    private static IComponent Get_Component(Components_Resource file, string component_name)
+    {
+        var type = name_to_type[component_name];
+        var ctor_args = Get_Ctor_Args(file[component_name], type).ToArray();
+        return (IComponent)Activator.CreateInstance(type, ctor_args)!;
     }
 
     public static Components_Resource Get_Resource(string file_path)
@@ -49,8 +51,7 @@ public static class Components_Factory
     private static void Init()
     {
         if (name_to_type == null)
-            name_to_type = typeof(Components_Factory)
-                .Assembly.GetTypes()
+            name_to_type = typeof(Components_Factory).Assembly.GetTypes()
                 .Where(t => t.IsAssignableTo(typeof(IComponent)))
                 .ToDictionary(t => t.Name, t => t);
     }

@@ -13,6 +13,6 @@ public class Meow_Component : Component, IMeow_Component
 
     public virtual bool Can_Meow()
     {
-        return true;
+        return !Parent.Get<IDisabled_Component>().Is_Disabled;
     }
 }

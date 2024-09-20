@@ -13,6 +13,6 @@ public class Walk_Component : Component, IWalk_Component
 
     public virtual bool Can_Walk()
     {
-        return true;
+        return !Parent.Get<IDisabled_Component>().Is_Disabled;
     }
 }
