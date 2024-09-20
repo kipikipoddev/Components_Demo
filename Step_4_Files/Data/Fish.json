@@ -1,7 +1,5 @@
-{
-    "Disabled_Component": [
-        false
-    ],
-    "Injure_Component": [],
-    "Swim_Component": []
-}
+[
+    "Disabled_Component",
+    "Injure_Component",
+    "Swim_Component"
+]

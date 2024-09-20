@@ -1,4 +1,4 @@
-﻿namespace Step_5_Final;
+﻿namespace Step_5_Actions;
 
 public class Walk_Component : Action_Component, IWalk_Component
 {

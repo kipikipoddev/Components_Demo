@@ -1,4 +1,4 @@
-﻿namespace Step_5_Final;
+﻿namespace Step_5_Actions;
 
 public abstract class Print_Component : Component, IHandler<Print_Was_Command>, IHandler<Print_Cant_Command>
 {

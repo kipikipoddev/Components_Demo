@@ -1,4 +1,4 @@
-﻿namespace Step_5_Final;
+﻿namespace Step_5_Actions;
 
 public class Name_Component : Component, IName_Component
 {

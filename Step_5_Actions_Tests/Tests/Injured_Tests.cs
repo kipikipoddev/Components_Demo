@@ -1,7 +1,7 @@
 
-using Step_5_Final;
+using Step_5_Actions;
 
-namespace Step_5_Final_Tests;
+namespace Step_5_Actions_Tests;
 
 public class Injured_Tests : Component_Test_Base<IInjure_Component>
 {
@@ -53,7 +53,7 @@ public class Injured_Tests : Component_Test_Base<IInjure_Component>
 
     protected override IComponents Get_Subject()
     {
-        return base.Get_Subject().Add(new Disabled_Component(false));
+        return base.Get_Subject().Add(new Disabled_Component());
     }
 
     protected override IInjure_Component Get_Component()

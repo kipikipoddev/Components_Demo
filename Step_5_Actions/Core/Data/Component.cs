@@ -1,7 +1,21 @@
 ﻿
-namespace Step_5_Final;
+namespace Step_5_Actions;
 
 public class Component : IComponent
 {
-    public IComponents Parent { get; set; }
+    private IComponents parent;
+    
+    public IComponents Parent
+    {
+        get => parent;
+        set
+        {
+            parent = value;
+            Parent_Set();
+        }
+    }
+
+    protected virtual void Parent_Set()
+    {
+    }
 }

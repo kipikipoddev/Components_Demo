@@ -1,5 +1,5 @@
-{
-    "Charge_Component": [],
-    "Bark_Component": [],
-    "Walk_Component": []
-}
+[
+    "Charge_Component",
+    "Walk_Component",
+    "Bark_Component"
+]

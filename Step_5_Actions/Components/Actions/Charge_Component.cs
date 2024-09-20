@@ -1,9 +1,14 @@
 ﻿
-namespace Step_5_Final;
+namespace Step_5_Actions;
 
 public class Charge_Component : Action_Component, ICharged_Component
 {
     public bool Is_Charged { get; private set; }
+
+    protected override void Parent_Set()
+    {
+        new Set_Disabled_Command(Parent, true);
+    }
 
     public bool Can_Charge()
     {

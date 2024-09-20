@@ -1,4 +1,4 @@
-﻿namespace Step_5_Final;
+﻿namespace Step_5_Actions;
 
 public class Swim_Component : Action_Component, ISwim_Component
 {

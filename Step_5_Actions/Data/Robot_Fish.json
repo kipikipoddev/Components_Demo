@@ -1,7 +1,5 @@
-{
-    "Disabled_Component": [
-        true
-    ],
-    "Charge_Component": [],
-    "Swim_Component": []
-}
+[
+    "Disabled_Component",
+    "Charge_Component",
+    "Swim_Component"
+]

@@ -1,9 +1,7 @@
-{
-    "Disabled_Component": [
-        false
-    ],
-    "Injure_Component": [],
-    "Bark_Component": [],
-    "Swim_Component": [],
-    "Walk_Component": []
-}
+[
+    "Disabled_Component",
+    "Injure_Component",
+    "Bark_Component",
+    "Swim_Component",
+    "Walk_Component"
+]

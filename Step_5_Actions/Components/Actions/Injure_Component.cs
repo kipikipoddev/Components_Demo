@@ -1,5 +1,5 @@
 ﻿
-namespace Step_5_Final;
+namespace Step_5_Actions;
 
 public class Injure_Component : Action_Component, IInjure_Component
 {

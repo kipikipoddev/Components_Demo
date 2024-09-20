@@ -1,12 +1,11 @@
-﻿namespace Step_5_Final;
+﻿namespace Step_5_Actions;
 
 public class Disabled_Component : Component, IDisabled_Component, IHandler<Set_Disabled_Command>
 {
     public bool Is_Disabled { get; protected set; }
 
-    public Disabled_Component(bool is_disabled)
+    public Disabled_Component()
     {
-        Is_Disabled = is_disabled;
         Mediator.Add_Handler(this);
     }
 

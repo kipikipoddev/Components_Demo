@@ -1,8 +1,6 @@
-{
-    "Disabled_Component": [
-        true
-    ],
-    "Charge_Component": [],
-    "Bark_Component": [],
-    "Walk_Component": []
-}
+[
+    "Disabled_Component",
+    "Charge_Component",
+    "Walk_Component",
+    "Bark_Component"
+]
