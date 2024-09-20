@@ -14,17 +14,11 @@ public class Components : Component, IComponents
     public T Get<T>()
         where T : IComponent
     {
-        return Get_All<T>().First();
+        return (T)components.First(Is_Type<T>);
     }
 
-    public IEnumerable<T> Get_All<T>()
-        where T : IComponent
+    private static bool Is_Type<T>(IComponent comp)
     {
-        return components.Where(c => Is_Type(c, typeof(T))).Select(c => (T)c);
-    }
-    
-    private static bool Is_Type(IComponent comp, Type type)
-    {
-        return comp.GetType() == type || comp.GetType().GetInterfaces().Contains(type);
+        return comp.GetType().GetInterfaces().Contains(typeof(T));
     }
 }

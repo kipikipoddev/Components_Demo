@@ -25,15 +25,4 @@
   <ItemGroup>
     <Using Include="NUnit.Framework" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Data\Cat.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="Data\Robot_Dog.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
 </Project>

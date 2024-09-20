@@ -1,18 +1,21 @@
 ﻿namespace Step_4_Files;
 
-public abstract class Print_Component : Component, IHandler<Print_Command>
+public abstract class Print_Component : Component, IHandler<Print_Was_Command>, IHandler<Print_Cant_Command>
 {
     public Print_Component()
     {
-        Mediator.Add_Handler(this);
+        Mediator.Add_Handler<Print_Was_Command>(this);
+        Mediator.Add_Handler<Print_Cant_Command>(this);
     }
 
-    public void Handle(Print_Command cmd)
+    public void Handle(Print_Was_Command cmd)
     {
-        if (cmd.Is_Was)
-            Print("was", (Actions_Description)cmd.Actions);
-        else
-            Print("can't", cmd.Actions);
+        Print("was", cmd.Action);
+    }
+
+    public void Handle(Print_Cant_Command cmd)
+    {
+        Print("can't", cmd.Action);
     }
 
     protected abstract void Print(string message);

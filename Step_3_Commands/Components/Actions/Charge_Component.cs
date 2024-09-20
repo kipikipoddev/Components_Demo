@@ -1,29 +1,24 @@
 ﻿
 namespace Step_3_Commands;
 
-public class Charge_Component :
-    Action_Component<Charge_Command>,
-    ICharged_Component,
-    IValidator<Action_Command>
+public class Charge_Component : Action_Component, ICharged_Component
 {
     public bool Is_Charged { get; private set; }
 
-    public Charge_Component()
+    public bool Can_Charge()
     {
-        Mediator.Add_Validator(this);
-    }
-    
-    public override void Handle(Charge_Command cmd)
-    {
-        base.Handle(cmd);
-        Is_Charged = true;
+        return !Is_Charged;
     }
 
-    public bool Is_Valid(Action_Command cmd)
+    public void Charge()
     {
-        if (cmd is Charge_Command)
-            return !Is_Charged;
+        if (Can_Charge())
+        {
+            Is_Charged = true;
+            new Set_Disabled_Command(Parent, false);
+            Print_Was(Actions_Description.Charged);
+        }
         else
-            return Is_Charged;
+            Print_Cant(Actions.Charge);
     }
 }

@@ -1,20 +1,16 @@
 ﻿namespace Step_3_Commands;
 
-public class Action_Component<T> : Component, IHandler<T>
-    where T : Action_Command
+public class Action_Component : Component
 {
-    public Action_Component()
+    protected bool Is_Disabled => Parent.Get<IDisabled_Component>().Is_Disabled;
+
+    protected void Print_Was(Actions_Description action)
     {
-        Mediator.Add_Handler(this);
+        new Print_Was_Command(Parent, action);
     }
 
-    public virtual void Handle(T cmd)
+    protected void Print_Cant(Actions action)
     {
-        Print(cmd);
-    }
-
-    protected void Print(Action_Command cmd)
-    {
-        new Print_Command(Parent, cmd.Action, true);
+        new Print_Cant_Command(Parent, action);
     }
 }

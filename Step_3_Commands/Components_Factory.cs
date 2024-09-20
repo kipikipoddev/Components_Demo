@@ -6,6 +6,7 @@ public static class Components_Factory
     {
         return new Components()
             .Add(new Name_Component("Fish"))
+            .Add(new Disabled_Component(false))
             .Add(new Injure_Component())
             .Add(new Swim_Component());
     }
@@ -14,6 +15,7 @@ public static class Components_Factory
     {
         return new Components()
             .Add(new Name_Component("Cat"))
+            .Add(new Disabled_Component(false))
             .Add(new Injure_Component())
             .Add(new Meow_Component())
             .Add(new Walk_Component());
@@ -23,6 +25,7 @@ public static class Components_Factory
     {
         return new Components()
             .Add(new Name_Component("Dog"))
+            .Add(new Disabled_Component(false))
             .Add(new Injure_Component())
             .Add(new Walk_Component())
             .Add(new Swim_Component())
@@ -33,6 +36,7 @@ public static class Components_Factory
     {
         return new Components()
             .Add(new Name_Component("Robot_Fish"))
+            .Add(new Disabled_Component(true))
             .Add(new Charge_Component())
             .Add(new Swim_Component());
     }
@@ -41,9 +45,9 @@ public static class Components_Factory
     {
         return new Components()
             .Add(new Name_Component("Robot_Dog"))
+            .Add(new Disabled_Component(true))
             .Add(new Charge_Component())
             .Add(new Walk_Component())
-            .Add(new Bark_Component())
-            .Add(new Swim_Component());
+            .Add(new Bark_Component());
     }
 }

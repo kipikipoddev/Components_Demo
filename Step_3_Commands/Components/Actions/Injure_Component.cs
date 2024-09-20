@@ -1,37 +1,41 @@
 ﻿
 namespace Step_3_Commands;
 
-public class Injure_Component :
-    Action_Component<Injure_Command>,
-    IInjure_Component,
-    IHandler<Heal_Command>,
-    IValidator<Action_Command>
+public class Injure_Component : Action_Component, IInjure_Component
 {
     public bool Is_Injured { get; private set; }
 
-    public Injure_Component()
+    public bool Can_Heal()
     {
-        Mediator.Add_Handler<Heal_Command>(this);
-        Mediator.Add_Validator(this);
+        return Is_Injured;
     }
 
-    public override void Handle(Injure_Command cmd)
+    public bool Can_Injure()
     {
-        Print(cmd);
-        Is_Injured = true;
+        return !Is_Injured;
     }
 
-    public void Handle(Heal_Command cmd)
+    public void Heal()
     {
-        Print(cmd);
-        Is_Injured = false;
-    }
-
-    public bool Is_Valid(Action_Command cmd)
-    {
-        if (cmd is Heal_Command)
-            return Is_Injured;
+        if (Can_Heal())
+        {
+            Is_Injured = false;
+            new Set_Disabled_Command(Parent, false);
+            Print_Was(Actions_Description.Healed);
+        }
         else
-            return !Is_Injured;
+            Print_Cant(Actions.Heal);
+    }
+
+    public void Injure()
+    {
+        if (Can_Injure())
+        {
+            Is_Injured = true;
+            new Set_Disabled_Command(Parent, true);
+            Print_Was(Actions_Description.Injured);
+        }
+        else
+            Print_Cant(Actions.Injure);
     }
 }
