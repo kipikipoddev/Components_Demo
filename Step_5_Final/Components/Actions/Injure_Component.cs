@@ -38,4 +38,13 @@ public class Injure_Component : Action_Component, IInjure_Component
         else
             Print_Cant(Actions.Injure);
     }
+
+    public override IEnumerable<Actions> Available_Actions
+    {
+        get
+        {
+            yield return Actions.Heal;
+            yield return Actions.Injure;
+        }
+    }
 }

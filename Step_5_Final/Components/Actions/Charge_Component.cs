@@ -21,4 +21,12 @@ public class Charge_Component : Action_Component, ICharged_Component
         else
             Print_Cant(Actions.Charge);
     }
+
+    public override IEnumerable<Actions> Available_Actions
+    {
+        get
+        {
+            yield return Actions.Charge;
+        }
+    }
 }

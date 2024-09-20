@@ -8,13 +8,8 @@ public class Cat_Tests : Entity_Test_Base
     protected override Entities Entity => Entities.Cat;
 
     [Test]
-    public void Test_Components()
+    public void Test_Available_Actions()
     {
-        Assert_Length(6, Subject.Get_All());
-        Assert_True(Subject.Has<IName_Component>());
-        Assert_True(Subject.Has<IDisabled_Component>());
-        Assert_True(Subject.Has<IInjure_Component>());
-        Assert_True(Subject.Has<IWalk_Component>());
-        Assert_True(Subject.Has<IMeow_Component>());
+        Assert_Equivalent(Subject.Available_Actions(), Actions.Meow, Actions.Walk, Actions.Injure, Actions.Heal);
     }
 }

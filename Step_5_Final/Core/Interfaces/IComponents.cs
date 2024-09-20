@@ -11,5 +11,5 @@ public interface IComponents : IComponent
     bool Has<T>()
         where T : IComponent;
 
-    IEnumerable<IComponent> Get_All();
+    IEnumerable<T> Get_All<T>();
 }

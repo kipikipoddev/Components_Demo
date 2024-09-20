@@ -16,14 +16,14 @@ public abstract class UnitTest_Base
 
     protected abstract IComponents Get_Subject();
 
-    protected static void Assert_Length<T>(int expected, IEnumerable<T> list)
-    {
-        Assert.That(expected, Is.EqualTo(list.Count()));
-    }
-
     protected static void Assert_True(bool actual)
     {
         Assert.That(actual, Is.True);
+    }
+
+    protected static void Assert_Equivalent<T>(IEnumerable<T> list, params T[] objects)
+    {
+        Assert.That(list, Is.EquivalentTo(objects));
     }
 
     protected static void Assert_False(bool actual)

@@ -14,4 +14,12 @@ public class Walk_Component : Action_Component, IWalk_Component
     {
         return !Is_Disabled;
     }
+
+    public override IEnumerable<Actions> Available_Actions
+    {
+        get
+        {
+            yield return Actions.Walk;
+        }
+    }
 }

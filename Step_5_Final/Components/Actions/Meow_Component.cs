@@ -14,4 +14,12 @@ public class Meow_Component : Action_Component, IMeow_Component
     {
         return !Is_Disabled;
     }
+
+    public override IEnumerable<Actions> Available_Actions
+    {
+        get
+        {
+            yield return Actions.Meow;
+        }
+    }
 }

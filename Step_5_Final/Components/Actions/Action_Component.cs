@@ -1,8 +1,9 @@
 ﻿namespace Step_5_Final;
 
-public class Action_Component : Component
+public abstract class Action_Component : Component, IAction_Component
 {
     protected bool Is_Disabled => Parent.Get<IDisabled_Component>().Is_Disabled;
+    public abstract IEnumerable<Actions> Available_Actions { get; }
 
     protected void Print_Was(Actions_Description action)
     {

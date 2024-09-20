@@ -28,8 +28,8 @@ public class Components : Component, IComponents
         return components.FirstOrDefault(Is_Type<T>) != null;
     }
 
-    public IEnumerable<IComponent> Get_All()
+    public IEnumerable<T> Get_All<T>()
     {
-        return components;
+        return components.Where(Is_Type<T>).Select(c => (T)c); ;
     }
 }
