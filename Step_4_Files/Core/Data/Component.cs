@@ -3,5 +3,19 @@ namespace Step_4_Files;
 
 public class Component : IComponent
 {
-    public IComponents Parent { get; set; }
+    private IComponents parent;
+    
+    public IComponents Parent
+    {
+        get => parent;
+        set
+        {
+            parent = value;
+            Parent_Set();
+        }
+    }
+
+    protected virtual void Parent_Set()
+    {
+    }
 }

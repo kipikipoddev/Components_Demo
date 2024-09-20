@@ -13,6 +13,6 @@ public class Bark_Component : Component, IBark_Component
 
     public virtual bool Can_Bark()
     {
-        return true;
+        return !Parent.Get<IDisabled_Component>().Is_Disabled;
     }
 }

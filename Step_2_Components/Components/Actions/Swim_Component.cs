@@ -13,6 +13,6 @@ public class Swim_Component : Component, ISwim_Component
 
     public virtual bool Can_Swim()
     {
-        return true;
+        return !Parent.Get<IDisabled_Component>().Is_Disabled;
     }
 }
