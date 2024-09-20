@@ -1,5 +1,5 @@
 ﻿
-namespace Step_5_Final;
+namespace Step_6_Validation;
 
 public interface IMeow_Component : IAction_Component
 {
