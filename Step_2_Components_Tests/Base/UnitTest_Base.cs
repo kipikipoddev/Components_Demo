@@ -2,9 +2,9 @@ using Step_2_Components;
 
 namespace Step_2_Components_Tests;
 
-public abstract class UnitTest_Base
+public abstract class UnitTest_Base<T>
 {
-    protected IComponents Subject;
+    protected T Subject;
 
     [SetUp]
     public virtual void Setup()
@@ -39,7 +39,7 @@ public abstract class UnitTest_Base
     private void Assert_Action_Printed(string middle, Actions action)
     {
         var action_str = action.ToString().ToLower();
-        var expected = $"{Subject.Get<IName_Component>().Name} {middle} {action_str}";
+        var expected = $"{Subject.Get<IName_Model>().Name} {middle} {action_str}";
         var actual = Test_Printer.Message;
         Assert.That(actual, Is.EqualTo(expected));
     }

@@ -1,7 +1,7 @@
 ﻿
 namespace Step_2_Components;
 
-public interface IInjure_Component : IComponent
+public interface IInjure_Model
 {
     bool Is_Injured { get; }
 

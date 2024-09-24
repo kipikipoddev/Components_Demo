@@ -1,7 +1,7 @@
 ﻿
 namespace Step_2_Components;
 
-public interface IDisabled_Component : IComponent
+public interface IDisabled_Model 
 {
     bool Is_Disabled { get; set; }
 }

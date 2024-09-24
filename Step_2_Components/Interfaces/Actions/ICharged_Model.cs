@@ -1,7 +1,7 @@
 ﻿
 namespace Step_2_Components;
 
-public interface ICharged_Component : IComponent
+public interface ICharged_Model
 {
     bool Is_Charged { get; set; }
 
