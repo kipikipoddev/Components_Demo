@@ -21,7 +21,7 @@ public class Injure_Component : Component, IInjure_Component
         {
             Is_Injured = false;
             Parent.Get<IDisabled_Component>().Is_Disabled = false;
-            Parent.Get<IPrint_Component>().Print_Was(Actions.Healed);
+            Parent.Get<IPrint_Component>().Print_Was(Actions_Description.Healed);
         }
         else
             Parent.Get<IPrint_Component>().Print_Cant(Actions.Heal);
@@ -30,12 +30,12 @@ public class Injure_Component : Component, IInjure_Component
     public void Injured()
     {
         if (Is_Injured)
-            Parent.Get<IPrint_Component>().Print_Cant(Actions.Injured);
+            Parent.Get<IPrint_Component>().Print_Cant(Actions.Injure);
         else
         {
             Is_Injured = true;
             Parent.Get<IDisabled_Component>().Is_Disabled = true;
-            Parent.Get<IPrint_Component>().Print_Was(Actions.Injure);
+            Parent.Get<IPrint_Component>().Print_Was(Actions_Description.Injured);
         }
     }
 }

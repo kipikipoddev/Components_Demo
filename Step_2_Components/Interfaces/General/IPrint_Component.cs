@@ -2,6 +2,6 @@
 
 public interface IPrint_Component : IComponent
 {
-    void Print_Was(Actions action);
+    void Print_Was(Actions_Description action);
     void Print_Cant(Actions action);
 }

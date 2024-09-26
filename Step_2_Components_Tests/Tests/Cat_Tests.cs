@@ -28,7 +28,7 @@ public class Cat_Tests : UnitTest_Base
     public void Test_Meow()
     {
         Subject.Get<IMeow_Component>().Meow();
-        Assert_Was_Printed(Actions.Meowing);
+        Assert_Was_Printed(Actions_Description.Meowing);
     }
 
     [Test]

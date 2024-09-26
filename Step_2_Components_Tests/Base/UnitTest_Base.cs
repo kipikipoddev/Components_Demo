@@ -26,7 +26,7 @@ public abstract class UnitTest_Base
         Assert.That(actual, Is.False);
     }
 
-    protected void Assert_Was_Printed(Actions action)
+    protected void Assert_Was_Printed(Actions_Description action)
     {
         Assert_Action_Printed("was", action);
     }
@@ -36,7 +36,7 @@ public abstract class UnitTest_Base
         Assert_Action_Printed("can't", action);
     }
 
-    private void Assert_Action_Printed(string middle, Actions action)
+    private void Assert_Action_Printed(string middle, object action)
     {
         var action_str = action.ToString().ToLower();
         var expected = $"{Subject.Get<IName_Component>().Name} {middle} {action_str}";

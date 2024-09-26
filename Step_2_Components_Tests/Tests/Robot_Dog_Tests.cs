@@ -30,7 +30,7 @@ public class Robot_Dog_Tests : UnitTest_Base
         Subject.Get<ICharged_Component>().Charge();
 
         Subject.Get<IBark_Component>().Bark();
-        Assert_Was_Printed(Actions.Barking);
+        Assert_Was_Printed(Actions_Description.Barking);
     }
 
     protected override IComponents Get_Subject()

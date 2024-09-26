@@ -6,7 +6,7 @@ public class Walk_Component : Component, IWalk_Component
     public void Walk()
     {
         if (Can_Walk())
-            Parent.Get<IPrint_Component>().Print_Was(Actions.Walking);
+            Parent.Get<IPrint_Component>().Print_Was(Actions_Description.Walking);
         else
             Parent.Get<IPrint_Component>().Print_Cant(Actions.Walk);
     }

@@ -6,7 +6,7 @@ public class Meow_Component : Component, IMeow_Component
     public void Meow()
     {
         if (Can_Meow())
-            Parent.Get<IPrint_Component>().Print_Was(Actions.Meowing);
+            Parent.Get<IPrint_Component>().Print_Was(Actions_Description.Meowing);
         else
             Parent.Get<IPrint_Component>().Print_Cant(Actions.Meow);
     }

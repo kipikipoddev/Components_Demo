@@ -18,7 +18,7 @@ public class Charged_Component : Component, ICharged_Component
         {
             Is_Charged = true;
             Parent.Get<IDisabled_Component>().Is_Disabled = false;
-            Parent.Get<IPrint_Component>().Print_Was(Actions.Charged);
+            Parent.Get<IPrint_Component>().Print_Was(Actions_Description.Charged);
         }
     }
 }
