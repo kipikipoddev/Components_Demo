@@ -48,7 +48,6 @@ public static class Components_Factory
             .Add(new Name_Component("Robot_Dog"))
             .Add(new Disabled_Component(true))
             .Add(new Charged_Component())
-            .Add(new Swim_Component())
             .Add(new Walk_Component())
             .Add(new Bark_Component());
     }

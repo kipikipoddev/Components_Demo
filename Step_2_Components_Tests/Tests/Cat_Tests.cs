@@ -40,6 +40,22 @@ public class Cat_Tests : UnitTest_Base
         Assert_Cant_Printed(Actions.Meow);
     }
 
+    [Test]
+    public void Test_Walk()
+    {
+        Subject.Get<IWalk_Component>().Walk();
+        Assert_Was_Printed(Actions_Description.Walking);
+    }
+
+    [Test]
+    public void Test_Walk_When_Injure()
+    {
+        Subject.Get<IInjure_Component>().Injured();
+
+        Subject.Get<IWalk_Component>().Walk();
+        Assert_Cant_Printed(Actions.Walk);
+    }
+
     protected override IComponents Get_Subject()
     {
         return Components_Factory.Create_Cat();
