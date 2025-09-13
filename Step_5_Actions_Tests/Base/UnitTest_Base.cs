@@ -10,8 +10,7 @@ public abstract class UnitTest_Base
     public virtual void Setup()
     {
         Test_Printer.Reset();
-        Subject = Get_Subject();
-        Subject.Add(new Test_Printer());
+        Subject = Get_Subject().Add(new Test_Printer());
     }
 
     protected abstract IComponents Get_Subject();

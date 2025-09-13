@@ -1,5 +1,3 @@
-
-
 using Step_4_Files;
 
 namespace Step_4_Files_Tests;
@@ -14,8 +12,10 @@ public abstract class UnitTest_Base
     public virtual void Setup()
     {
         Test_Printer.Reset();
-        Subject = Components_Factory.Create(Entity);
-        Subject.Add(new Test_Printer());
+        Subject = Components_Factory
+            .Create(Entity)
+            .Add(new Name_Component(Entity.ToString()))
+            .Add(new Test_Printer());
     }
 
     protected static void Assert_True(bool actual)

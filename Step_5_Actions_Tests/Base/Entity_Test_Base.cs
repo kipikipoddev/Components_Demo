@@ -8,6 +8,6 @@ public abstract class Entity_Test_Base : UnitTest_Base
 
     protected override IComponents Get_Subject()
     {
-        return Components_Factory.Create(Entity);
+        return Components_Factory.Create(Entity).Add(new Name_Component(Entity.ToString()));
     }
 }
